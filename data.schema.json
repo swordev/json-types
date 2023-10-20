@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "type": {
+      "type": "object",
+      "required": ["name", "url", "tags"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string" },
+        "url": { "type": "string" },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "patches": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "removeYamlAnchor": { "type": "boolean" }
+          }
+        }
+      }
+    }
+  },
+  "type": "object",
+  "properties": {
+    "types": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/type" }
+    }
+  }
+}
