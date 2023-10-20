@@ -1,0 +1,40 @@
+{
+  "name": "@json-types/compose",
+  "version": "0.0.1",
+  "description": "TypeScript type for compose",
+  "tags": [
+    "typescript",
+    "json-schema",
+    "schema",
+    "typing",
+    "type",
+    "compose",
+    "docker",
+    "docker-compose",
+    "compose-spec"
+  ],
+  "homepage": "https://github.com/swordev/json-types",
+  "bugs": {
+    "url": "https://github.com/swordev/json-types/issues",
+    "email": "juanrgm724@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/swordev/json-types"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Juanra GM",
+    "email": "juanrgm724@gmail.com",
+    "url": "https://github.com/juanrgm"
+  },
+  "main": "index.cjs",
+  "module": "index.mjs",
+  "files": [
+    "index.cjs",
+    "index.mjs",
+    "index.d.ts",
+    "schema.json",
+    "README.md"
+  ]
+}
