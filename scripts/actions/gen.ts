@@ -8,15 +8,18 @@ import { dropYamlAnchor } from "../utils/json";
 import { camelize, capitalize } from "../utils/string";
 
 export async function gen() {
+  const result: { name: string; isNew: boolean }[] = [];
   for (const type of data.types) {
     console.info(`+ ${type.name}`);
     const path = join("packages", type.name);
+    const pkgName = `@json-types/${type.name}`;
     await mkdir(path, { recursive: true });
     const schema = await fetchJson(type.url);
     const pkg = await readJsonFile<{ version: string }>(
       join(path, "package.json")
     );
-    if (type.patches.removeYamlAnchor) dropYamlAnchor(schema);
+    result.push({ name: pkgName, isNew: !pkg });
+    if (type.patches?.removeYamlAnchor) dropYamlAnchor(schema);
     await writeFiles(path, {
       "index.cjs": "module.exports = {};\n",
       "index.mjs": "export {};\n",
@@ -29,7 +32,7 @@ export async function gen() {
         "schema.json"
       ),
       "package.json": {
-        name: `@json-types/${type.name}`,
+        name: pkgName,
         version: pkg?.version ?? "0.0.1",
         description: `TypeScript type for ${type.name}`,
         tags: [
@@ -72,4 +75,5 @@ export async function gen() {
       }),
     });
   }
+  return result;
 }

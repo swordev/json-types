@@ -1,0 +1,25 @@
+name: CI
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
+env:
+  NODE_VERSION: 18
+  PNPM_VERSION: 8
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: ${{ env.PNPM_VERSION }}
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+      - run: pnpm install
+      - run: git config --global user.name "github-actions[bot]"
+      - run: git config --global user.email "github-actions[bot]@users.noreply.github.com"
+      - run: pnpm types:update
+      - run: git push
