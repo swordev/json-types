@@ -8,6 +8,13 @@
       "patches": {
         "removeYamlAnchor": true
       }
+    },
+    {
+      "name": "web-manifest",
+      "url": "https://json.schemastore.org/web-manifest.json",
+      "patches": {
+        "additionalProperties": false
+      }
     }
   ]
 }
