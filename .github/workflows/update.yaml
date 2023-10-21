@@ -1,4 +1,4 @@
-name: CI
+name: Update json-types
 on:
   workflow_dispatch:
   schedule:
