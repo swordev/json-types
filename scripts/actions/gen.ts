@@ -59,7 +59,7 @@ export async function gen() {
       "index.d.ts": newIndexDef,
       "package.json": {
         name: pkgName,
-        version: pkg?.version ?? "0.0.1",
+        version: pkg?.version ?? "0.1.0",
         description: `TypeScript type for ${type.name}`,
         keywords: [
           "typescript",
