@@ -32,7 +32,10 @@ export async function gen() {
           ...schema,
           title: capitalize(camelize(type.name)),
         },
-        "schema.json"
+        "schema.json",
+        {
+          additionalProperties: type.patches?.additionalProperties,
+        }
       ),
       "package.json": {
         name: pkgName,

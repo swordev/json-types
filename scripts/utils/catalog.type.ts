@@ -15,5 +15,6 @@ export interface JsonType {
   tags?: string[];
   patches?: {
     removeYamlAnchor?: boolean;
+    additionalProperties?: boolean;
   };
 }

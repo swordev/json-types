@@ -15,7 +15,8 @@
           "type": "object",
           "additionalProperties": false,
           "properties": {
-            "removeYamlAnchor": { "type": "boolean" }
+            "removeYamlAnchor": { "type": "boolean" },
+            "additionalProperties": { "type": "boolean" }
           }
         }
       }
