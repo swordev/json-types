@@ -4,7 +4,7 @@
     {
       "name": "compose",
       "url": "https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json",
-      "tags": ["docker", "docker-compose", "compose-spec"],
+      "keywords": ["docker", "docker-compose", "compose-spec"],
       "patches": {
         "removeYamlAnchor": true
       }

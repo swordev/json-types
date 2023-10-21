@@ -2,7 +2,7 @@
   "name": "@json-types/compose",
   "version": "0.0.1",
   "description": "TypeScript type for compose",
-  "tags": [
+  "keywords": [
     "typescript",
     "json-schema",
     "schema",

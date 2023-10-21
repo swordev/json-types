@@ -11,7 +11,7 @@
         "enabled": { "type": "boolean" },
         "name": { "type": "string" },
         "url": { "type": "string" },
-        "tags": { "type": "array", "items": { "type": "string" } },
+        "keywords": { "type": "array", "items": { "type": "string" } },
         "patches": {
           "type": "object",
           "additionalProperties": false,

@@ -13,7 +13,7 @@ export interface JsonType {
   enabled?: boolean;
   name: string;
   url: string;
-  tags?: string[];
+  keywords?: string[];
   patches?: {
     removeYamlAnchor?: boolean;
     additionalProperties?: boolean;

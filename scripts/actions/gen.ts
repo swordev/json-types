@@ -69,14 +69,14 @@ export async function gen() {
         name: pkgName,
         version: pkg?.version ?? "0.0.1",
         description: `TypeScript type for ${type.name}`,
-        tags: [
+        keywords: [
           "typescript",
           "json-schema",
           "schema",
           "typing",
           "type",
           type.name,
-          ...(type.tags || []),
+          ...(type.keywords || []),
         ],
         "x-json-types": { lastChangeDate },
         homepage: "https://github.com/swordev/json-types",
