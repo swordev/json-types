@@ -56,16 +56,7 @@ export async function gen() {
       "index.cjs": "module.exports = {};\n",
       "index.mjs": "export {};\n",
       "schema.json": newSchema,
-      "index.d.ts": await compile(
-        {
-          ...newSchema,
-          title: capitalize(camelize(type.name)),
-        },
-        "schema.json",
-        {
-          additionalProperties: type.patches?.additionalProperties,
-        }
-      ),
+      "index.d.ts": newIndexDef,
       "package.json": {
         name: pkgName,
         version: pkg?.version ?? "0.0.1",
