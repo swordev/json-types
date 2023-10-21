@@ -79,7 +79,7 @@ export async function gen() {
           ...(type.keywords || []),
         ],
         "x-json-types": { lastChangeDate },
-        homepage: "https://github.com/swordev/json-types",
+        homepage: `https://github.com/swordev/json-types/tree/main/packages/${type.name}`,
         bugs: {
           url: "https://github.com/swordev/json-types/issues",
           email: "juanrgm724@gmail.com",

@@ -16,7 +16,7 @@
   "x-json-types": {
     "lastChangeDate": "2023-10-21T20:29:24.287Z"
   },
-  "homepage": "https://github.com/swordev/json-types",
+  "homepage": "https://github.com/swordev/json-types/tree/main/packages/compose",
   "bugs": {
     "url": "https://github.com/swordev/json-types/issues",
     "email": "juanrgm724@gmail.com"
