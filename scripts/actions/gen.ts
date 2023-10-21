@@ -1,15 +1,18 @@
 import { mkdir } from "fs/promises";
-import data from "../../data.json";
 import { join } from "path";
 import { compile } from "json-schema-to-typescript";
 import { readJsonFile, renderTpl, writeFiles } from "../utils/fs";
 import { fetchJson } from "../utils/http";
 import { dropYamlAnchor } from "../utils/json";
 import { camelize, capitalize } from "../utils/string";
+import { parseCatalogFile } from "../utils/catalog";
+import { fileURLToPath } from "url";
 
 export async function gen() {
   const result: { name: string; isNew: boolean }[] = [];
-  for (const type of data.types) {
+  const $dirname = fileURLToPath(new URL(".", import.meta.url));
+  const catalog = await parseCatalogFile(join($dirname, "../../catalog.json"));
+  for (const type of catalog.types) {
     console.info(`+ ${type.name}`);
     const path = join("packages", type.name);
     const pkgName = `@json-types/${type.name}`;
@@ -42,7 +45,7 @@ export async function gen() {
           "typing",
           "type",
           type.name,
-          ...type.tags,
+          ...(type.tags || []),
         ],
         homepage: "https://github.com/swordev/json-types",
         bugs: {

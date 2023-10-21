@@ -8,6 +8,7 @@
   ],
   "scripts": {
     "types:gen": "tsx ./scripts/bin.ts gen",
+    "types:gen-catalog-type": "tsx ./scripts/bin.ts gen-catalog-type",
     "types:update": "tsx ./scripts/bin.ts update"
   },
   "author": {

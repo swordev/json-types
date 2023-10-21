@@ -1,5 +1,5 @@
 {
-  "$schema": "./data.schema.json",
+  "$schema": "./catalog.schema.json",
   "types": [
     {
       "name": "compose",
