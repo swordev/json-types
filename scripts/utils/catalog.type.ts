@@ -12,6 +12,7 @@ export interface JsonTypesCatalog {
 export interface JsonType {
   enabled?: boolean;
   name: string;
+  importName?: string;
   url: string;
   keywords?: string[];
   patches?: {

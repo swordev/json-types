@@ -33,7 +33,7 @@ export async function gen() {
 
     if (type.patches?.removeYamlAnchor) dropYamlAnchor(newSchema);
 
-    const importName = capitalize(camelize(type.name));
+    const importName = type.importName ?? capitalize(camelize(type.name));
     const oldIndexDef = await readFileIfExists(join(path, "index.d.ts"));
     const newIndexDef = await compile(
       {
