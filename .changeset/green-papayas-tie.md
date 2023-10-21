@@ -1,5 +1,5 @@
 ---
-"@json-types/compose": patch
+"@json-types/compose": minor
 ---
 
 Update docs
