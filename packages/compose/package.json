@@ -13,6 +13,9 @@
     "docker-compose",
     "compose-spec"
   ],
+  "x-json-types": {
+    "lastChangeDate": "2023-10-21T20:29:24.287Z"
+  },
   "homepage": "https://github.com/swordev/json-types",
   "bugs": {
     "url": "https://github.com/swordev/json-types/issues",

@@ -10,6 +10,7 @@ export interface JsonTypesCatalog {
   types: JsonType[];
 }
 export interface JsonType {
+  enabled?: boolean;
   name: string;
   url: string;
   tags?: string[];

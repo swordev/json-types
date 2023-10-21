@@ -8,6 +8,7 @@
       "required": ["name", "url"],
       "additionalProperties": false,
       "properties": {
+        "enabled": { "type": "boolean" },
         "name": { "type": "string" },
         "url": { "type": "string" },
         "tags": { "type": "array", "items": { "type": "string" } },

@@ -14,6 +14,7 @@ import { Compose } from "@json-types/$name";
 
 ## Details
 
-TypeScript types generated automatically from:
+TypeScript types generated automatically every night and published if there are changes.
 
-> $url
+- Last change: $lastChangeDate
+- Source URL: $url

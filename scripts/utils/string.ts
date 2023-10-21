@@ -13,3 +13,8 @@ export function capitalize(input: string) {
 export function quote(pattern: string) {
   return pattern.replace(/[.?*+^$[\]\\(){}|-]/g, "\\$&");
 }
+
+export function compare(v1: string, v2: string) {
+  const regex = /\r?\n/g;
+  return v1.replace(regex, "\n").trim() === v2.replace(regex, "\n").trim();
+}

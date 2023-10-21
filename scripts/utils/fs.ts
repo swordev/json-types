@@ -21,12 +21,18 @@ export async function renderTpl(path: string, params: Record<string, string>) {
   return content;
 }
 
-export async function readJsonFile<T>(path: string): Promise<T | undefined> {
+export async function readFileIfExists(
+  path: string
+): Promise<string | undefined> {
   try {
-    const content = (await readFile(path)).toString();
-    return JSON.parse(content);
+    return (await readFile(path)).toString();
   } catch (error) {
     if ((error as NodeJS.ErrnoException).code === "ENOENT") return;
     throw error;
   }
+}
+
+export async function readJsonFile<T>(path: string): Promise<T | undefined> {
+  const json = await readFileIfExists(path);
+  return typeof json === "string" ? JSON.parse(json) : undefined;
 }

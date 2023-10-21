@@ -1,10 +1,15 @@
 import { mkdir } from "fs/promises";
 import { join } from "path";
 import { compile } from "json-schema-to-typescript";
-import { readJsonFile, renderTpl, writeFiles } from "../utils/fs";
+import {
+  readFileIfExists,
+  readJsonFile,
+  renderTpl,
+  writeFiles,
+} from "../utils/fs";
 import { fetchJson } from "../utils/http";
 import { dropYamlAnchor } from "../utils/json";
-import { camelize, capitalize } from "../utils/string";
+import { camelize, capitalize, compare } from "../utils/string";
 import { parseCatalogFile } from "../utils/catalog";
 import { fileURLToPath } from "url";
 
@@ -13,23 +18,46 @@ export async function gen() {
   const $dirname = fileURLToPath(new URL(".", import.meta.url));
   const catalog = await parseCatalogFile(join($dirname, "../../catalog.json"));
   for (const type of catalog.types) {
+    if (!(type.enabled ?? true)) continue;
     console.info(`+ ${type.name}`);
     const path = join("packages", type.name);
     const pkgName = `@json-types/${type.name}`;
-    await mkdir(path, { recursive: true });
-    const schema = await fetchJson(type.url);
-    const pkg = await readJsonFile<{ version: string }>(
-      join(path, "package.json")
+    const pkg = await readJsonFile<{
+      version: string;
+      "x-json-types"?: { lastChangeDate?: string };
+    }>(join(path, "package.json"));
+    let lastChangeDate =
+      pkg?.["x-json-types"]?.lastChangeDate ?? new Date().toISOString();
+
+    const newSchema = await fetchJson(type.url);
+
+    if (type.patches?.removeYamlAnchor) dropYamlAnchor(newSchema);
+
+    const oldIndexDef = await readFileIfExists(join(path, "index.d.ts"));
+    const newIndexDef = await compile(
+      {
+        ...newSchema,
+        title: capitalize(camelize(type.name)),
+      },
+      "schema.json",
+      {
+        additionalProperties: type.patches?.additionalProperties,
+      }
     );
+
+    if (!compare(newIndexDef, oldIndexDef ?? ""))
+      lastChangeDate = new Date().toISOString();
+
     result.push({ name: pkgName, isNew: !pkg });
-    if (type.patches?.removeYamlAnchor) dropYamlAnchor(schema);
+
+    await mkdir(path, { recursive: true });
     await writeFiles(path, {
       "index.cjs": "module.exports = {};\n",
       "index.mjs": "export {};\n",
-      "schema.json": schema,
+      "schema.json": newSchema,
       "index.d.ts": await compile(
         {
-          ...schema,
+          ...newSchema,
           title: capitalize(camelize(type.name)),
         },
         "schema.json",
@@ -50,6 +78,7 @@ export async function gen() {
           type.name,
           ...(type.tags || []),
         ],
+        "x-json-types": { lastChangeDate },
         homepage: "https://github.com/swordev/json-types",
         bugs: {
           url: "https://github.com/swordev/json-types/issues",
@@ -78,6 +107,7 @@ export async function gen() {
       "README.md": await renderTpl("./scripts/README.tpl.md", {
         $name: type.name,
         $url: type.url,
+        $lastChangeDate: lastChangeDate,
       }),
     });
   }
