@@ -1,0 +1,40 @@
+{
+  "name": "@json-types/tsconfig",
+  "version": "0.1.0",
+  "description": "TypeScript type for tsconfig",
+  "keywords": [
+    "typescript",
+    "json-schema",
+    "schema",
+    "typing",
+    "type",
+    "tsconfig"
+  ],
+  "x-json-types": {
+    "lastChangeDate": "2023-10-21T23:58:21.353Z"
+  },
+  "homepage": "https://github.com/swordev/json-types/tree/main/packages/tsconfig",
+  "bugs": {
+    "url": "https://github.com/swordev/json-types/issues",
+    "email": "juanrgm724@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/swordev/json-types"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Juanra GM",
+    "email": "juanrgm724@gmail.com",
+    "url": "https://github.com/juanrgm"
+  },
+  "main": "index.cjs",
+  "module": "index.mjs",
+  "files": [
+    "index.cjs",
+    "index.mjs",
+    "index.d.ts",
+    "schema.json",
+    "README.md"
+  ]
+}

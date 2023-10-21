@@ -15,6 +15,14 @@
       "patches": {
         "additionalProperties": false
       }
+    },
+    {
+      "name": "tsconfig",
+      "importName": "TSConfig",
+      "url": "https://json.schemastore.org/tsconfig.json",
+      "patches": {
+        "additionalProperties": false
+      }
     }
   ]
 }
