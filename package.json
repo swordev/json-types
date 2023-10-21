@@ -7,7 +7,7 @@
     "packages/*"
   ],
   "scripts": {
-    "gen": "tsx ./scripts/gen.ts"
+    "gen": "tsx ./scripts/bin.ts gen"
   },
   "author": {
     "name": "Juanra GM",
