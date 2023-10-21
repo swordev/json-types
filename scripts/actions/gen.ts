@@ -33,11 +33,12 @@ export async function gen() {
 
     if (type.patches?.removeYamlAnchor) dropYamlAnchor(newSchema);
 
+    const importName = capitalize(camelize(type.name));
     const oldIndexDef = await readFileIfExists(join(path, "index.d.ts"));
     const newIndexDef = await compile(
       {
         ...newSchema,
-        title: capitalize(camelize(type.name)),
+        title: importName,
       },
       "schema.json",
       {
@@ -105,6 +106,7 @@ export async function gen() {
         ],
       },
       "README.md": await renderTpl("./scripts/README.tpl.md", {
+        $importName: importName,
         $name: type.name,
         $url: type.url,
         $lastChangeDate: lastChangeDate,

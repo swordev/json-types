@@ -9,7 +9,7 @@ npm install --save @json-types/$name
 ## Usage
 
 ```ts
-import { Compose } from "@json-types/$name";
+import { $importName } from "@json-types/$name";
 ```
 
 ## Details
