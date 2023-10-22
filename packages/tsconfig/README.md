@@ -9,7 +9,8 @@ npm install --save @json-types/tsconfig
 ## Usage
 
 ```ts
-import { TSConfig } from "@json-types/tsconfig";
+import { type TSConfig } from "@json-types/tsconfig";
+import schema from "@json-types/tsconfig/schema.json";
 ```
 
 ## Details

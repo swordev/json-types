@@ -9,7 +9,8 @@ npm install --save @json-types/$name
 ## Usage
 
 ```ts
-import { $importName } from "@json-types/$name";
+import { type $importName } from "@json-types/$name";
+import schema from "@json-types/$name/schema.json";
 ```
 
 ## Details

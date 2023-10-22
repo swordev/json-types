@@ -9,7 +9,8 @@ npm install --save @json-types/web-manifest
 ## Usage
 
 ```ts
-import { WebManifest } from "@json-types/web-manifest";
+import { type WebManifest } from "@json-types/web-manifest";
+import schema from "@json-types/web-manifest/schema.json";
 ```
 
 ## Details

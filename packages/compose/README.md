@@ -9,7 +9,8 @@ npm install --save @json-types/compose
 ## Usage
 
 ```ts
-import { Compose } from "@json-types/compose";
+import { type Compose } from "@json-types/compose";
+import schema from "@json-types/compose/schema.json";
 ```
 
 ## Details
