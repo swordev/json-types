@@ -1,5 +1,10 @@
 # @json-types/$name
 
+[![workflow-badge]](https://github.com/swordev/json-types/actions/workflows/ci.yaml) [![license-badge]](https://github.com/swordev/json-types#license)
+
+[workflow-badge]: https://img.shields.io/github/actions/workflow/status/swordev/json-types/ci.yaml?branch=main
+[license-badge]: https://img.shields.io/github/license/swordev/json-types
+
 ## Installation
 
 ```sh
