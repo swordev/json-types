@@ -22,7 +22,7 @@
     "@changesets/cli": "^2.26.2",
     "@changesets/git": "^2.0.0",
     "@changesets/write": "^0.2.3",
-    "@types/node": "^20.8.7",
+    "@types/node": "^20.8.9",
     "json-schema-to-typescript": "^13.1.1",
     "json-schema-traverse": "^1.0.0",
     "prettier": "^3.0.3",
