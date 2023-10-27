@@ -22,5 +22,5 @@ import schema from "@json-types/tsconfig/schema.json";
 
 TypeScript types generated automatically every night and published when there are changes.
 
-- Last change: 2023-10-21T23:58:21.353Z
+- Last change: 2023-10-27T01:12:57.987Z
 - Source URL: https://json.schemastore.org/tsconfig.json

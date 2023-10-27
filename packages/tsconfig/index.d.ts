@@ -501,7 +501,16 @@ export interface CompilerOptions {
         | "ES2022.RegExp"
         | "ES2023"
         | "ES2023.Array"
+        | "Decorators"
+        | "Decorators.Legacy"
+        | "ES2017.Date"
+        | "ES2023.Collection"
+        | "ESNext.Decorators"
+        | "ESNext.Disposable"
       )
+    | {
+        [k: string]: unknown;
+      }
     | {
         [k: string]: unknown;
       }
