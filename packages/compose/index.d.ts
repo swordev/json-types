@@ -595,6 +595,8 @@ export interface PropertiesConfigs {
  */
 export interface DefinitionsConfig {
   name?: string;
+  content?: string;
+  environment?: string;
   file?: string;
   external?:
     | boolean
