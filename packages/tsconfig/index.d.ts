@@ -80,7 +80,7 @@ export interface CompilerOptions {
   /**
    * Specify the folder for .tsbuildinfo incremental compilation files.
    */
-  tsBuildInfoFile?: string;
+  tsBuildInfoFile?: string | null;
   /**
    * Include sourcemap files inside the emitted JavaScript.
    */

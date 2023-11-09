@@ -167,6 +167,9 @@
                     "type": "string"
                   }
                 },
+                "ulimits": {
+                  "$ref": "#/definitions/ulimits"
+                },
                 "platforms": {
                   "type": "array",
                   "items": {
@@ -685,32 +688,7 @@
           "type": "boolean"
         },
         "ulimits": {
-          "type": "object",
-          "patternProperties": {
-            "^[a-z]+$": {
-              "oneOf": [
-                {
-                  "type": "integer"
-                },
-                {
-                  "type": "object",
-                  "properties": {
-                    "hard": {
-                      "type": "integer"
-                    },
-                    "soft": {
-                      "type": "integer"
-                    }
-                  },
-                  "required": [
-                    "soft",
-                    "hard"
-                  ],
-                  "additionalProperties": false
-                }
-              ]
-            }
-          }
+          "$ref": "#/definitions/ulimits"
         },
         "user": {
           "type": "string"
@@ -1483,6 +1461,34 @@
             "additionalProperties": false
           }
         ]
+      }
+    },
+    "ulimits": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-z]+$": {
+          "oneOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "hard": {
+                  "type": "integer"
+                },
+                "soft": {
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "soft",
+                "hard"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        }
       }
     },
     "constraints": {

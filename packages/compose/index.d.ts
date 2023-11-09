@@ -358,6 +358,7 @@ export interface DefinitionsService {
         privileged?: boolean;
         secrets?: ServiceConfigOrSecret;
         tags?: string[];
+        ulimits?: Ulimits;
         platforms?: string[];
       };
   blkio_config?: {
@@ -495,18 +496,7 @@ export interface DefinitionsService {
   };
   tmpfs?: StringOrList;
   tty?: boolean;
-  ulimits?: {
-    /**
-     * This interface was referenced by `undefined`'s JSON-Schema definition
-     * via the `patternProperty` "^[a-z]+$".
-     */
-    [k: string]:
-      | number
-      | {
-          hard: number;
-          soft: number;
-        };
-  };
+  ulimits?: Ulimits;
   user?: string;
   uts?: string;
   userns_mode?: string;
@@ -534,6 +524,18 @@ export interface DefinitionsService {
   )[];
   volumes_from?: string[];
   working_dir?: string;
+}
+export interface Ulimits {
+  /**
+   * This interface was referenced by `Ulimits`'s JSON-Schema definition
+   * via the `patternProperty` "^[a-z]+$".
+   */
+  [k: string]:
+    | number
+    | {
+        hard: number;
+        soft: number;
+      };
 }
 export interface BlkioLimit {
   path?: string;
