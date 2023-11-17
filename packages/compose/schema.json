@@ -871,6 +871,10 @@
               }
             }
           },
+          "required": [
+            "path",
+            "action"
+          ],
           "additionalProperties": false
         }
       }
