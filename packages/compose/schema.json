@@ -542,6 +542,9 @@
                         "link_local_ips": {
                           "$ref": "#/definitions/list_of_strings"
                         },
+                        "mac_address": {
+                          "type": "string"
+                        },
                         "priority": {
                           "type": "number"
                         }

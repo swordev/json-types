@@ -458,6 +458,7 @@ export interface DefinitionsService {
           ipv4_address?: string;
           ipv6_address?: string;
           link_local_ips?: ListOfStrings;
+          mac_address?: string;
           priority?: number;
         } | null;
       };
