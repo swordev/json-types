@@ -383,7 +383,7 @@
           "$ref": "#/definitions/command"
         },
         "env_file": {
-          "$ref": "#/definitions/string_or_list"
+          "$ref": "#/definitions/env_file"
         },
         "environment": {
           "$ref": "#/definitions/list_or_dict"
@@ -1366,6 +1366,39 @@
           "type": "array",
           "items": {
             "type": "string"
+          }
+        }
+      ]
+    },
+    "env_file": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "path": {
+                    "type": "string"
+                  },
+                  "required": {
+                    "type": "boolean",
+                    "default": true
+                  }
+                },
+                "required": [
+                  "path"
+                ]
+              }
+            ]
           }
         }
       ]

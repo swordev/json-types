@@ -163,6 +163,15 @@ export type ServiceConfigOrSecret = (
     }
 )[];
 export type Command = null | string | string[];
+export type EnvFile =
+  | string
+  | (
+      | string
+      | {
+          path: string;
+          required?: boolean;
+        }
+    )[];
 /**
  * This interface was referenced by `PropertiesNetworks`'s JSON-Schema definition
  * via the `patternProperty` "^[a-zA-Z0-9._-]+$".
@@ -410,7 +419,7 @@ export interface DefinitionsService {
   dns_search?: StringOrList;
   domainname?: string;
   entrypoint?: Command;
-  env_file?: StringOrList;
+  env_file?: EnvFile;
   environment?: ListOrDict;
   expose?: (string | number)[];
   extends?:
