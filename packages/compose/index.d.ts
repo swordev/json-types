@@ -480,6 +480,7 @@ export interface DefinitionsService {
     | number
     | string
     | {
+        name?: string;
         mode?: string;
         host_ip?: string;
         target?: number;

@@ -134,6 +134,7 @@ export interface CompilerOptions {
         | "ES2022"
         | "Node16"
         | "NodeNext"
+        | "Preserve"
       )
     | {
         [k: string]: unknown;
