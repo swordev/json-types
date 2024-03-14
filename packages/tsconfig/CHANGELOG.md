@@ -1,5 +1,11 @@
 # @json-types/tsconfig
 
+## 0.5.0
+
+### Minor Changes
+
+- [`c7feeae`](https://github.com/swordev/json-types/commit/c7feeaea2186b689d82697c8bdc04231e028847d) Thanks [@github-actions[bot]](https://github.com/github-actions%5Bbot%5D)! - Update schema
+
 ## 0.4.0
 
 ### Minor Changes
