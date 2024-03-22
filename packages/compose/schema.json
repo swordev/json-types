@@ -757,6 +757,9 @@
                     "properties": {
                       "nocopy": {
                         "type": "boolean"
+                      },
+                      "subpath": {
+                        "type": "string"
                       }
                     },
                     "additionalProperties": false

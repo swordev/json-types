@@ -526,6 +526,7 @@ export interface DefinitionsService {
         };
         volume?: {
           nocopy?: boolean;
+          subpath?: string;
         };
         tmpfs?: {
           size?: number | string;
