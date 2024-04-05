@@ -22,5 +22,5 @@ import schema from "@json-types/compose/schema.json";
 
 TypeScript types generated automatically every night and published when there are changes.
 
-- Last change: 2024-03-22T01:13:10.879Z
+- Last change: 2024-04-05T01:14:32.681Z
 - Source URL: https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json

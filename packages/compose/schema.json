@@ -619,6 +619,9 @@
                   },
                   "protocol": {
                     "type": "string"
+                  },
+                  "app_protocol": {
+                    "type": "string"
                   }
                 },
                 "additionalProperties": false

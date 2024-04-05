@@ -486,6 +486,7 @@ export interface DefinitionsService {
         target?: number;
         published?: string | number;
         protocol?: string;
+        app_protocol?: string;
       }
   )[];
   privileged?: boolean;
