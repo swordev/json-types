@@ -107,6 +107,12 @@
                 "dockerfile_inline": {
                   "type": "string"
                 },
+                "entitlements": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
                 "args": {
                   "$ref": "#/definitions/list_or_dict"
                 },

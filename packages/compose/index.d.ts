@@ -351,6 +351,7 @@ export interface DefinitionsService {
         context?: string;
         dockerfile?: string;
         dockerfile_inline?: string;
+        entitlements?: string[];
         args?: ListOrDict;
         ssh?: ListOrDict;
         labels?: ListOrDict;
