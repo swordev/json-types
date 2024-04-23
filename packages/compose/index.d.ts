@@ -17,8 +17,8 @@ export type ListOfStrings = string[];
 export type DefinitionsDevelopment = {
   watch?: {
     ignore?: string[];
-    path?: string;
-    action?: "rebuild" | "sync" | "sync+restart";
+    path: string;
+    action: "rebuild" | "sync" | "sync+restart";
     target?: string;
     [k: string]: unknown;
   }[];
@@ -27,8 +27,8 @@ export type DefinitionsDevelopment = {
 export type Development = {
   watch?: {
     ignore?: string[];
-    path?: string;
-    action?: "rebuild" | "sync" | "sync+restart";
+    path: string;
+    action: "rebuild" | "sync" | "sync+restart";
     target?: string;
     [k: string]: unknown;
   }[];

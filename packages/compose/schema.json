@@ -866,6 +866,10 @@
           "type": "array",
           "items": {
             "type": "object",
+            "required": [
+              "path",
+              "action"
+            ],
             "properties": {
               "ignore": {
                 "type": "array",
@@ -889,10 +893,6 @@
               }
             }
           },
-          "required": [
-            "path",
-            "action"
-          ],
           "additionalProperties": false
         }
       }
