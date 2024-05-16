@@ -469,6 +469,13 @@ export interface DefinitionsService {
           ipv6_address?: string;
           link_local_ips?: ListOfStrings;
           mac_address?: string;
+          driver_opts?: {
+            /**
+             * This interface was referenced by `undefined`'s JSON-Schema definition
+             * via the `patternProperty` "^.+$".
+             */
+            [k: string]: string | number;
+          };
           priority?: number;
         } | null;
       };
