@@ -1,5 +1,19 @@
 # @json-types/compose
 
+## 0.6.0
+
+### Minor Changes
+
+- [`20b36a3`](https://github.com/swordev/json-types/commit/20b36a3b6da805924f7b836001ab5965f8be62d9) Thanks [@github-actions[bot]](https://github.com/github-actions%5Bbot%5D)! - Update schema
+
+- [`d702daf`](https://github.com/swordev/json-types/commit/d702daf93e5bbee720045b841356fbcc77e859a2) Thanks [@github-actions[bot]](https://github.com/github-actions%5Bbot%5D)! - Update schema
+
+- [`c6fc649`](https://github.com/swordev/json-types/commit/c6fc6495ff52032c93aaf3dd04bc8c90fd6a618a) Thanks [@github-actions[bot]](https://github.com/github-actions%5Bbot%5D)! - Update schema
+
+- [`d472f6c`](https://github.com/swordev/json-types/commit/d472f6c534da42c9d474847f690b5866c7f335b4) Thanks [@github-actions[bot]](https://github.com/github-actions%5Bbot%5D)! - Update schema
+
+- [`7f1a9a0`](https://github.com/swordev/json-types/commit/7f1a9a041b41133d3cf6c4e2394e463945da927f) Thanks [@github-actions[bot]](https://github.com/github-actions%5Bbot%5D)! - Update schema
+
 ## 0.5.0
 
 ### Minor Changes
