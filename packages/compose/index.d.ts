@@ -37,29 +37,29 @@ export type Development = {
 export type DefinitionsDeployment = {
   mode?: string;
   endpoint_mode?: string;
-  replicas?: number;
+  replicas?: number | string;
   labels?: ListOrDict;
   rollback_config?: {
-    parallelism?: number;
+    parallelism?: number | string;
     delay?: string;
     failure_action?: string;
     monitor?: string;
-    max_failure_ratio?: number;
+    max_failure_ratio?: number | string;
     order?: "start-first" | "stop-first";
   };
   update_config?: {
-    parallelism?: number;
+    parallelism?: number | string;
     delay?: string;
     failure_action?: string;
     monitor?: string;
-    max_failure_ratio?: number;
+    max_failure_ratio?: number | string;
     order?: "start-first" | "stop-first";
   };
   resources?: {
     limits?: {
       cpus?: number | string;
       memory?: string;
-      pids?: number;
+      pids?: number | string;
     };
     reservations?: {
       cpus?: number | string;
@@ -71,7 +71,7 @@ export type DefinitionsDeployment = {
   restart_policy?: {
     condition?: string;
     delay?: string;
-    max_attempts?: number;
+    max_attempts?: number | string;
     window?: string;
   };
   placement?: {
@@ -79,7 +79,7 @@ export type DefinitionsDeployment = {
     preferences?: {
       spread?: string;
     }[];
-    max_replicas_per_node?: number;
+    max_replicas_per_node?: number | string;
   };
 } & Deployment;
 export type ListOrDict =
@@ -94,7 +94,7 @@ export type ListOrDict =
 export type DefinitionsGenericResources = {
   discrete_resource_spec?: {
     kind?: string;
-    value?: number;
+    value?: number | string;
   };
 }[];
 export type DefinitionsDevices = {
@@ -107,29 +107,29 @@ export type DefinitionsDevices = {
 export type Deployment = {
   mode?: string;
   endpoint_mode?: string;
-  replicas?: number;
+  replicas?: number | string;
   labels?: ListOrDict;
   rollback_config?: {
-    parallelism?: number;
+    parallelism?: number | string;
     delay?: string;
     failure_action?: string;
     monitor?: string;
-    max_failure_ratio?: number;
+    max_failure_ratio?: number | string;
     order?: "start-first" | "stop-first";
   };
   update_config?: {
-    parallelism?: number;
+    parallelism?: number | string;
     delay?: string;
     failure_action?: string;
     monitor?: string;
-    max_failure_ratio?: number;
+    max_failure_ratio?: number | string;
     order?: "start-first" | "stop-first";
   };
   resources?: {
     limits?: {
       cpus?: number | string;
       memory?: string;
-      pids?: number;
+      pids?: number | string;
     };
     reservations?: {
       cpus?: number | string;
@@ -141,7 +141,7 @@ export type Deployment = {
   restart_policy?: {
     condition?: string;
     delay?: string;
-    max_attempts?: number;
+    max_attempts?: number | string;
     window?: string;
   };
   placement?: {
@@ -149,7 +149,7 @@ export type Deployment = {
     preferences?: {
       spread?: string;
     }[];
-    max_replicas_per_node?: number;
+    max_replicas_per_node?: number | string;
   };
 } | null;
 export type ServiceConfigOrSecret = (
@@ -159,7 +159,7 @@ export type ServiceConfigOrSecret = (
       target?: string;
       uid?: string;
       gid?: string;
-      mode?: number;
+      mode?: number | string;
     }
 )[];
 export type Command = null | string | string[];
@@ -169,7 +169,7 @@ export type EnvFile =
       | string
       | {
           path: string;
-          required?: boolean;
+          required?: boolean | string;
         }
     )[];
 /**
@@ -210,15 +210,16 @@ export type DefinitionsNetwork = {
   };
   external?:
     | boolean
+    | string
     | {
         /**
          * @deprecated
          */
         name?: string;
       };
-  internal?: boolean;
-  enable_ipv6?: boolean;
-  attachable?: boolean;
+  internal?: boolean | string;
+  enable_ipv6?: boolean | string;
+  attachable?: boolean | string;
   labels?: ListOrDict;
 } & Network;
 export type Network = {
@@ -255,15 +256,16 @@ export type Network = {
   };
   external?:
     | boolean
+    | string
     | {
         /**
          * @deprecated
          */
         name?: string;
       };
-  internal?: boolean;
-  enable_ipv6?: boolean;
-  attachable?: boolean;
+  internal?: boolean | string;
+  enable_ipv6?: boolean | string;
+  attachable?: boolean | string;
   labels?: ListOrDict;
 } | null;
 /**
@@ -282,6 +284,7 @@ export type DefinitionsVolume = {
   };
   external?:
     | boolean
+    | string
     | {
         /**
          * @deprecated
@@ -302,6 +305,7 @@ export type Volume = {
   };
   external?:
     | boolean
+    | string
     | {
         /**
          * @deprecated
@@ -344,7 +348,7 @@ export interface DefinitionsService {
   develop?: DefinitionsDevelopment;
   deploy?: DefinitionsDeployment;
   annotations?: ListOrDict;
-  attach?: boolean;
+  attach?: boolean | string;
   build?:
     | string
     | {
@@ -357,15 +361,15 @@ export interface DefinitionsService {
         labels?: ListOrDict;
         cache_from?: string[];
         cache_to?: string[];
-        no_cache?: boolean;
+        no_cache?: boolean | string;
         additional_contexts?: ListOrDict;
         network?: string;
-        pull?: boolean;
+        pull?: boolean | string;
         target?: string;
         shm_size?: number | string;
         extra_hosts?: ListOrDict;
         isolation?: string;
-        privileged?: boolean;
+        privileged?: boolean | string;
         secrets?: ServiceConfigOrSecret;
         tags?: string[];
         ulimits?: Ulimits;
@@ -376,7 +380,7 @@ export interface DefinitionsService {
     device_read_iops?: BlkioLimit[];
     device_write_bps?: BlkioLimit[];
     device_write_iops?: BlkioLimit[];
-    weight?: number;
+    weight?: number | string;
     weight_device?: BlkioWeight[];
   };
   cap_add?: string[];
@@ -386,8 +390,8 @@ export interface DefinitionsService {
   command?: Command;
   configs?: ServiceConfigOrSecret;
   container_name?: string;
-  cpu_count?: number;
-  cpu_percent?: number;
+  cpu_count?: string | number;
+  cpu_percent?: string | number;
   cpu_shares?: number | string;
   cpu_quota?: number | string;
   cpu_period?: number | string;
@@ -408,7 +412,7 @@ export interface DefinitionsService {
          * via the `patternProperty` "^[a-zA-Z0-9._-]+$".
          */
         [k: string]: {
-          restart?: boolean;
+          restart?: boolean | string;
           required?: boolean;
           condition: "service_started" | "service_healthy" | "service_completed_successfully";
         };
@@ -435,7 +439,7 @@ export interface DefinitionsService {
   healthcheck?: DefinitionsHealthcheck;
   hostname?: string;
   image?: string;
-  init?: boolean;
+  init?: boolean | string;
   ipc?: string;
   isolation?: string;
   labels?: ListOrDict;
@@ -453,7 +457,7 @@ export interface DefinitionsService {
   mac_address?: string;
   mem_limit?: number | string;
   mem_reservation?: string | number;
-  mem_swappiness?: number;
+  mem_swappiness?: number | string;
   memswap_limit?: number | string;
   network_mode?: string;
   networks?:
@@ -479,8 +483,8 @@ export interface DefinitionsService {
           priority?: number;
         } | null;
       };
-  oom_kill_disable?: boolean;
-  oom_score_adj?: number;
+  oom_kill_disable?: boolean | string;
+  oom_score_adj?: string | number;
   pid?: string | null;
   pids_limit?: number | string;
   platform?: string;
@@ -491,31 +495,31 @@ export interface DefinitionsService {
         name?: string;
         mode?: string;
         host_ip?: string;
-        target?: number;
+        target?: number | string;
         published?: string | number;
         protocol?: string;
         app_protocol?: string;
       }
   )[];
-  privileged?: boolean;
+  privileged?: boolean | string;
   profiles?: ListOfStrings;
   pull_policy?: "always" | "never" | "if_not_present" | "build" | "missing";
-  read_only?: boolean;
+  read_only?: boolean | string;
   restart?: string;
   runtime?: string;
-  scale?: number;
+  scale?: number | string;
   security_opt?: string[];
   shm_size?: number | string;
   secrets?: ServiceConfigOrSecret;
   sysctls?: ListOrDict;
-  stdin_open?: boolean;
+  stdin_open?: boolean | string;
   stop_grace_period?: string;
   stop_signal?: string;
   storage_opt?: {
     [k: string]: unknown;
   };
   tmpfs?: StringOrList;
-  tty?: boolean;
+  tty?: boolean | string;
   ulimits?: Ulimits;
   user?: string;
   uts?: string;
@@ -526,20 +530,20 @@ export interface DefinitionsService {
         type: string;
         source?: string;
         target?: string;
-        read_only?: boolean;
+        read_only?: boolean | string;
         consistency?: string;
         bind?: {
           propagation?: string;
-          create_host_path?: boolean;
+          create_host_path?: boolean | string;
           selinux?: "z" | "Z";
         };
         volume?: {
-          nocopy?: boolean;
+          nocopy?: boolean | string;
           subpath?: string;
         };
         tmpfs?: {
           size?: number | string;
-          mode?: number;
+          mode?: number | string;
         };
       }
   )[];
@@ -552,10 +556,10 @@ export interface Ulimits {
    * via the `patternProperty` "^[a-z]+$".
    */
   [k: string]:
-    | number
+    | (number | string)
     | {
-        hard: number;
-        soft: number;
+        hard: number | string;
+        soft: number | string;
       };
 }
 export interface BlkioLimit {
@@ -564,12 +568,12 @@ export interface BlkioLimit {
 }
 export interface BlkioWeight {
   path?: string;
-  weight?: number;
+  weight?: number | string;
 }
 export interface DefinitionsHealthcheck {
-  disable?: boolean;
+  disable?: boolean | string;
   interval?: string;
-  retries?: number;
+  retries?: number | string;
   test?: string | string[];
   timeout?: string;
   start_period?: string;
@@ -594,6 +598,7 @@ export interface DefinitionsSecret {
   file?: string;
   external?:
     | boolean
+    | string
     | {
         name?: string;
         [k: string]: unknown;
@@ -623,6 +628,7 @@ export interface DefinitionsConfig {
   file?: string;
   external?:
     | boolean
+    | string
     | {
         /**
          * @deprecated

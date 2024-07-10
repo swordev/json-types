@@ -251,7 +251,7 @@ export type CompilerOptions = {
    */
   noImplicitThis?: boolean | null;
   /**
-   * Enable error reporting when a local variables aren't read.
+   * Enable error reporting when a local variable isn't read.
    */
   noUnusedLocals?: boolean | null;
   /**
@@ -1265,7 +1265,7 @@ export type CompilerOptions = {
    */
   noImplicitThis?: boolean | null;
   /**
-   * Enable error reporting when a local variables aren't read.
+   * Enable error reporting when a local variable isn't read.
    */
   noUnusedLocals?: boolean | null;
   /**
@@ -2409,7 +2409,7 @@ export interface TsNodeDefinition {
        */
       noImplicitThis?: boolean | null;
       /**
-       * Enable error reporting when a local variables aren't read.
+       * Enable error reporting when a local variable isn't read.
        */
       noUnusedLocals?: boolean | null;
       /**
@@ -3422,7 +3422,7 @@ export interface TsNodeDefinition {
              */
             noImplicitThis?: boolean | null;
             /**
-             * Enable error reporting when a local variables aren't read.
+             * Enable error reporting when a local variable isn't read.
              */
             noUnusedLocals?: boolean | null;
             /**
@@ -4438,7 +4438,7 @@ export interface TsNodeDefinition {
              */
             noImplicitThis?: boolean | null;
             /**
-             * Enable error reporting when a local variables aren't read.
+             * Enable error reporting when a local variable isn't read.
              */
             noUnusedLocals?: boolean | null;
             /**
