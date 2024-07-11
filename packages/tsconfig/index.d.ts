@@ -1039,6 +1039,14 @@ export type CompilerOptions = {
    * Do not transform or elide any imports or exports not marked as type-only, ensuring they are written in the output file's format based on the 'module' setting.
    */
   verbatimModuleSyntax?: boolean | null;
+  /**
+   * Disable full type checking (only critical parse and emit errors will be reported)
+   */
+  noCheck?: boolean | null;
+  /**
+   * Require sufficient annotation on exports so other tools can trivially generate declaration files.
+   */
+  isolatedDeclarations?: boolean | null;
 } & ({
   /**
    * Enable importing files with any extension, provided a declaration file is present.
@@ -2050,6 +2058,14 @@ export type CompilerOptions = {
    * Do not transform or elide any imports or exports not marked as type-only, ensuring they are written in the output file's format based on the 'module' setting.
    */
   verbatimModuleSyntax?: boolean | null;
+  /**
+   * Disable full type checking (only critical parse and emit errors will be reported)
+   */
+  noCheck?: boolean | null;
+  /**
+   * Require sufficient annotation on exports so other tools can trivially generate declaration files.
+   */
+  isolatedDeclarations?: boolean | null;
 } | null);
 /**
  * Override certain paths to be compiled and executed as CommonJS or ECMAScript modules.
@@ -3194,6 +3210,14 @@ export interface TsNodeDefinition {
        * Do not transform or elide any imports or exports not marked as type-only, ensuring they are written in the output file's format based on the 'module' setting.
        */
       verbatimModuleSyntax?: boolean | null;
+      /**
+       * Disable full type checking (only critical parse and emit errors will be reported)
+       */
+      noCheck?: boolean | null;
+      /**
+       * Require sufficient annotation on exports so other tools can trivially generate declaration files.
+       */
+      isolatedDeclarations?: boolean | null;
     } | null) &
       (
         | ({
@@ -4211,6 +4235,14 @@ export interface TsNodeDefinition {
              * Do not transform or elide any imports or exports not marked as type-only, ensuring they are written in the output file's format based on the 'module' setting.
              */
             verbatimModuleSyntax?: boolean | null;
+            /**
+             * Disable full type checking (only critical parse and emit errors will be reported)
+             */
+            noCheck?: boolean | null;
+            /**
+             * Require sufficient annotation on exports so other tools can trivially generate declaration files.
+             */
+            isolatedDeclarations?: boolean | null;
           } | null)
         | (({
             /**
@@ -5227,6 +5259,14 @@ export interface TsNodeDefinition {
              * Do not transform or elide any imports or exports not marked as type-only, ensuring they are written in the output file's format based on the 'module' setting.
              */
             verbatimModuleSyntax?: boolean | null;
+            /**
+             * Disable full type checking (only critical parse and emit errors will be reported)
+             */
+            noCheck?: boolean | null;
+            /**
+             * Require sufficient annotation on exports so other tools can trivially generate declaration files.
+             */
+            isolatedDeclarations?: boolean | null;
           } | null) &
             null)
       );
