@@ -1047,6 +1047,10 @@ export type CompilerOptions = {
    * Require sufficient annotation on exports so other tools can trivially generate declaration files.
    */
   isolatedDeclarations?: boolean | null;
+  /**
+   * Check side effect imports.
+   */
+  noUncheckedSideEffectImports?: boolean | null;
 } & ({
   /**
    * Enable importing files with any extension, provided a declaration file is present.
@@ -2066,6 +2070,10 @@ export type CompilerOptions = {
    * Require sufficient annotation on exports so other tools can trivially generate declaration files.
    */
   isolatedDeclarations?: boolean | null;
+  /**
+   * Check side effect imports.
+   */
+  noUncheckedSideEffectImports?: boolean | null;
 } | null);
 /**
  * Override certain paths to be compiled and executed as CommonJS or ECMAScript modules.
@@ -3218,6 +3226,10 @@ export interface TsNodeDefinition {
        * Require sufficient annotation on exports so other tools can trivially generate declaration files.
        */
       isolatedDeclarations?: boolean | null;
+      /**
+       * Check side effect imports.
+       */
+      noUncheckedSideEffectImports?: boolean | null;
     } | null) &
       (
         | ({
@@ -4243,6 +4255,10 @@ export interface TsNodeDefinition {
              * Require sufficient annotation on exports so other tools can trivially generate declaration files.
              */
             isolatedDeclarations?: boolean | null;
+            /**
+             * Check side effect imports.
+             */
+            noUncheckedSideEffectImports?: boolean | null;
           } | null)
         | (({
             /**
@@ -5267,6 +5283,10 @@ export interface TsNodeDefinition {
              * Require sufficient annotation on exports so other tools can trivially generate declaration files.
              */
             isolatedDeclarations?: boolean | null;
+            /**
+             * Check side effect imports.
+             */
+            noUncheckedSideEffectImports?: boolean | null;
           } | null) &
             null)
       );
