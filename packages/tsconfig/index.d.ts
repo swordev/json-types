@@ -1051,6 +1051,10 @@ export type CompilerOptions = {
    * Check side effect imports.
    */
   noUncheckedSideEffectImports?: boolean | null;
+  /**
+   * Built-in iterators are instantiated with a 'TReturn' type of 'undefined' instead of 'any'.
+   */
+  strictBuiltinIteratorReturn?: boolean | null;
 } & ({
   /**
    * Enable importing files with any extension, provided a declaration file is present.
@@ -2074,6 +2078,10 @@ export type CompilerOptions = {
    * Check side effect imports.
    */
   noUncheckedSideEffectImports?: boolean | null;
+  /**
+   * Built-in iterators are instantiated with a 'TReturn' type of 'undefined' instead of 'any'.
+   */
+  strictBuiltinIteratorReturn?: boolean | null;
 } | null);
 /**
  * Override certain paths to be compiled and executed as CommonJS or ECMAScript modules.
@@ -3230,6 +3238,10 @@ export interface TsNodeDefinition {
        * Check side effect imports.
        */
       noUncheckedSideEffectImports?: boolean | null;
+      /**
+       * Built-in iterators are instantiated with a 'TReturn' type of 'undefined' instead of 'any'.
+       */
+      strictBuiltinIteratorReturn?: boolean | null;
     } | null) &
       (
         | ({
@@ -4259,6 +4271,10 @@ export interface TsNodeDefinition {
              * Check side effect imports.
              */
             noUncheckedSideEffectImports?: boolean | null;
+            /**
+             * Built-in iterators are instantiated with a 'TReturn' type of 'undefined' instead of 'any'.
+             */
+            strictBuiltinIteratorReturn?: boolean | null;
           } | null)
         | (({
             /**
@@ -5287,6 +5303,10 @@ export interface TsNodeDefinition {
              * Check side effect imports.
              */
             noUncheckedSideEffectImports?: boolean | null;
+            /**
+             * Built-in iterators are instantiated with a 'TReturn' type of 'undefined' instead of 'any'.
+             */
+            strictBuiltinIteratorReturn?: boolean | null;
           } | null) &
             null)
       );
