@@ -244,13 +244,15 @@
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "uniqueItems": true
         },
         "cap_drop": {
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "uniqueItems": true
         },
         "cgroup": {
           "type": "string",
@@ -395,7 +397,8 @@
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "uniqueItems": true
         },
         "dns": {
           "$ref": "#/definitions/string_or_list"
@@ -404,7 +407,8 @@
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "uniqueItems": true
         },
         "dns_search": {
           "$ref": "#/definitions/string_or_list"
@@ -429,7 +433,8 @@
               "number"
             ],
             "format": "expose"
-          }
+          },
+          "uniqueItems": true
         },
         "extends": {
           "oneOf": [
@@ -457,7 +462,8 @@
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "uniqueItems": true
         },
         "extra_hosts": {
           "$ref": "#/definitions/list_or_dict"
@@ -469,7 +475,8 @@
               "string",
               "number"
             ]
-          }
+          },
+          "uniqueItems": true
         },
         "healthcheck": {
           "$ref": "#/definitions/healthcheck"
@@ -499,7 +506,8 @@
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "uniqueItems": true
         },
         "logging": {
           "type": "object",
@@ -684,7 +692,8 @@
                 "additionalProperties": false
               }
             ]
-          }
+          },
+          "uniqueItems": true
         },
         "privileged": {
           "type": [
@@ -727,7 +736,8 @@
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "uniqueItems": true
         },
         "shm_size": {
           "type": [
@@ -872,13 +882,15 @@
                 "additionalProperties": false
               }
             ]
-          }
+          },
+          "uniqueItems": true
         },
         "volumes_from": {
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "uniqueItems": true
         },
         "working_dir": {
           "type": "string"
@@ -1543,7 +1555,8 @@
       "type": "array",
       "items": {
         "type": "string"
-      }
+      },
+      "uniqueItems": true
     },
     "list_or_dict": {
       "oneOf": [
@@ -1565,7 +1578,8 @@
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "uniqueItems": true
         }
       ]
     },
