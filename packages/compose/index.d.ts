@@ -20,7 +20,6 @@ export type DefinitionsDevelopment = {
     path: string;
     action: "rebuild" | "sync" | "sync+restart";
     target?: string;
-    [k: string]: unknown;
   }[];
   [k: string]: unknown;
 } & Development;
@@ -30,7 +29,6 @@ export type Development = {
     path: string;
     action: "rebuild" | "sync" | "sync+restart";
     target?: string;
-    [k: string]: unknown;
   }[];
   [k: string]: unknown;
 } | null;
