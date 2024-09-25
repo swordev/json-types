@@ -21,7 +21,6 @@ export type DefinitionsDevelopment = {
     action: "rebuild" | "sync" | "sync+restart";
     target?: string;
   }[];
-  [k: string]: unknown;
 } & Development;
 export type Development = {
   watch?: {
@@ -30,7 +29,6 @@ export type Development = {
     action: "rebuild" | "sync" | "sync+restart";
     target?: string;
   }[];
-  [k: string]: unknown;
 } | null;
 export type DefinitionsDeployment = {
   mode?: string;
@@ -150,6 +148,15 @@ export type Deployment = {
     max_replicas_per_node?: number | string;
   };
 } | null;
+export type ExtraHosts =
+  | {
+      /**
+       * This interface was referenced by `undefined`'s JSON-Schema definition
+       * via the `patternProperty` ".+".
+       */
+      [k: string]: string | unknown[];
+    }
+  | string[];
 export type ServiceConfigOrSecret = (
   | string
   | {
@@ -365,7 +372,7 @@ export interface DefinitionsService {
         pull?: boolean | string;
         target?: string;
         shm_size?: number | string;
-        extra_hosts?: ListOrDict;
+        extra_hosts?: ExtraHosts;
         isolation?: string;
         privileged?: boolean | string;
         secrets?: ServiceConfigOrSecret;
@@ -416,7 +423,14 @@ export interface DefinitionsService {
         };
       };
   device_cgroup_rules?: ListOfStrings;
-  devices?: string[];
+  devices?: (
+    | string
+    | {
+        source: string;
+        target?: string;
+        permissions?: string;
+      }
+  )[];
   dns?: StringOrList;
   dns_opt?: string[];
   dns_search?: StringOrList;
@@ -432,7 +446,7 @@ export interface DefinitionsService {
         file?: string;
       };
   external_links?: string[];
-  extra_hosts?: ListOrDict;
+  extra_hosts?: ExtraHosts;
   group_add?: (string | number)[];
   healthcheck?: DefinitionsHealthcheck;
   hostname?: string;

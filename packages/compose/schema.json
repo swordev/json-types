@@ -16,7 +16,6 @@
     "include": {
       "type": "array",
       "items": {
-        "type": "object",
         "$ref": "#/definitions/include"
       },
       "description": "compose sub-projects to be included."
@@ -164,7 +163,7 @@
                   ]
                 },
                 "extra_hosts": {
-                  "$ref": "#/definitions/list_or_dict"
+                  "$ref": "#/definitions/extra_hosts"
                 },
                 "isolation": {
                   "type": "string"
@@ -396,9 +395,30 @@
         "devices": {
           "type": "array",
           "items": {
-            "type": "string"
-          },
-          "uniqueItems": true
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object",
+                "required": [
+                  "source"
+                ],
+                "properties": {
+                  "source": {
+                    "type": "string"
+                  },
+                  "target": {
+                    "type": "string"
+                  },
+                  "permissions": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              }
+            ]
+          }
         },
         "dns": {
           "$ref": "#/definitions/string_or_list"
@@ -466,7 +486,7 @@
           "uniqueItems": true
         },
         "extra_hosts": {
-          "$ref": "#/definitions/list_or_dict"
+          "$ref": "#/definitions/extra_hosts"
         },
         "group_add": {
           "type": "array",
@@ -980,10 +1000,10 @@
               }
             },
             "additionalProperties": false
-          },
-          "additionalProperties": false
+          }
         }
-      }
+      },
+      "additionalProperties": false
     },
     "deployment": {
       "id": "#/definitions/deployment",
@@ -1570,6 +1590,29 @@
                 "number",
                 "boolean",
                 "null"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      ]
+    },
+    "extra_hosts": {
+      "oneOf": [
+        {
+          "type": "object",
+          "patternProperties": {
+            ".+": {
+              "type": [
+                "string",
+                "array"
               ]
             }
           },
