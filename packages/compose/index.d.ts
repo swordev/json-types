@@ -94,7 +94,7 @@ export type DefinitionsGenericResources = {
   };
 }[];
 export type DefinitionsDevices = {
-  capabilities?: ListOfStrings;
+  capabilities: ListOfStrings;
   count?: string | number;
   device_ids?: ListOfStrings;
   driver?: string;
@@ -148,15 +148,7 @@ export type Deployment = {
     max_replicas_per_node?: number | string;
   };
 } | null;
-export type ExtraHosts =
-  | {
-      /**
-       * This interface was referenced by `undefined`'s JSON-Schema definition
-       * via the `patternProperty` ".+".
-       */
-      [k: string]: string | unknown[];
-    }
-  | string[];
+export type ExtraHosts = {} | string[];
 export type ServiceConfigOrSecret = (
   | string
   | {
@@ -174,6 +166,7 @@ export type EnvFile =
       | string
       | {
           path: string;
+          format?: string;
           required?: boolean | string;
         }
     )[];
@@ -513,6 +506,8 @@ export interface DefinitionsService {
         app_protocol?: string;
       }
   )[];
+  post_start?: DefinitionsServiceHook[];
+  pre_stop?: DefinitionsServiceHook[];
   privileged?: boolean | string;
   profiles?: ListOfStrings;
   pull_policy?: "always" | "never" | "if_not_present" | "build" | "missing";
@@ -590,6 +585,13 @@ export interface DefinitionsHealthcheck {
   timeout?: string;
   start_period?: string;
   start_interval?: string;
+}
+export interface DefinitionsServiceHook {
+  command?: Command;
+  user?: string;
+  privileged?: boolean | string;
+  working_dir?: string;
+  environment?: ListOrDict;
 }
 export interface PropertiesNetworks {
   [k: string]: DefinitionsNetwork;
