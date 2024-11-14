@@ -184,21 +184,21 @@ export type CompilerOptions = {
    * Specify how TypeScript looks up a file from a given module specifier.
    */
   moduleResolution?: (
-    | ("Classic" | "Node" | "Node10" | "Node16" | "NodeNext" | "Bundler")
+    | ("classic" | "node" | "node10" | "node16" | "nodenext" | "bundler")
     | {
         [k: string]: unknown;
       }
   ) &
     (
       | ((
-          | ("Classic" | "Node" | "Node10" | "Node16" | "NodeNext" | "Bundler")
+          | ("classic" | "node" | "node10" | "node16" | "nodenext" | "bundler")
           | {
               [k: string]: unknown;
             }
         ) &
           string)
       | ((
-          | ("Classic" | "Node" | "Node10" | "Node16" | "NodeNext" | "Bundler")
+          | ("classic" | "node" | "node10" | "node16" | "nodenext" | "bundler")
           | {
               [k: string]: unknown;
             }
@@ -1226,21 +1226,21 @@ export type CompilerOptions = {
           null)
     );
   moduleResolution?: (
-    | ("Classic" | "Node" | "Node10" | "Node16" | "NodeNext" | "Bundler")
+    | ("classic" | "node" | "node10" | "node16" | "nodenext" | "bundler")
     | {
         [k: string]: unknown;
       }
   ) &
     (
       | ((
-          | ("Classic" | "Node" | "Node10" | "Node16" | "NodeNext" | "Bundler")
+          | ("classic" | "node" | "node10" | "node16" | "nodenext" | "bundler")
           | {
               [k: string]: unknown;
             }
         ) &
           string)
       | ((
-          | ("Classic" | "Node" | "Node10" | "Node16" | "NodeNext" | "Bundler")
+          | ("classic" | "node" | "node10" | "node16" | "nodenext" | "bundler")
           | {
               [k: string]: unknown;
             }
@@ -2395,21 +2395,21 @@ export interface TsNodeDefinition {
               null)
         );
       moduleResolution?: (
-        | ("Classic" | "Node" | "Node10" | "Node16" | "NodeNext" | "Bundler")
+        | ("classic" | "node" | "node10" | "node16" | "nodenext" | "bundler")
         | {
             [k: string]: unknown;
           }
       ) &
         (
           | ((
-              | ("Classic" | "Node" | "Node10" | "Node16" | "NodeNext" | "Bundler")
+              | ("classic" | "node" | "node10" | "node16" | "nodenext" | "bundler")
               | {
                   [k: string]: unknown;
                 }
             ) &
               string)
           | ((
-              | ("Classic" | "Node" | "Node10" | "Node16" | "NodeNext" | "Bundler")
+              | ("classic" | "node" | "node10" | "node16" | "nodenext" | "bundler")
               | {
                   [k: string]: unknown;
                 }
@@ -3433,21 +3433,21 @@ export interface TsNodeDefinition {
                     null)
               );
             moduleResolution?: (
-              | ("Classic" | "Node" | "Node10" | "Node16" | "NodeNext" | "Bundler")
+              | ("classic" | "node" | "node10" | "node16" | "nodenext" | "bundler")
               | {
                   [k: string]: unknown;
                 }
             ) &
               (
                 | ((
-                    | ("Classic" | "Node" | "Node10" | "Node16" | "NodeNext" | "Bundler")
+                    | ("classic" | "node" | "node10" | "node16" | "nodenext" | "bundler")
                     | {
                         [k: string]: unknown;
                       }
                   ) &
                     string)
                 | ((
-                    | ("Classic" | "Node" | "Node10" | "Node16" | "NodeNext" | "Bundler")
+                    | ("classic" | "node" | "node10" | "node16" | "nodenext" | "bundler")
                     | {
                         [k: string]: unknown;
                       }
@@ -4474,21 +4474,21 @@ export interface TsNodeDefinition {
                     null)
               );
             moduleResolution?: (
-              | ("Classic" | "Node" | "Node10" | "Node16" | "NodeNext" | "Bundler")
+              | ("classic" | "node" | "node10" | "node16" | "nodenext" | "bundler")
               | {
                   [k: string]: unknown;
                 }
             ) &
               (
                 | ((
-                    | ("Classic" | "Node" | "Node10" | "Node16" | "NodeNext" | "Bundler")
+                    | ("classic" | "node" | "node10" | "node16" | "nodenext" | "bundler")
                     | {
                         [k: string]: unknown;
                       }
                   ) &
                     string)
                 | ((
-                    | ("Classic" | "Node" | "Node10" | "Node16" | "NodeNext" | "Bundler")
+                    | ("classic" | "node" | "node10" | "node16" | "nodenext" | "bundler")
                     | {
                         [k: string]: unknown;
                       }
