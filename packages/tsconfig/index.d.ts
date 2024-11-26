@@ -355,6 +355,7 @@ export type CompilerOptions = {
         | "ES2021"
         | "ES2022"
         | "ES2023"
+        | "ES2024"
         | "ESNext"
       )
     | {
@@ -376,6 +377,7 @@ export type CompilerOptions = {
               | "ES2021"
               | "ES2022"
               | "ES2023"
+              | "ES2024"
               | "ESNext"
             )
           | {
@@ -397,6 +399,7 @@ export type CompilerOptions = {
               | "ES2021"
               | "ES2022"
               | "ES2023"
+              | "ES2024"
               | "ESNext"
             )
           | {
@@ -565,6 +568,7 @@ export type CompilerOptions = {
             | "ES2017.SharedMemory"
             | "ES2017.String"
             | "ES2017.TypedArrays"
+            | "ES2017.ArrayBuffer"
             | "ES2018"
             | "ES2018.AsyncGenerator"
             | "ES2018.AsyncIterable"
@@ -622,6 +626,14 @@ export type CompilerOptions = {
             | "ES2022.RegExp"
             | "ES2023"
             | "ES2023.Array"
+            | "ES2024"
+            | "ES2024.ArrayBuffer"
+            | "ES2024.Collection"
+            | "ES2024.Object"
+            | "ES2024.Promise"
+            | "ES2024.Regexp"
+            | "ES2024.SharedMemory"
+            | "ES2024.String"
             | "Decorators"
             | "Decorators.Legacy"
             | "ES2017.Date"
@@ -629,6 +641,9 @@ export type CompilerOptions = {
             | "ESNext.Decorators"
             | "ESNext.Disposable"
           )
+        | {
+            [k: string]: unknown;
+          }
         | {
             [k: string]: unknown;
           }
@@ -698,6 +713,7 @@ export type CompilerOptions = {
                   | "ES2017.SharedMemory"
                   | "ES2017.String"
                   | "ES2017.TypedArrays"
+                  | "ES2017.ArrayBuffer"
                   | "ES2018"
                   | "ES2018.AsyncGenerator"
                   | "ES2018.AsyncIterable"
@@ -755,6 +771,14 @@ export type CompilerOptions = {
                   | "ES2022.RegExp"
                   | "ES2023"
                   | "ES2023.Array"
+                  | "ES2024"
+                  | "ES2024.ArrayBuffer"
+                  | "ES2024.Collection"
+                  | "ES2024.Object"
+                  | "ES2024.Promise"
+                  | "ES2024.Regexp"
+                  | "ES2024.SharedMemory"
+                  | "ES2024.String"
                   | "Decorators"
                   | "Decorators.Legacy"
                   | "ES2017.Date"
@@ -762,6 +786,9 @@ export type CompilerOptions = {
                   | "ESNext.Decorators"
                   | "ESNext.Disposable"
                 )
+              | {
+                  [k: string]: unknown;
+                }
               | {
                   [k: string]: unknown;
                 }
@@ -831,6 +858,7 @@ export type CompilerOptions = {
                   | "ES2017.SharedMemory"
                   | "ES2017.String"
                   | "ES2017.TypedArrays"
+                  | "ES2017.ArrayBuffer"
                   | "ES2018"
                   | "ES2018.AsyncGenerator"
                   | "ES2018.AsyncIterable"
@@ -888,6 +916,14 @@ export type CompilerOptions = {
                   | "ES2022.RegExp"
                   | "ES2023"
                   | "ES2023.Array"
+                  | "ES2024"
+                  | "ES2024.ArrayBuffer"
+                  | "ES2024.Collection"
+                  | "ES2024.Object"
+                  | "ES2024.Promise"
+                  | "ES2024.Regexp"
+                  | "ES2024.SharedMemory"
+                  | "ES2024.String"
                   | "Decorators"
                   | "Decorators.Legacy"
                   | "ES2017.Date"
@@ -895,6 +931,9 @@ export type CompilerOptions = {
                   | "ESNext.Decorators"
                   | "ESNext.Disposable"
                 )
+              | {
+                  [k: string]: unknown;
+                }
               | {
                   [k: string]: unknown;
                 }
@@ -1391,6 +1430,7 @@ export type CompilerOptions = {
         | "ES2021"
         | "ES2022"
         | "ES2023"
+        | "ES2024"
         | "ESNext"
       )
     | {
@@ -1412,6 +1452,7 @@ export type CompilerOptions = {
               | "ES2021"
               | "ES2022"
               | "ES2023"
+              | "ES2024"
               | "ESNext"
             )
           | {
@@ -1433,6 +1474,7 @@ export type CompilerOptions = {
               | "ES2021"
               | "ES2022"
               | "ES2023"
+              | "ES2024"
               | "ESNext"
             )
           | {
@@ -1601,6 +1643,7 @@ export type CompilerOptions = {
             | "ES2017.SharedMemory"
             | "ES2017.String"
             | "ES2017.TypedArrays"
+            | "ES2017.ArrayBuffer"
             | "ES2018"
             | "ES2018.AsyncGenerator"
             | "ES2018.AsyncIterable"
@@ -1658,6 +1701,14 @@ export type CompilerOptions = {
             | "ES2022.RegExp"
             | "ES2023"
             | "ES2023.Array"
+            | "ES2024"
+            | "ES2024.ArrayBuffer"
+            | "ES2024.Collection"
+            | "ES2024.Object"
+            | "ES2024.Promise"
+            | "ES2024.Regexp"
+            | "ES2024.SharedMemory"
+            | "ES2024.String"
             | "Decorators"
             | "Decorators.Legacy"
             | "ES2017.Date"
@@ -1665,6 +1716,9 @@ export type CompilerOptions = {
             | "ESNext.Decorators"
             | "ESNext.Disposable"
           )
+        | {
+            [k: string]: unknown;
+          }
         | {
             [k: string]: unknown;
           }
@@ -1734,6 +1788,7 @@ export type CompilerOptions = {
                   | "ES2017.SharedMemory"
                   | "ES2017.String"
                   | "ES2017.TypedArrays"
+                  | "ES2017.ArrayBuffer"
                   | "ES2018"
                   | "ES2018.AsyncGenerator"
                   | "ES2018.AsyncIterable"
@@ -1791,6 +1846,14 @@ export type CompilerOptions = {
                   | "ES2022.RegExp"
                   | "ES2023"
                   | "ES2023.Array"
+                  | "ES2024"
+                  | "ES2024.ArrayBuffer"
+                  | "ES2024.Collection"
+                  | "ES2024.Object"
+                  | "ES2024.Promise"
+                  | "ES2024.Regexp"
+                  | "ES2024.SharedMemory"
+                  | "ES2024.String"
                   | "Decorators"
                   | "Decorators.Legacy"
                   | "ES2017.Date"
@@ -1798,6 +1861,9 @@ export type CompilerOptions = {
                   | "ESNext.Decorators"
                   | "ESNext.Disposable"
                 )
+              | {
+                  [k: string]: unknown;
+                }
               | {
                   [k: string]: unknown;
                 }
@@ -1867,6 +1933,7 @@ export type CompilerOptions = {
                   | "ES2017.SharedMemory"
                   | "ES2017.String"
                   | "ES2017.TypedArrays"
+                  | "ES2017.ArrayBuffer"
                   | "ES2018"
                   | "ES2018.AsyncGenerator"
                   | "ES2018.AsyncIterable"
@@ -1924,6 +1991,14 @@ export type CompilerOptions = {
                   | "ES2022.RegExp"
                   | "ES2023"
                   | "ES2023.Array"
+                  | "ES2024"
+                  | "ES2024.ArrayBuffer"
+                  | "ES2024.Collection"
+                  | "ES2024.Object"
+                  | "ES2024.Promise"
+                  | "ES2024.Regexp"
+                  | "ES2024.SharedMemory"
+                  | "ES2024.String"
                   | "Decorators"
                   | "Decorators.Legacy"
                   | "ES2017.Date"
@@ -1931,6 +2006,9 @@ export type CompilerOptions = {
                   | "ESNext.Decorators"
                   | "ESNext.Disposable"
                 )
+              | {
+                  [k: string]: unknown;
+                }
               | {
                   [k: string]: unknown;
                 }
@@ -2560,6 +2638,7 @@ export interface TsNodeDefinition {
             | "ES2021"
             | "ES2022"
             | "ES2023"
+            | "ES2024"
             | "ESNext"
           )
         | {
@@ -2581,6 +2660,7 @@ export interface TsNodeDefinition {
                   | "ES2021"
                   | "ES2022"
                   | "ES2023"
+                  | "ES2024"
                   | "ESNext"
                 )
               | {
@@ -2602,6 +2682,7 @@ export interface TsNodeDefinition {
                   | "ES2021"
                   | "ES2022"
                   | "ES2023"
+                  | "ES2024"
                   | "ESNext"
                 )
               | {
@@ -2770,6 +2851,7 @@ export interface TsNodeDefinition {
                 | "ES2017.SharedMemory"
                 | "ES2017.String"
                 | "ES2017.TypedArrays"
+                | "ES2017.ArrayBuffer"
                 | "ES2018"
                 | "ES2018.AsyncGenerator"
                 | "ES2018.AsyncIterable"
@@ -2827,6 +2909,14 @@ export interface TsNodeDefinition {
                 | "ES2022.RegExp"
                 | "ES2023"
                 | "ES2023.Array"
+                | "ES2024"
+                | "ES2024.ArrayBuffer"
+                | "ES2024.Collection"
+                | "ES2024.Object"
+                | "ES2024.Promise"
+                | "ES2024.Regexp"
+                | "ES2024.SharedMemory"
+                | "ES2024.String"
                 | "Decorators"
                 | "Decorators.Legacy"
                 | "ES2017.Date"
@@ -2834,6 +2924,9 @@ export interface TsNodeDefinition {
                 | "ESNext.Decorators"
                 | "ESNext.Disposable"
               )
+            | {
+                [k: string]: unknown;
+              }
             | {
                 [k: string]: unknown;
               }
@@ -2903,6 +2996,7 @@ export interface TsNodeDefinition {
                       | "ES2017.SharedMemory"
                       | "ES2017.String"
                       | "ES2017.TypedArrays"
+                      | "ES2017.ArrayBuffer"
                       | "ES2018"
                       | "ES2018.AsyncGenerator"
                       | "ES2018.AsyncIterable"
@@ -2960,6 +3054,14 @@ export interface TsNodeDefinition {
                       | "ES2022.RegExp"
                       | "ES2023"
                       | "ES2023.Array"
+                      | "ES2024"
+                      | "ES2024.ArrayBuffer"
+                      | "ES2024.Collection"
+                      | "ES2024.Object"
+                      | "ES2024.Promise"
+                      | "ES2024.Regexp"
+                      | "ES2024.SharedMemory"
+                      | "ES2024.String"
                       | "Decorators"
                       | "Decorators.Legacy"
                       | "ES2017.Date"
@@ -2967,6 +3069,9 @@ export interface TsNodeDefinition {
                       | "ESNext.Decorators"
                       | "ESNext.Disposable"
                     )
+                  | {
+                      [k: string]: unknown;
+                    }
                   | {
                       [k: string]: unknown;
                     }
@@ -3036,6 +3141,7 @@ export interface TsNodeDefinition {
                       | "ES2017.SharedMemory"
                       | "ES2017.String"
                       | "ES2017.TypedArrays"
+                      | "ES2017.ArrayBuffer"
                       | "ES2018"
                       | "ES2018.AsyncGenerator"
                       | "ES2018.AsyncIterable"
@@ -3093,6 +3199,14 @@ export interface TsNodeDefinition {
                       | "ES2022.RegExp"
                       | "ES2023"
                       | "ES2023.Array"
+                      | "ES2024"
+                      | "ES2024.ArrayBuffer"
+                      | "ES2024.Collection"
+                      | "ES2024.Object"
+                      | "ES2024.Promise"
+                      | "ES2024.Regexp"
+                      | "ES2024.SharedMemory"
+                      | "ES2024.String"
                       | "Decorators"
                       | "Decorators.Legacy"
                       | "ES2017.Date"
@@ -3100,6 +3214,9 @@ export interface TsNodeDefinition {
                       | "ESNext.Decorators"
                       | "ESNext.Disposable"
                     )
+                  | {
+                      [k: string]: unknown;
+                    }
                   | {
                       [k: string]: unknown;
                     }
@@ -3598,6 +3715,7 @@ export interface TsNodeDefinition {
                   | "ES2021"
                   | "ES2022"
                   | "ES2023"
+                  | "ES2024"
                   | "ESNext"
                 )
               | {
@@ -3619,6 +3737,7 @@ export interface TsNodeDefinition {
                         | "ES2021"
                         | "ES2022"
                         | "ES2023"
+                        | "ES2024"
                         | "ESNext"
                       )
                     | {
@@ -3640,6 +3759,7 @@ export interface TsNodeDefinition {
                         | "ES2021"
                         | "ES2022"
                         | "ES2023"
+                        | "ES2024"
                         | "ESNext"
                       )
                     | {
@@ -3812,6 +3932,7 @@ export interface TsNodeDefinition {
                       | "ES2017.SharedMemory"
                       | "ES2017.String"
                       | "ES2017.TypedArrays"
+                      | "ES2017.ArrayBuffer"
                       | "ES2018"
                       | "ES2018.AsyncGenerator"
                       | "ES2018.AsyncIterable"
@@ -3869,6 +3990,14 @@ export interface TsNodeDefinition {
                       | "ES2022.RegExp"
                       | "ES2023"
                       | "ES2023.Array"
+                      | "ES2024"
+                      | "ES2024.ArrayBuffer"
+                      | "ES2024.Collection"
+                      | "ES2024.Object"
+                      | "ES2024.Promise"
+                      | "ES2024.Regexp"
+                      | "ES2024.SharedMemory"
+                      | "ES2024.String"
                       | "Decorators"
                       | "Decorators.Legacy"
                       | "ES2017.Date"
@@ -3876,6 +4005,9 @@ export interface TsNodeDefinition {
                       | "ESNext.Decorators"
                       | "ESNext.Disposable"
                     )
+                  | {
+                      [k: string]: unknown;
+                    }
                   | {
                       [k: string]: unknown;
                     }
@@ -3945,6 +4077,7 @@ export interface TsNodeDefinition {
                             | "ES2017.SharedMemory"
                             | "ES2017.String"
                             | "ES2017.TypedArrays"
+                            | "ES2017.ArrayBuffer"
                             | "ES2018"
                             | "ES2018.AsyncGenerator"
                             | "ES2018.AsyncIterable"
@@ -4002,6 +4135,14 @@ export interface TsNodeDefinition {
                             | "ES2022.RegExp"
                             | "ES2023"
                             | "ES2023.Array"
+                            | "ES2024"
+                            | "ES2024.ArrayBuffer"
+                            | "ES2024.Collection"
+                            | "ES2024.Object"
+                            | "ES2024.Promise"
+                            | "ES2024.Regexp"
+                            | "ES2024.SharedMemory"
+                            | "ES2024.String"
                             | "Decorators"
                             | "Decorators.Legacy"
                             | "ES2017.Date"
@@ -4009,6 +4150,9 @@ export interface TsNodeDefinition {
                             | "ESNext.Decorators"
                             | "ESNext.Disposable"
                           )
+                        | {
+                            [k: string]: unknown;
+                          }
                         | {
                             [k: string]: unknown;
                           }
@@ -4078,6 +4222,7 @@ export interface TsNodeDefinition {
                             | "ES2017.SharedMemory"
                             | "ES2017.String"
                             | "ES2017.TypedArrays"
+                            | "ES2017.ArrayBuffer"
                             | "ES2018"
                             | "ES2018.AsyncGenerator"
                             | "ES2018.AsyncIterable"
@@ -4135,6 +4280,14 @@ export interface TsNodeDefinition {
                             | "ES2022.RegExp"
                             | "ES2023"
                             | "ES2023.Array"
+                            | "ES2024"
+                            | "ES2024.ArrayBuffer"
+                            | "ES2024.Collection"
+                            | "ES2024.Object"
+                            | "ES2024.Promise"
+                            | "ES2024.Regexp"
+                            | "ES2024.SharedMemory"
+                            | "ES2024.String"
                             | "Decorators"
                             | "Decorators.Legacy"
                             | "ES2017.Date"
@@ -4142,6 +4295,9 @@ export interface TsNodeDefinition {
                             | "ESNext.Decorators"
                             | "ESNext.Disposable"
                           )
+                        | {
+                            [k: string]: unknown;
+                          }
                         | {
                             [k: string]: unknown;
                           }
@@ -4639,6 +4795,7 @@ export interface TsNodeDefinition {
                   | "ES2021"
                   | "ES2022"
                   | "ES2023"
+                  | "ES2024"
                   | "ESNext"
                 )
               | {
@@ -4660,6 +4817,7 @@ export interface TsNodeDefinition {
                         | "ES2021"
                         | "ES2022"
                         | "ES2023"
+                        | "ES2024"
                         | "ESNext"
                       )
                     | {
@@ -4681,6 +4839,7 @@ export interface TsNodeDefinition {
                         | "ES2021"
                         | "ES2022"
                         | "ES2023"
+                        | "ES2024"
                         | "ESNext"
                       )
                     | {
@@ -4853,6 +5012,7 @@ export interface TsNodeDefinition {
                       | "ES2017.SharedMemory"
                       | "ES2017.String"
                       | "ES2017.TypedArrays"
+                      | "ES2017.ArrayBuffer"
                       | "ES2018"
                       | "ES2018.AsyncGenerator"
                       | "ES2018.AsyncIterable"
@@ -4910,6 +5070,14 @@ export interface TsNodeDefinition {
                       | "ES2022.RegExp"
                       | "ES2023"
                       | "ES2023.Array"
+                      | "ES2024"
+                      | "ES2024.ArrayBuffer"
+                      | "ES2024.Collection"
+                      | "ES2024.Object"
+                      | "ES2024.Promise"
+                      | "ES2024.Regexp"
+                      | "ES2024.SharedMemory"
+                      | "ES2024.String"
                       | "Decorators"
                       | "Decorators.Legacy"
                       | "ES2017.Date"
@@ -4917,6 +5085,9 @@ export interface TsNodeDefinition {
                       | "ESNext.Decorators"
                       | "ESNext.Disposable"
                     )
+                  | {
+                      [k: string]: unknown;
+                    }
                   | {
                       [k: string]: unknown;
                     }
@@ -4986,6 +5157,7 @@ export interface TsNodeDefinition {
                             | "ES2017.SharedMemory"
                             | "ES2017.String"
                             | "ES2017.TypedArrays"
+                            | "ES2017.ArrayBuffer"
                             | "ES2018"
                             | "ES2018.AsyncGenerator"
                             | "ES2018.AsyncIterable"
@@ -5043,6 +5215,14 @@ export interface TsNodeDefinition {
                             | "ES2022.RegExp"
                             | "ES2023"
                             | "ES2023.Array"
+                            | "ES2024"
+                            | "ES2024.ArrayBuffer"
+                            | "ES2024.Collection"
+                            | "ES2024.Object"
+                            | "ES2024.Promise"
+                            | "ES2024.Regexp"
+                            | "ES2024.SharedMemory"
+                            | "ES2024.String"
                             | "Decorators"
                             | "Decorators.Legacy"
                             | "ES2017.Date"
@@ -5050,6 +5230,9 @@ export interface TsNodeDefinition {
                             | "ESNext.Decorators"
                             | "ESNext.Disposable"
                           )
+                        | {
+                            [k: string]: unknown;
+                          }
                         | {
                             [k: string]: unknown;
                           }
@@ -5119,6 +5302,7 @@ export interface TsNodeDefinition {
                             | "ES2017.SharedMemory"
                             | "ES2017.String"
                             | "ES2017.TypedArrays"
+                            | "ES2017.ArrayBuffer"
                             | "ES2018"
                             | "ES2018.AsyncGenerator"
                             | "ES2018.AsyncIterable"
@@ -5176,6 +5360,14 @@ export interface TsNodeDefinition {
                             | "ES2022.RegExp"
                             | "ES2023"
                             | "ES2023.Array"
+                            | "ES2024"
+                            | "ES2024.ArrayBuffer"
+                            | "ES2024.Collection"
+                            | "ES2024.Object"
+                            | "ES2024.Promise"
+                            | "ES2024.Regexp"
+                            | "ES2024.SharedMemory"
+                            | "ES2024.String"
                             | "Decorators"
                             | "Decorators.Legacy"
                             | "ES2017.Date"
@@ -5183,6 +5375,9 @@ export interface TsNodeDefinition {
                             | "ESNext.Decorators"
                             | "ESNext.Disposable"
                           )
+                        | {
+                            [k: string]: unknown;
+                          }
                         | {
                             [k: string]: unknown;
                           }
