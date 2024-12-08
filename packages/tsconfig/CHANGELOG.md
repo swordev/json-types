@@ -1,5 +1,15 @@
 # @json-types/tsconfig
 
+## 0.9.0
+
+### Minor Changes
+
+- [`025a1ac`](https://github.com/swordev/json-types/commit/025a1ac4a835d6b020f38cace6cfcdba6a6ea637) Thanks [@github-actions[bot]](https://github.com/github-actions%5Bbot%5D)! - Update schema
+
+- [`eadcf8a`](https://github.com/swordev/json-types/commit/eadcf8a6454248a85d08de14680d750edb6a57b1) Thanks [@github-actions[bot]](https://github.com/github-actions%5Bbot%5D)! - Update schema
+
+- [`8be63b6`](https://github.com/swordev/json-types/commit/8be63b69819caac46244881c3093eb2c5c1544fa) Thanks [@github-actions[bot]](https://github.com/github-actions%5Bbot%5D)! - Update schema
+
 ## 0.8.0
 
 ### Minor Changes
