@@ -18,16 +18,28 @@ export type DefinitionsDevelopment = {
   watch?: {
     ignore?: string[];
     path: string;
-    action: "rebuild" | "sync" | "sync+restart";
+    action: "rebuild" | "sync" | "restart" | "sync+restart" | "sync+exec";
     target?: string;
+    exec?: DefinitionsServiceHook;
   }[];
 } & Development;
+export type Command = null | string | string[];
+export type ListOrDict =
+  | {
+      /**
+       * This interface was referenced by `undefined`'s JSON-Schema definition
+       * via the `patternProperty` ".+".
+       */
+      [k: string]: string | number | boolean | null;
+    }
+  | string[];
 export type Development = {
   watch?: {
     ignore?: string[];
     path: string;
-    action: "rebuild" | "sync" | "sync+restart";
+    action: "rebuild" | "sync" | "restart" | "sync+restart" | "sync+exec";
     target?: string;
+    exec?: DefinitionsServiceHook;
   }[];
 } | null;
 export type DefinitionsDeployment = {
@@ -78,15 +90,6 @@ export type DefinitionsDeployment = {
     max_replicas_per_node?: number | string;
   };
 } & Deployment;
-export type ListOrDict =
-  | {
-      /**
-       * This interface was referenced by `undefined`'s JSON-Schema definition
-       * via the `patternProperty` ".+".
-       */
-      [k: string]: string | number | boolean | null;
-    }
-  | string[];
 export type DefinitionsGenericResources = {
   discrete_resource_spec?: {
     kind?: string;
@@ -148,7 +151,15 @@ export type Deployment = {
     max_replicas_per_node?: number | string;
   };
 } | null;
-export type ExtraHosts = {} | string[];
+export type ExtraHosts =
+  | {
+      /**
+       * This interface was referenced by `undefined`'s JSON-Schema definition
+       * via the `patternProperty` ".+".
+       */
+      [k: string]: string | string[];
+    }
+  | string[];
 export type ServiceConfigOrSecret = (
   | string
   | {
@@ -159,7 +170,6 @@ export type ServiceConfigOrSecret = (
       mode?: number | string;
     }
 )[];
-export type Command = null | string | string[];
 export type EnvFile =
   | string
   | (
@@ -170,6 +180,14 @@ export type EnvFile =
           required?: boolean | string;
         }
     )[];
+export type LabelFile = string | string[];
+export type DefinitionsGpus = {
+  capabilities?: ListOfStrings;
+  count?: string | number;
+  device_ids?: ListOfStrings;
+  driver?: string;
+  options?: ListOrDict;
+}[];
 /**
  * This interface was referenced by `PropertiesNetworks`'s JSON-Schema definition
  * via the `patternProperty` "^[a-zA-Z0-9._-]+$".
@@ -430,6 +448,7 @@ export interface DefinitionsService {
   domainname?: string;
   entrypoint?: Command;
   env_file?: EnvFile;
+  label_file?: LabelFile;
   environment?: ListOrDict;
   expose?: (string | number)[];
   extends?:
@@ -440,6 +459,7 @@ export interface DefinitionsService {
       };
   external_links?: string[];
   extra_hosts?: ExtraHosts;
+  gpus?: DefinitionsGpus;
   group_add?: (string | number)[];
   healthcheck?: DefinitionsHealthcheck;
   hostname?: string;
@@ -542,6 +562,7 @@ export interface DefinitionsService {
         bind?: {
           propagation?: string;
           create_host_path?: boolean | string;
+          recursive?: "enabled" | "disabled" | "writable" | "readonly";
           selinux?: "z" | "Z";
         };
         volume?: {
@@ -556,6 +577,13 @@ export interface DefinitionsService {
   )[];
   volumes_from?: string[];
   working_dir?: string;
+}
+export interface DefinitionsServiceHook {
+  command?: Command;
+  user?: string;
+  privileged?: boolean | string;
+  working_dir?: string;
+  environment?: ListOrDict;
 }
 export interface Ulimits {
   /**
@@ -585,13 +613,6 @@ export interface DefinitionsHealthcheck {
   timeout?: string;
   start_period?: string;
   start_interval?: string;
-}
-export interface DefinitionsServiceHook {
-  command?: Command;
-  user?: string;
-  privileged?: boolean | string;
-  working_dir?: string;
-  environment?: ListOrDict;
 }
 export interface PropertiesNetworks {
   [k: string]: DefinitionsNetwork;
