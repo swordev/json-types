@@ -605,6 +605,7 @@
                 "string",
                 "null"
               ],
+              "default": "lf",
               "anyOf": [
                 {
                   "enum": [
@@ -1046,7 +1047,7 @@
                 "boolean",
                 "null"
               ],
-              "default": false,
+              "default": true,
               "markdownDescription": "Ensure that casing is correct in imports.\n\nSee more: https://www.typescriptlang.org/tsconfig#forceConsistentCasingInFileNames"
             },
             "generateCpuProfile": {
