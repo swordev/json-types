@@ -234,6 +234,7 @@ export type DefinitionsNetwork = {
         name?: string;
       };
   internal?: boolean | string;
+  enable_ipv4?: boolean | string;
   enable_ipv6?: boolean | string;
   attachable?: boolean | string;
   labels?: ListOrDict;
@@ -280,6 +281,7 @@ export type Network = {
         name?: string;
       };
   internal?: boolean | string;
+  enable_ipv4?: boolean | string;
   enable_ipv6?: boolean | string;
   attachable?: boolean | string;
   labels?: ListOrDict;

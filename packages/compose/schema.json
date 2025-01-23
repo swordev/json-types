@@ -1425,6 +1425,12 @@
             "string"
           ]
         },
+        "enable_ipv4": {
+          "type": [
+            "boolean",
+            "string"
+          ]
+        },
         "enable_ipv6": {
           "type": [
             "boolean",
