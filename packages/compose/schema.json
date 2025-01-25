@@ -1287,31 +1287,41 @@
     },
     "gpus": {
       "id": "#/definitions/gpus",
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "capabilities": {
-            "$ref": "#/definitions/list_of_strings"
-          },
-          "count": {
-            "type": [
-              "string",
-              "integer"
-            ]
-          },
-          "device_ids": {
-            "$ref": "#/definitions/list_of_strings"
-          },
-          "driver": {
-            "type": "string"
-          },
-          "options": {
-            "$ref": "#/definitions/list_or_dict"
-          }
+      "oneOf": [
+        {
+          "type": "string",
+          "enum": [
+            "all"
+          ]
         },
-        "additionalProperties": false
-      }
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "capabilities": {
+                "$ref": "#/definitions/list_of_strings"
+              },
+              "count": {
+                "type": [
+                  "string",
+                  "integer"
+                ]
+              },
+              "device_ids": {
+                "$ref": "#/definitions/list_of_strings"
+              },
+              "driver": {
+                "type": "string"
+              },
+              "options": {
+                "$ref": "#/definitions/list_or_dict"
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
     },
     "include": {
       "id": "#/definitions/include",

@@ -181,13 +181,16 @@ export type EnvFile =
         }
     )[];
 export type LabelFile = string | string[];
-export type DefinitionsGpus = {
-  capabilities?: ListOfStrings;
-  count?: string | number;
-  device_ids?: ListOfStrings;
-  driver?: string;
-  options?: ListOrDict;
-}[];
+export type DefinitionsGpus =
+  | "all"
+  | {
+      capabilities?: ListOfStrings;
+      count?: string | number;
+      device_ids?: ListOfStrings;
+      driver?: string;
+      options?: ListOrDict;
+      [k: string]: unknown;
+    }[];
 /**
  * This interface was referenced by `PropertiesNetworks`'s JSON-Schema definition
  * via the `patternProperty` "^[a-zA-Z0-9._-]+$".
