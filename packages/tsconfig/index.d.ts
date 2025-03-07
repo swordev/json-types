@@ -66,6 +66,10 @@ export type CompilerOptions = {
    */
   emitDeclarationOnly?: boolean | null;
   /**
+   * Do not allow runtime constructs that are not part of ECMAScript.
+   */
+  erasableSyntaxOnly?: boolean | null;
+  /**
    * Differentiate between undefined and not present when type checking
    */
   exactOptionalPropertyTypes?: boolean | null;
@@ -129,6 +133,7 @@ export type CompilerOptions = {
         | "None"
         | "ES2022"
         | "Node16"
+        | "Node18"
         | "NodeNext"
         | "Preserve"
       )
@@ -150,6 +155,7 @@ export type CompilerOptions = {
               | "None"
               | "ES2022"
               | "Node16"
+              | "Node18"
               | "NodeNext"
               | "Preserve"
             )
@@ -171,6 +177,7 @@ export type CompilerOptions = {
               | "None"
               | "ES2022"
               | "Node16"
+              | "Node18"
               | "NodeNext"
               | "Preserve"
             )
@@ -310,6 +317,10 @@ export type CompilerOptions = {
    * Disable emitting comments.
    */
   removeComments?: boolean | null;
+  /**
+   * Rewrite '.ts', '.tsx', '.mts', and '.cts' file extensions in relative import paths to their JavaScript equivalent in output files.
+   */
+  rewriteRelativeImportExtensions?: boolean | null;
   /**
    * Specify the root folder within your source files.
    */
@@ -984,6 +995,10 @@ export type CompilerOptions = {
         ))[]
     | null;
   /**
+   * Enable lib replacement.
+   */
+  libReplacement?: boolean | null;
+  /**
    * Specify how TypeScript determine a file as module.
    */
   moduleDetection?: "auto" | "legacy" | "force";
@@ -1153,6 +1168,10 @@ export type CompilerOptions = {
    */
   emitDeclarationOnly?: boolean | null;
   /**
+   * Do not allow runtime constructs that are not part of ECMAScript.
+   */
+  erasableSyntaxOnly?: boolean | null;
+  /**
    * Differentiate between undefined and not present when type checking
    */
   exactOptionalPropertyTypes?: boolean | null;
@@ -1213,6 +1232,7 @@ export type CompilerOptions = {
         | "None"
         | "ES2022"
         | "Node16"
+        | "Node18"
         | "NodeNext"
         | "Preserve"
       )
@@ -1234,6 +1254,7 @@ export type CompilerOptions = {
               | "None"
               | "ES2022"
               | "Node16"
+              | "Node18"
               | "NodeNext"
               | "Preserve"
             )
@@ -1255,6 +1276,7 @@ export type CompilerOptions = {
               | "None"
               | "ES2022"
               | "Node16"
+              | "Node18"
               | "NodeNext"
               | "Preserve"
             )
@@ -1388,6 +1410,10 @@ export type CompilerOptions = {
    * Disable emitting comments.
    */
   removeComments?: boolean | null;
+  /**
+   * Rewrite '.ts', '.tsx', '.mts', and '.cts' file extensions in relative import paths to their JavaScript equivalent in output files.
+   */
+  rewriteRelativeImportExtensions?: boolean | null;
   /**
    * Specify the root folder within your source files.
    */
@@ -2059,6 +2085,10 @@ export type CompilerOptions = {
         ))[]
     | null;
   /**
+   * Enable lib replacement.
+   */
+  libReplacement?: boolean | null;
+  /**
    * Specify how TypeScript determine a file as module.
    */
   moduleDetection?: "auto" | "legacy" | "force";
@@ -2361,6 +2391,10 @@ export interface TsNodeDefinition {
        */
       emitDeclarationOnly?: boolean | null;
       /**
+       * Do not allow runtime constructs that are not part of ECMAScript.
+       */
+      erasableSyntaxOnly?: boolean | null;
+      /**
        * Differentiate between undefined and not present when type checking
        */
       exactOptionalPropertyTypes?: boolean | null;
@@ -2421,6 +2455,7 @@ export interface TsNodeDefinition {
             | "None"
             | "ES2022"
             | "Node16"
+            | "Node18"
             | "NodeNext"
             | "Preserve"
           )
@@ -2442,6 +2477,7 @@ export interface TsNodeDefinition {
                   | "None"
                   | "ES2022"
                   | "Node16"
+                  | "Node18"
                   | "NodeNext"
                   | "Preserve"
                 )
@@ -2463,6 +2499,7 @@ export interface TsNodeDefinition {
                   | "None"
                   | "ES2022"
                   | "Node16"
+                  | "Node18"
                   | "NodeNext"
                   | "Preserve"
                 )
@@ -2596,6 +2633,10 @@ export interface TsNodeDefinition {
        * Disable emitting comments.
        */
       removeComments?: boolean | null;
+      /**
+       * Rewrite '.ts', '.tsx', '.mts', and '.cts' file extensions in relative import paths to their JavaScript equivalent in output files.
+       */
+      rewriteRelativeImportExtensions?: boolean | null;
       /**
        * Specify the root folder within your source files.
        */
@@ -3267,6 +3308,10 @@ export interface TsNodeDefinition {
             ))[]
         | null;
       /**
+       * Enable lib replacement.
+       */
+      libReplacement?: boolean | null;
+      /**
        * Specify how TypeScript determine a file as module.
        */
       moduleDetection?: "auto" | "legacy" | "force";
@@ -3438,6 +3483,10 @@ export interface TsNodeDefinition {
              */
             emitDeclarationOnly?: boolean | null;
             /**
+             * Do not allow runtime constructs that are not part of ECMAScript.
+             */
+            erasableSyntaxOnly?: boolean | null;
+            /**
              * Differentiate between undefined and not present when type checking
              */
             exactOptionalPropertyTypes?: boolean | null;
@@ -3498,6 +3547,7 @@ export interface TsNodeDefinition {
                   | "None"
                   | "ES2022"
                   | "Node16"
+                  | "Node18"
                   | "NodeNext"
                   | "Preserve"
                 )
@@ -3519,6 +3569,7 @@ export interface TsNodeDefinition {
                         | "None"
                         | "ES2022"
                         | "Node16"
+                        | "Node18"
                         | "NodeNext"
                         | "Preserve"
                       )
@@ -3540,6 +3591,7 @@ export interface TsNodeDefinition {
                         | "None"
                         | "ES2022"
                         | "Node16"
+                        | "Node18"
                         | "NodeNext"
                         | "Preserve"
                       )
@@ -3673,6 +3725,10 @@ export interface TsNodeDefinition {
              * Disable emitting comments.
              */
             removeComments?: boolean | null;
+            /**
+             * Rewrite '.ts', '.tsx', '.mts', and '.cts' file extensions in relative import paths to their JavaScript equivalent in output files.
+             */
+            rewriteRelativeImportExtensions?: boolean | null;
             /**
              * Specify the root folder within your source files.
              */
@@ -4347,6 +4403,10 @@ export interface TsNodeDefinition {
                         null)
                   ))[]
               | null;
+            /**
+             * Enable lib replacement.
+             */
+            libReplacement?: boolean | null;
             /**
              * Specify how TypeScript determine a file as module.
              */
@@ -4518,6 +4578,10 @@ export interface TsNodeDefinition {
              */
             emitDeclarationOnly?: boolean | null;
             /**
+             * Do not allow runtime constructs that are not part of ECMAScript.
+             */
+            erasableSyntaxOnly?: boolean | null;
+            /**
              * Differentiate between undefined and not present when type checking
              */
             exactOptionalPropertyTypes?: boolean | null;
@@ -4578,6 +4642,7 @@ export interface TsNodeDefinition {
                   | "None"
                   | "ES2022"
                   | "Node16"
+                  | "Node18"
                   | "NodeNext"
                   | "Preserve"
                 )
@@ -4599,6 +4664,7 @@ export interface TsNodeDefinition {
                         | "None"
                         | "ES2022"
                         | "Node16"
+                        | "Node18"
                         | "NodeNext"
                         | "Preserve"
                       )
@@ -4620,6 +4686,7 @@ export interface TsNodeDefinition {
                         | "None"
                         | "ES2022"
                         | "Node16"
+                        | "Node18"
                         | "NodeNext"
                         | "Preserve"
                       )
@@ -4753,6 +4820,10 @@ export interface TsNodeDefinition {
              * Disable emitting comments.
              */
             removeComments?: boolean | null;
+            /**
+             * Rewrite '.ts', '.tsx', '.mts', and '.cts' file extensions in relative import paths to their JavaScript equivalent in output files.
+             */
+            rewriteRelativeImportExtensions?: boolean | null;
             /**
              * Specify the root folder within your source files.
              */
@@ -5427,6 +5498,10 @@ export interface TsNodeDefinition {
                         null)
                   ))[]
               | null;
+            /**
+             * Enable lib replacement.
+             */
+            libReplacement?: boolean | null;
             /**
              * Specify how TypeScript determine a file as module.
              */
