@@ -5,7 +5,7 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export type DefinitionsInclude =
+export type Include =
   | string
   | {
       path?: StringOrList;
@@ -14,15 +14,16 @@ export type DefinitionsInclude =
     };
 export type StringOrList = string | ListOfStrings;
 export type ListOfStrings = string[];
-export type DefinitionsDevelopment = {
+export type Development = {
   watch?: {
-    ignore?: string[];
+    ignore?: StringOrList;
+    include?: StringOrList;
     path: string;
     action: "rebuild" | "sync" | "restart" | "sync+restart" | "sync+exec";
     target?: string;
-    exec?: DefinitionsServiceHook;
+    exec?: ServiceHook;
   }[];
-} & Development;
+} & Development1;
 export type Command = null | string | string[];
 export type ListOrDict =
   | {
@@ -33,76 +34,16 @@ export type ListOrDict =
       [k: string]: string | number | boolean | null;
     }
   | string[];
-export type Development = {
+export type Development1 = {
   watch?: {
-    ignore?: string[];
+    ignore?: StringOrList;
+    include?: StringOrList;
     path: string;
     action: "rebuild" | "sync" | "restart" | "sync+restart" | "sync+exec";
     target?: string;
-    exec?: DefinitionsServiceHook;
+    exec?: ServiceHook;
   }[];
 } | null;
-export type DefinitionsDeployment = {
-  mode?: string;
-  endpoint_mode?: string;
-  replicas?: number | string;
-  labels?: ListOrDict;
-  rollback_config?: {
-    parallelism?: number | string;
-    delay?: string;
-    failure_action?: string;
-    monitor?: string;
-    max_failure_ratio?: number | string;
-    order?: "start-first" | "stop-first";
-  };
-  update_config?: {
-    parallelism?: number | string;
-    delay?: string;
-    failure_action?: string;
-    monitor?: string;
-    max_failure_ratio?: number | string;
-    order?: "start-first" | "stop-first";
-  };
-  resources?: {
-    limits?: {
-      cpus?: number | string;
-      memory?: string;
-      pids?: number | string;
-    };
-    reservations?: {
-      cpus?: number | string;
-      memory?: string;
-      generic_resources?: DefinitionsGenericResources;
-      devices?: DefinitionsDevices;
-    };
-  };
-  restart_policy?: {
-    condition?: string;
-    delay?: string;
-    max_attempts?: number | string;
-    window?: string;
-  };
-  placement?: {
-    constraints?: string[];
-    preferences?: {
-      spread?: string;
-    }[];
-    max_replicas_per_node?: number | string;
-  };
-} & Deployment;
-export type DefinitionsGenericResources = {
-  discrete_resource_spec?: {
-    kind?: string;
-    value?: number | string;
-  };
-}[];
-export type DefinitionsDevices = {
-  capabilities: ListOfStrings;
-  count?: string | number;
-  device_ids?: ListOfStrings;
-  driver?: string;
-  options?: ListOrDict;
-}[];
 export type Deployment = {
   mode?: string;
   endpoint_mode?: string;
@@ -133,8 +74,69 @@ export type Deployment = {
     reservations?: {
       cpus?: number | string;
       memory?: string;
-      generic_resources?: DefinitionsGenericResources;
-      devices?: DefinitionsDevices;
+      generic_resources?: GenericResources;
+      devices?: Devices;
+    };
+  };
+  restart_policy?: {
+    condition?: string;
+    delay?: string;
+    max_attempts?: number | string;
+    window?: string;
+  };
+  placement?: {
+    constraints?: string[];
+    preferences?: {
+      spread?: string;
+    }[];
+    max_replicas_per_node?: number | string;
+  };
+} & Deployment1;
+export type GenericResources = {
+  discrete_resource_spec?: {
+    kind?: string;
+    value?: number | string;
+  };
+}[];
+export type Devices = {
+  capabilities: ListOfStrings;
+  count?: string | number;
+  device_ids?: ListOfStrings;
+  driver?: string;
+  options?: ListOrDict;
+}[];
+export type Deployment1 = {
+  mode?: string;
+  endpoint_mode?: string;
+  replicas?: number | string;
+  labels?: ListOrDict;
+  rollback_config?: {
+    parallelism?: number | string;
+    delay?: string;
+    failure_action?: string;
+    monitor?: string;
+    max_failure_ratio?: number | string;
+    order?: "start-first" | "stop-first";
+  };
+  update_config?: {
+    parallelism?: number | string;
+    delay?: string;
+    failure_action?: string;
+    monitor?: string;
+    max_failure_ratio?: number | string;
+    order?: "start-first" | "stop-first";
+  };
+  resources?: {
+    limits?: {
+      cpus?: number | string;
+      memory?: string;
+      pids?: number | string;
+    };
+    reservations?: {
+      cpus?: number | string;
+      memory?: string;
+      generic_resources?: GenericResources;
+      devices?: Devices;
     };
   };
   restart_policy?: {
@@ -181,7 +183,7 @@ export type EnvFile =
         }
     )[];
 export type LabelFile = string | string[];
-export type DefinitionsGpus =
+export type Gpus =
   | "all"
   | {
       capabilities?: ListOfStrings;
@@ -192,56 +194,9 @@ export type DefinitionsGpus =
       [k: string]: unknown;
     }[];
 /**
- * This interface was referenced by `PropertiesNetworks`'s JSON-Schema definition
+ * This interface was referenced by `undefined`'s JSON-Schema definition
  * via the `patternProperty` "^[a-zA-Z0-9._-]+$".
  */
-export type DefinitionsNetwork = {
-  name?: string;
-  driver?: string;
-  driver_opts?: {
-    /**
-     * This interface was referenced by `undefined`'s JSON-Schema definition
-     * via the `patternProperty` "^.+$".
-     */
-    [k: string]: string | number;
-  };
-  ipam?: {
-    driver?: string;
-    config?: {
-      subnet?: string;
-      ip_range?: string;
-      gateway?: string;
-      aux_addresses?: {
-        /**
-         * This interface was referenced by `undefined`'s JSON-Schema definition
-         * via the `patternProperty` "^.+$".
-         */
-        [k: string]: string;
-      };
-    }[];
-    options?: {
-      /**
-       * This interface was referenced by `undefined`'s JSON-Schema definition
-       * via the `patternProperty` "^.+$".
-       */
-      [k: string]: string;
-    };
-  };
-  external?:
-    | boolean
-    | string
-    | {
-        /**
-         * @deprecated
-         */
-        name?: string;
-      };
-  internal?: boolean | string;
-  enable_ipv4?: boolean | string;
-  enable_ipv6?: boolean | string;
-  attachable?: boolean | string;
-  labels?: ListOrDict;
-} & Network;
 export type Network = {
   name?: string;
   driver?: string;
@@ -288,12 +243,59 @@ export type Network = {
   enable_ipv6?: boolean | string;
   attachable?: boolean | string;
   labels?: ListOrDict;
+} & Network1;
+export type Network1 = {
+  name?: string;
+  driver?: string;
+  driver_opts?: {
+    /**
+     * This interface was referenced by `undefined`'s JSON-Schema definition
+     * via the `patternProperty` "^.+$".
+     */
+    [k: string]: string | number;
+  };
+  ipam?: {
+    driver?: string;
+    config?: {
+      subnet?: string;
+      ip_range?: string;
+      gateway?: string;
+      aux_addresses?: {
+        /**
+         * This interface was referenced by `undefined`'s JSON-Schema definition
+         * via the `patternProperty` "^.+$".
+         */
+        [k: string]: string;
+      };
+    }[];
+    options?: {
+      /**
+       * This interface was referenced by `undefined`'s JSON-Schema definition
+       * via the `patternProperty` "^.+$".
+       */
+      [k: string]: string;
+    };
+  };
+  external?:
+    | boolean
+    | string
+    | {
+        /**
+         * @deprecated
+         */
+        name?: string;
+      };
+  internal?: boolean | string;
+  enable_ipv4?: boolean | string;
+  enable_ipv6?: boolean | string;
+  attachable?: boolean | string;
+  labels?: ListOrDict;
 } | null;
 /**
- * This interface was referenced by `PropertiesVolumes`'s JSON-Schema definition
+ * This interface was referenced by `undefined`'s JSON-Schema definition
  * via the `patternProperty` "^[a-zA-Z0-9._-]+$".
  */
-export type DefinitionsVolume = {
+export type Volume = {
   name?: string;
   driver?: string;
   driver_opts?: {
@@ -313,8 +315,8 @@ export type DefinitionsVolume = {
         name?: string;
       };
   labels?: ListOrDict;
-} & Volume;
-export type Volume = {
+} & Volume1;
+export type Volume1 = {
   name?: string;
   driver?: string;
   driver_opts?: {
@@ -351,23 +353,30 @@ export interface Compose {
   /**
    * compose sub-projects to be included.
    */
-  include?: DefinitionsInclude[];
-  services?: PropertiesServices;
-  networks?: PropertiesNetworks;
-  volumes?: PropertiesVolumes;
-  secrets?: PropertiesSecrets;
-  configs?: PropertiesConfigs;
-}
-export interface PropertiesServices {
-  [k: string]: DefinitionsService;
+  include?: Include[];
+  services?: {
+    [k: string]: Service;
+  };
+  networks?: {
+    [k: string]: Network;
+  };
+  volumes?: {
+    [k: string]: Volume;
+  };
+  secrets?: {
+    [k: string]: Secret;
+  };
+  configs?: {
+    [k: string]: Config;
+  };
 }
 /**
- * This interface was referenced by `PropertiesServices`'s JSON-Schema definition
+ * This interface was referenced by `undefined`'s JSON-Schema definition
  * via the `patternProperty` "^[a-zA-Z0-9._-]+$".
  */
-export interface DefinitionsService {
-  develop?: DefinitionsDevelopment;
-  deploy?: DefinitionsDeployment;
+export interface Service {
+  develop?: Development;
+  deploy?: Deployment;
   annotations?: ListOrDict;
   attach?: boolean | string;
   build?:
@@ -464,9 +473,9 @@ export interface DefinitionsService {
       };
   external_links?: string[];
   extra_hosts?: ExtraHosts;
-  gpus?: DefinitionsGpus;
+  gpus?: Gpus;
   group_add?: (string | number)[];
-  healthcheck?: DefinitionsHealthcheck;
+  healthcheck?: Healthcheck;
   hostname?: string;
   image?: string;
   init?: boolean | string;
@@ -511,6 +520,7 @@ export interface DefinitionsService {
             [k: string]: string | number;
           };
           priority?: number;
+          gw_priority?: number;
         } | null;
       };
   oom_kill_disable?: boolean | string;
@@ -531,11 +541,12 @@ export interface DefinitionsService {
         app_protocol?: string;
       }
   )[];
-  post_start?: DefinitionsServiceHook[];
-  pre_stop?: DefinitionsServiceHook[];
+  post_start?: ServiceHook[];
+  pre_stop?: ServiceHook[];
   privileged?: boolean | string;
   profiles?: ListOfStrings;
-  pull_policy?: "always" | "never" | "if_not_present" | "build" | "missing";
+  pull_policy?: string;
+  pull_refresh_after?: string;
   read_only?: boolean | string;
   restart?: string;
   runtime?: string;
@@ -583,8 +594,8 @@ export interface DefinitionsService {
   volumes_from?: string[];
   working_dir?: string;
 }
-export interface DefinitionsServiceHook {
-  command?: Command;
+export interface ServiceHook {
+  command: Command;
   user?: string;
   privileged?: boolean | string;
   working_dir?: string;
@@ -610,7 +621,7 @@ export interface BlkioWeight {
   path?: string;
   weight?: number | string;
 }
-export interface DefinitionsHealthcheck {
+export interface Healthcheck {
   disable?: boolean | string;
   interval?: string;
   retries?: number | string;
@@ -619,20 +630,11 @@ export interface DefinitionsHealthcheck {
   start_period?: string;
   start_interval?: string;
 }
-export interface PropertiesNetworks {
-  [k: string]: DefinitionsNetwork;
-}
-export interface PropertiesVolumes {
-  [k: string]: DefinitionsVolume;
-}
-export interface PropertiesSecrets {
-  [k: string]: DefinitionsSecret;
-}
 /**
- * This interface was referenced by `PropertiesSecrets`'s JSON-Schema definition
+ * This interface was referenced by `undefined`'s JSON-Schema definition
  * via the `patternProperty` "^[a-zA-Z0-9._-]+$".
  */
-export interface DefinitionsSecret {
+export interface Secret {
   name?: string;
   environment?: string;
   file?: string;
@@ -654,14 +656,11 @@ export interface DefinitionsSecret {
   };
   template_driver?: string;
 }
-export interface PropertiesConfigs {
-  [k: string]: DefinitionsConfig;
-}
 /**
- * This interface was referenced by `PropertiesConfigs`'s JSON-Schema definition
+ * This interface was referenced by `undefined`'s JSON-Schema definition
  * via the `patternProperty` "^[a-zA-Z0-9._-]+$".
  */
-export interface DefinitionsConfig {
+export interface Config {
   name?: string;
   content?: string;
   environment?: string;
