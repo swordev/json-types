@@ -471,6 +471,16 @@ export interface Service {
         service: string;
         file?: string;
       };
+  provider?: {
+    type?: string;
+    options?: {
+      /**
+       * This interface was referenced by `undefined`'s JSON-Schema definition
+       * via the `patternProperty` "^.+$".
+       */
+      [k: string]: string | number | null;
+    };
+  };
   external_links?: string[];
   extra_hosts?: ExtraHosts;
   gpus?: Gpus;
@@ -570,7 +580,7 @@ export interface Service {
   volumes?: (
     | string
     | {
-        type: string;
+        type: "bind" | "volume" | "tmpfs" | "cluster" | "image";
         source?: string;
         target?: string;
         read_only?: boolean | string;
@@ -582,12 +592,16 @@ export interface Service {
           selinux?: "z" | "Z";
         };
         volume?: {
+          labels?: ListOrDict;
           nocopy?: boolean | string;
           subpath?: string;
         };
         tmpfs?: {
           size?: number | string;
           mode?: number | string;
+        };
+        image?: {
+          subpath?: string;
         };
       }
   )[];
