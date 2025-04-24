@@ -616,6 +616,9 @@
                         "aliases": {
                           "$ref": "#/definitions/list_of_strings"
                         },
+                        "interface_name": {
+                          "type": "string"
+                        },
                         "ipv4_address": {
                           "type": "string"
                         },
@@ -859,6 +862,7 @@
                       "volume",
                       "tmpfs",
                       "cluster",
+                      "npipe",
                       "image"
                     ]
                   },

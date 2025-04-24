@@ -518,6 +518,7 @@ export interface Service {
          */
         [k: string]: {
           aliases?: ListOfStrings;
+          interface_name?: string;
           ipv4_address?: string;
           ipv6_address?: string;
           link_local_ips?: ListOfStrings;
@@ -580,7 +581,7 @@ export interface Service {
   volumes?: (
     | string
     | {
-        type: "bind" | "volume" | "tmpfs" | "cluster" | "image";
+        type: "bind" | "volume" | "tmpfs" | "cluster" | "npipe" | "image";
         source?: string;
         target?: string;
         read_only?: boolean | string;
