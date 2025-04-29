@@ -172,16 +172,6 @@ export type ServiceConfigOrSecret = (
       mode?: number | string;
     }
 )[];
-export type EnvFile =
-  | string
-  | (
-      | string
-      | {
-          path: string;
-          format?: string;
-          required?: boolean | string;
-        }
-    )[];
 export type LabelFile = string | string[];
 export type Gpus =
   | "all"
@@ -194,11 +184,31 @@ export type Gpus =
       [k: string]: unknown;
     }[];
 /**
+ * Profiles that this service is a part of. When the profile is started, this service will be started.
+ */
+export type ListOfStrings1 = string[];
+/**
+ * Secrets the service will have access to
+ */
+export type ServiceConfigOrSecret1 = (
+  | string
+  | {
+      source?: string;
+      target?: string;
+      uid?: string;
+      gid?: string;
+      mode?: number | string;
+    }
+)[];
+/**
  * This interface was referenced by `undefined`'s JSON-Schema definition
  * via the `patternProperty` "^[a-zA-Z0-9._-]+$".
  */
 export type Network = {
   name?: string;
+  /**
+   * The driver used for this network
+   */
   driver?: string;
   driver_opts?: {
     /**
@@ -246,6 +256,9 @@ export type Network = {
 } & Network1;
 export type Network1 = {
   name?: string;
+  /**
+   * The driver used for this network
+   */
   driver?: string;
   driver_opts?: {
     /**
@@ -297,6 +310,9 @@ export type Network1 = {
  */
 export type Volume = {
   name?: string;
+  /**
+   * The driver used for this volume
+   */
   driver?: string;
   driver_opts?: {
     /**
@@ -318,6 +334,9 @@ export type Volume = {
 } & Volume1;
 export type Volume1 = {
   name?: string;
+  /**
+   * The driver used for this volume
+   */
   driver?: string;
   driver_opts?: {
     /**
@@ -354,18 +373,33 @@ export interface Compose {
    * compose sub-projects to be included.
    */
   include?: Include[];
+  /**
+   * The services in your project
+   */
   services?: {
     [k: string]: Service;
   };
+  /**
+   * Networks that are shared among multiple services
+   */
   networks?: {
     [k: string]: Network;
   };
+  /**
+   * Named volumes that are shared among multiple services
+   */
   volumes?: {
     [k: string]: Volume;
   };
+  /**
+   * Secrets that are shared among multiple services
+   */
   secrets?: {
     [k: string]: Secret;
   };
+  /**
+   * Configurations for services in the project
+   */
   configs?: {
     [k: string]: Config;
   };
@@ -382,11 +416,28 @@ export interface Service {
   build?:
     | string
     | {
+        /**
+         * The context used for building the image
+         */
         context?: string;
+        /**
+         * The Dockerfile used for building the image
+         */
         dockerfile?: string;
         dockerfile_inline?: string;
         entitlements?: string[];
-        args?: ListOrDict;
+        /**
+         * Arguments used during the image build process
+         */
+        args?:
+          | {
+              /**
+               * This interface was referenced by `undefined`'s JSON-Schema definition
+               * via the `patternProperty` ".+".
+               */
+              [k: string]: string | number | boolean | null;
+            }
+          | string[];
         ssh?: ListOrDict;
         labels?: ListOrDict;
         cache_from?: string[];
@@ -417,8 +468,14 @@ export interface Service {
   cap_drop?: string[];
   cgroup?: "host" | "private";
   cgroup_parent?: string;
-  command?: Command;
+  /**
+   * The command that will be run in the container
+   */
+  command?: null | string | string[];
   configs?: ServiceConfigOrSecret;
+  /**
+   * The name that will be given to the container
+   */
   container_name?: string;
   cpu_count?: string | number;
   cpu_percent?: string | number;
@@ -434,6 +491,9 @@ export interface Service {
     file?: string;
     registry?: string;
   };
+  /**
+   * Other services that this service depends on, which will be started before this one
+   */
   depends_on?:
     | ListOfStrings
     | {
@@ -460,10 +520,39 @@ export interface Service {
   dns_opt?: string[];
   dns_search?: StringOrList;
   domainname?: string;
-  entrypoint?: Command;
-  env_file?: EnvFile;
+  /**
+   * The entrypoint to the application in the container
+   */
+  entrypoint?: null | string | string[];
+  /**
+   * Files containing environment variables that will be included
+   */
+  env_file?:
+    | string
+    | (
+        | string
+        | {
+            path: string;
+            format?: string;
+            required?: boolean | string;
+          }
+      )[];
   label_file?: LabelFile;
-  environment?: ListOrDict;
+  /**
+   * Environment variables that will be included
+   */
+  environment?:
+    | {
+        /**
+         * This interface was referenced by `undefined`'s JSON-Schema definition
+         * via the `patternProperty` ".+".
+         */
+        [k: string]: string | number | boolean | null;
+      }
+    | string[];
+  /**
+   * Ports exposed to the other services but not to the host machine
+   */
   expose?: (string | number)[];
   extends?:
     | string
@@ -487,12 +576,29 @@ export interface Service {
   group_add?: (string | number)[];
   healthcheck?: Healthcheck;
   hostname?: string;
+  /**
+   * The image that will be pulled for the service. If `build` is specified, the built image will be given this tag.
+   */
   image?: string;
   init?: boolean | string;
   ipc?: string;
   isolation?: string;
-  labels?: ListOrDict;
+  /**
+   * Labels that will be given to the container
+   */
+  labels?:
+    | {
+        /**
+         * This interface was referenced by `undefined`'s JSON-Schema definition
+         * via the `patternProperty` ".+".
+         */
+        [k: string]: string | number | boolean | null;
+      }
+    | string[];
   links?: string[];
+  /**
+   * Settings for logging for this service
+   */
   logging?: {
     driver?: string;
     options?: {
@@ -509,6 +615,9 @@ export interface Service {
   mem_swappiness?: number | string;
   memswap_limit?: number | string;
   network_mode?: string;
+  /**
+   * The service will be included in these networks, allowing it to reach other containers on the same network
+   */
   networks?:
     | ListOfStrings
     | {
@@ -539,6 +648,9 @@ export interface Service {
   pid?: string | null;
   pids_limit?: number | string;
   platform?: string;
+  /**
+   * Ports that will be exposed to the host
+   */
   ports?: (
     | number
     | string
@@ -555,7 +667,7 @@ export interface Service {
   post_start?: ServiceHook[];
   pre_stop?: ServiceHook[];
   privileged?: boolean | string;
-  profiles?: ListOfStrings;
+  profiles?: ListOfStrings1;
   pull_policy?: string;
   pull_refresh_after?: string;
   read_only?: boolean | string;
@@ -564,7 +676,7 @@ export interface Service {
   scale?: number | string;
   security_opt?: string[];
   shm_size?: number | string;
-  secrets?: ServiceConfigOrSecret;
+  secrets?: ServiceConfigOrSecret1;
   sysctls?: ListOrDict;
   stdin_open?: boolean | string;
   stop_grace_period?: string;
@@ -575,9 +687,15 @@ export interface Service {
   tmpfs?: StringOrList;
   tty?: boolean | string;
   ulimits?: Ulimits;
+  /**
+   * The username under which the app in the container will be started
+   */
   user?: string;
   uts?: string;
   userns_mode?: string;
+  /**
+   * Named volumes and paths on the host mapped to paths in the container
+   */
   volumes?: (
     | string
     | {
@@ -607,6 +725,9 @@ export interface Service {
       }
   )[];
   volumes_from?: string[];
+  /**
+   * The working directory in which the entrypoint or command will be run
+   */
   working_dir?: string;
 }
 export interface ServiceHook {
@@ -636,6 +757,9 @@ export interface BlkioWeight {
   path?: string;
   weight?: number | string;
 }
+/**
+ * A command for checking if the container is healthy
+ */
 export interface Healthcheck {
   disable?: boolean | string;
   interval?: string;
