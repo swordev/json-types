@@ -1,5 +1,27 @@
 # @json-types/compose
 
+## 0.9.0
+
+### Minor Changes
+
+- [`0ed71f6`](https://github.com/swordev/json-types/commit/0ed71f615453f4ee699234c34ae64b5774e1b1c4) Thanks [@github-actions[bot]](https://github.com/github-actions%5Bbot%5D)! - Update schema
+
+- [`603babf`](https://github.com/swordev/json-types/commit/603babf824f0e3ffb09b4338beb25429e16d6966) Thanks [@github-actions[bot]](https://github.com/github-actions%5Bbot%5D)! - Update schema
+
+- [`1bc65f1`](https://github.com/swordev/json-types/commit/1bc65f198d609eef3982c8615945dddaa61b2782) Thanks [@github-actions[bot]](https://github.com/github-actions%5Bbot%5D)! - Update schema
+
+- [`113db88`](https://github.com/swordev/json-types/commit/113db882ddeb421bbf0c44c87457c6bdb369ed79) Thanks [@github-actions[bot]](https://github.com/github-actions%5Bbot%5D)! - Update schema
+
+- [`400d51d`](https://github.com/swordev/json-types/commit/400d51d40adce99cd8e2edd256720c90b404d924) Thanks [@github-actions[bot]](https://github.com/github-actions%5Bbot%5D)! - Update schema
+
+- [`c52cb66`](https://github.com/swordev/json-types/commit/c52cb66d73ddc406aeb90be1edc9c0485c9f2af6) Thanks [@github-actions[bot]](https://github.com/github-actions%5Bbot%5D)! - Update schema
+
+- [`889a897`](https://github.com/swordev/json-types/commit/889a897b955128db422289b3c66d1b5fdeecab7c) Thanks [@github-actions[bot]](https://github.com/github-actions%5Bbot%5D)! - Update schema
+
+- [`4c01ead`](https://github.com/swordev/json-types/commit/4c01ead550c01620229331db70aa6b0c25c4f6ba) Thanks [@github-actions[bot]](https://github.com/github-actions%5Bbot%5D)! - Update schema
+
+- [`62dc27a`](https://github.com/swordev/json-types/commit/62dc27a073dc1046117524340b363c2091b262e1) Thanks [@github-actions[bot]](https://github.com/github-actions%5Bbot%5D)! - Update schema
+
 ## 0.8.0
 
 ### Minor Changes
