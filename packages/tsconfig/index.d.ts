@@ -122,20 +122,20 @@ export type CompilerOptions = {
    */
   module?: (
     | (
-        | "CommonJS"
-        | "AMD"
-        | "System"
-        | "UMD"
-        | "ES6"
-        | "ES2015"
-        | "ES2020"
-        | "ESNext"
-        | "None"
-        | "ES2022"
-        | "Node16"
-        | "Node18"
-        | "NodeNext"
-        | "Preserve"
+        | "commonjs"
+        | "amd"
+        | "system"
+        | "umd"
+        | "es6"
+        | "es2015"
+        | "es2020"
+        | "esnext"
+        | "none"
+        | "es2022"
+        | "node16"
+        | "node18"
+        | "nodenext"
+        | "preserve"
       )
     | {
         [k: string]: unknown;
@@ -144,20 +144,20 @@ export type CompilerOptions = {
     (
       | ((
           | (
-              | "CommonJS"
-              | "AMD"
-              | "System"
-              | "UMD"
-              | "ES6"
-              | "ES2015"
-              | "ES2020"
-              | "ESNext"
-              | "None"
-              | "ES2022"
-              | "Node16"
-              | "Node18"
-              | "NodeNext"
-              | "Preserve"
+              | "commonjs"
+              | "amd"
+              | "system"
+              | "umd"
+              | "es6"
+              | "es2015"
+              | "es2020"
+              | "esnext"
+              | "none"
+              | "es2022"
+              | "node16"
+              | "node18"
+              | "nodenext"
+              | "preserve"
             )
           | {
               [k: string]: unknown;
@@ -166,20 +166,20 @@ export type CompilerOptions = {
           string)
       | ((
           | (
-              | "CommonJS"
-              | "AMD"
-              | "System"
-              | "UMD"
-              | "ES6"
-              | "ES2015"
-              | "ES2020"
-              | "ESNext"
-              | "None"
-              | "ES2022"
-              | "Node16"
-              | "Node18"
-              | "NodeNext"
-              | "Preserve"
+              | "commonjs"
+              | "amd"
+              | "system"
+              | "umd"
+              | "es6"
+              | "es2015"
+              | "es2020"
+              | "esnext"
+              | "none"
+              | "es2022"
+              | "node16"
+              | "node18"
+              | "nodenext"
+              | "preserve"
             )
           | {
               [k: string]: unknown;
@@ -354,20 +354,20 @@ export type CompilerOptions = {
    */
   target?: (
     | (
-        | "ES3"
-        | "ES5"
-        | "ES6"
-        | "ES2015"
-        | "ES2016"
-        | "ES2017"
-        | "ES2018"
-        | "ES2019"
-        | "ES2020"
-        | "ES2021"
-        | "ES2022"
-        | "ES2023"
-        | "ES2024"
-        | "ESNext"
+        | "es3"
+        | "es5"
+        | "es6"
+        | "es2015"
+        | "es2016"
+        | "es2017"
+        | "es2018"
+        | "es2019"
+        | "es2020"
+        | "es2021"
+        | "es2022"
+        | "es2023"
+        | "es2024"
+        | "esnext"
       )
     | {
         [k: string]: unknown;
@@ -376,20 +376,20 @@ export type CompilerOptions = {
     (
       | ((
           | (
-              | "ES3"
-              | "ES5"
-              | "ES6"
-              | "ES2015"
-              | "ES2016"
-              | "ES2017"
-              | "ES2018"
-              | "ES2019"
-              | "ES2020"
-              | "ES2021"
-              | "ES2022"
-              | "ES2023"
-              | "ES2024"
-              | "ESNext"
+              | "es3"
+              | "es5"
+              | "es6"
+              | "es2015"
+              | "es2016"
+              | "es2017"
+              | "es2018"
+              | "es2019"
+              | "es2020"
+              | "es2021"
+              | "es2022"
+              | "es2023"
+              | "es2024"
+              | "esnext"
             )
           | {
               [k: string]: unknown;
@@ -398,20 +398,20 @@ export type CompilerOptions = {
           string)
       | ((
           | (
-              | "ES3"
-              | "ES5"
-              | "ES6"
-              | "ES2015"
-              | "ES2016"
-              | "ES2017"
-              | "ES2018"
-              | "ES2019"
-              | "ES2020"
-              | "ES2021"
-              | "ES2022"
-              | "ES2023"
-              | "ES2024"
-              | "ESNext"
+              | "es3"
+              | "es5"
+              | "es6"
+              | "es2015"
+              | "es2016"
+              | "es2017"
+              | "es2018"
+              | "es2019"
+              | "es2020"
+              | "es2021"
+              | "es2022"
+              | "es2023"
+              | "es2024"
+              | "esnext"
             )
           | {
               [k: string]: unknown;
@@ -1224,20 +1224,20 @@ export type CompilerOptions = {
   mapRoot?: string | null;
   module?: (
     | (
-        | "CommonJS"
-        | "AMD"
-        | "System"
-        | "UMD"
-        | "ES6"
-        | "ES2015"
-        | "ES2020"
-        | "ESNext"
-        | "None"
-        | "ES2022"
-        | "Node16"
-        | "Node18"
-        | "NodeNext"
-        | "Preserve"
+        | "commonjs"
+        | "amd"
+        | "system"
+        | "umd"
+        | "es6"
+        | "es2015"
+        | "es2020"
+        | "esnext"
+        | "none"
+        | "es2022"
+        | "node16"
+        | "node18"
+        | "nodenext"
+        | "preserve"
       )
     | {
         [k: string]: unknown;
@@ -1246,20 +1246,20 @@ export type CompilerOptions = {
     (
       | ((
           | (
-              | "CommonJS"
-              | "AMD"
-              | "System"
-              | "UMD"
-              | "ES6"
-              | "ES2015"
-              | "ES2020"
-              | "ESNext"
-              | "None"
-              | "ES2022"
-              | "Node16"
-              | "Node18"
-              | "NodeNext"
-              | "Preserve"
+              | "commonjs"
+              | "amd"
+              | "system"
+              | "umd"
+              | "es6"
+              | "es2015"
+              | "es2020"
+              | "esnext"
+              | "none"
+              | "es2022"
+              | "node16"
+              | "node18"
+              | "nodenext"
+              | "preserve"
             )
           | {
               [k: string]: unknown;
@@ -1268,20 +1268,20 @@ export type CompilerOptions = {
           string)
       | ((
           | (
-              | "CommonJS"
-              | "AMD"
-              | "System"
-              | "UMD"
-              | "ES6"
-              | "ES2015"
-              | "ES2020"
-              | "ESNext"
-              | "None"
-              | "ES2022"
-              | "Node16"
-              | "Node18"
-              | "NodeNext"
-              | "Preserve"
+              | "commonjs"
+              | "amd"
+              | "system"
+              | "umd"
+              | "es6"
+              | "es2015"
+              | "es2020"
+              | "esnext"
+              | "none"
+              | "es2022"
+              | "node16"
+              | "node18"
+              | "nodenext"
+              | "preserve"
             )
           | {
               [k: string]: unknown;
@@ -1447,20 +1447,20 @@ export type CompilerOptions = {
   stripInternal?: boolean | null;
   target?: (
     | (
-        | "ES3"
-        | "ES5"
-        | "ES6"
-        | "ES2015"
-        | "ES2016"
-        | "ES2017"
-        | "ES2018"
-        | "ES2019"
-        | "ES2020"
-        | "ES2021"
-        | "ES2022"
-        | "ES2023"
-        | "ES2024"
-        | "ESNext"
+        | "es3"
+        | "es5"
+        | "es6"
+        | "es2015"
+        | "es2016"
+        | "es2017"
+        | "es2018"
+        | "es2019"
+        | "es2020"
+        | "es2021"
+        | "es2022"
+        | "es2023"
+        | "es2024"
+        | "esnext"
       )
     | {
         [k: string]: unknown;
@@ -1469,20 +1469,20 @@ export type CompilerOptions = {
     (
       | ((
           | (
-              | "ES3"
-              | "ES5"
-              | "ES6"
-              | "ES2015"
-              | "ES2016"
-              | "ES2017"
-              | "ES2018"
-              | "ES2019"
-              | "ES2020"
-              | "ES2021"
-              | "ES2022"
-              | "ES2023"
-              | "ES2024"
-              | "ESNext"
+              | "es3"
+              | "es5"
+              | "es6"
+              | "es2015"
+              | "es2016"
+              | "es2017"
+              | "es2018"
+              | "es2019"
+              | "es2020"
+              | "es2021"
+              | "es2022"
+              | "es2023"
+              | "es2024"
+              | "esnext"
             )
           | {
               [k: string]: unknown;
@@ -1491,20 +1491,20 @@ export type CompilerOptions = {
           string)
       | ((
           | (
-              | "ES3"
-              | "ES5"
-              | "ES6"
-              | "ES2015"
-              | "ES2016"
-              | "ES2017"
-              | "ES2018"
-              | "ES2019"
-              | "ES2020"
-              | "ES2021"
-              | "ES2022"
-              | "ES2023"
-              | "ES2024"
-              | "ESNext"
+              | "es3"
+              | "es5"
+              | "es6"
+              | "es2015"
+              | "es2016"
+              | "es2017"
+              | "es2018"
+              | "es2019"
+              | "es2020"
+              | "es2021"
+              | "es2022"
+              | "es2023"
+              | "es2024"
+              | "esnext"
             )
           | {
               [k: string]: unknown;
@@ -2450,20 +2450,20 @@ export interface TsNodeDefinition {
       mapRoot?: string | null;
       module?: (
         | (
-            | "CommonJS"
-            | "AMD"
-            | "System"
-            | "UMD"
-            | "ES6"
-            | "ES2015"
-            | "ES2020"
-            | "ESNext"
-            | "None"
-            | "ES2022"
-            | "Node16"
-            | "Node18"
-            | "NodeNext"
-            | "Preserve"
+            | "commonjs"
+            | "amd"
+            | "system"
+            | "umd"
+            | "es6"
+            | "es2015"
+            | "es2020"
+            | "esnext"
+            | "none"
+            | "es2022"
+            | "node16"
+            | "node18"
+            | "nodenext"
+            | "preserve"
           )
         | {
             [k: string]: unknown;
@@ -2472,20 +2472,20 @@ export interface TsNodeDefinition {
         (
           | ((
               | (
-                  | "CommonJS"
-                  | "AMD"
-                  | "System"
-                  | "UMD"
-                  | "ES6"
-                  | "ES2015"
-                  | "ES2020"
-                  | "ESNext"
-                  | "None"
-                  | "ES2022"
-                  | "Node16"
-                  | "Node18"
-                  | "NodeNext"
-                  | "Preserve"
+                  | "commonjs"
+                  | "amd"
+                  | "system"
+                  | "umd"
+                  | "es6"
+                  | "es2015"
+                  | "es2020"
+                  | "esnext"
+                  | "none"
+                  | "es2022"
+                  | "node16"
+                  | "node18"
+                  | "nodenext"
+                  | "preserve"
                 )
               | {
                   [k: string]: unknown;
@@ -2494,20 +2494,20 @@ export interface TsNodeDefinition {
               string)
           | ((
               | (
-                  | "CommonJS"
-                  | "AMD"
-                  | "System"
-                  | "UMD"
-                  | "ES6"
-                  | "ES2015"
-                  | "ES2020"
-                  | "ESNext"
-                  | "None"
-                  | "ES2022"
-                  | "Node16"
-                  | "Node18"
-                  | "NodeNext"
-                  | "Preserve"
+                  | "commonjs"
+                  | "amd"
+                  | "system"
+                  | "umd"
+                  | "es6"
+                  | "es2015"
+                  | "es2020"
+                  | "esnext"
+                  | "none"
+                  | "es2022"
+                  | "node16"
+                  | "node18"
+                  | "nodenext"
+                  | "preserve"
                 )
               | {
                   [k: string]: unknown;
@@ -2673,20 +2673,20 @@ export interface TsNodeDefinition {
       stripInternal?: boolean | null;
       target?: (
         | (
-            | "ES3"
-            | "ES5"
-            | "ES6"
-            | "ES2015"
-            | "ES2016"
-            | "ES2017"
-            | "ES2018"
-            | "ES2019"
-            | "ES2020"
-            | "ES2021"
-            | "ES2022"
-            | "ES2023"
-            | "ES2024"
-            | "ESNext"
+            | "es3"
+            | "es5"
+            | "es6"
+            | "es2015"
+            | "es2016"
+            | "es2017"
+            | "es2018"
+            | "es2019"
+            | "es2020"
+            | "es2021"
+            | "es2022"
+            | "es2023"
+            | "es2024"
+            | "esnext"
           )
         | {
             [k: string]: unknown;
@@ -2695,20 +2695,20 @@ export interface TsNodeDefinition {
         (
           | ((
               | (
-                  | "ES3"
-                  | "ES5"
-                  | "ES6"
-                  | "ES2015"
-                  | "ES2016"
-                  | "ES2017"
-                  | "ES2018"
-                  | "ES2019"
-                  | "ES2020"
-                  | "ES2021"
-                  | "ES2022"
-                  | "ES2023"
-                  | "ES2024"
-                  | "ESNext"
+                  | "es3"
+                  | "es5"
+                  | "es6"
+                  | "es2015"
+                  | "es2016"
+                  | "es2017"
+                  | "es2018"
+                  | "es2019"
+                  | "es2020"
+                  | "es2021"
+                  | "es2022"
+                  | "es2023"
+                  | "es2024"
+                  | "esnext"
                 )
               | {
                   [k: string]: unknown;
@@ -2717,20 +2717,20 @@ export interface TsNodeDefinition {
               string)
           | ((
               | (
-                  | "ES3"
-                  | "ES5"
-                  | "ES6"
-                  | "ES2015"
-                  | "ES2016"
-                  | "ES2017"
-                  | "ES2018"
-                  | "ES2019"
-                  | "ES2020"
-                  | "ES2021"
-                  | "ES2022"
-                  | "ES2023"
-                  | "ES2024"
-                  | "ESNext"
+                  | "es3"
+                  | "es5"
+                  | "es6"
+                  | "es2015"
+                  | "es2016"
+                  | "es2017"
+                  | "es2018"
+                  | "es2019"
+                  | "es2020"
+                  | "es2021"
+                  | "es2022"
+                  | "es2023"
+                  | "es2024"
+                  | "esnext"
                 )
               | {
                   [k: string]: unknown;
@@ -3545,20 +3545,20 @@ export interface TsNodeDefinition {
             mapRoot?: string | null;
             module?: (
               | (
-                  | "CommonJS"
-                  | "AMD"
-                  | "System"
-                  | "UMD"
-                  | "ES6"
-                  | "ES2015"
-                  | "ES2020"
-                  | "ESNext"
-                  | "None"
-                  | "ES2022"
-                  | "Node16"
-                  | "Node18"
-                  | "NodeNext"
-                  | "Preserve"
+                  | "commonjs"
+                  | "amd"
+                  | "system"
+                  | "umd"
+                  | "es6"
+                  | "es2015"
+                  | "es2020"
+                  | "esnext"
+                  | "none"
+                  | "es2022"
+                  | "node16"
+                  | "node18"
+                  | "nodenext"
+                  | "preserve"
                 )
               | {
                   [k: string]: unknown;
@@ -3567,20 +3567,20 @@ export interface TsNodeDefinition {
               (
                 | ((
                     | (
-                        | "CommonJS"
-                        | "AMD"
-                        | "System"
-                        | "UMD"
-                        | "ES6"
-                        | "ES2015"
-                        | "ES2020"
-                        | "ESNext"
-                        | "None"
-                        | "ES2022"
-                        | "Node16"
-                        | "Node18"
-                        | "NodeNext"
-                        | "Preserve"
+                        | "commonjs"
+                        | "amd"
+                        | "system"
+                        | "umd"
+                        | "es6"
+                        | "es2015"
+                        | "es2020"
+                        | "esnext"
+                        | "none"
+                        | "es2022"
+                        | "node16"
+                        | "node18"
+                        | "nodenext"
+                        | "preserve"
                       )
                     | {
                         [k: string]: unknown;
@@ -3589,20 +3589,20 @@ export interface TsNodeDefinition {
                     string)
                 | ((
                     | (
-                        | "CommonJS"
-                        | "AMD"
-                        | "System"
-                        | "UMD"
-                        | "ES6"
-                        | "ES2015"
-                        | "ES2020"
-                        | "ESNext"
-                        | "None"
-                        | "ES2022"
-                        | "Node16"
-                        | "Node18"
-                        | "NodeNext"
-                        | "Preserve"
+                        | "commonjs"
+                        | "amd"
+                        | "system"
+                        | "umd"
+                        | "es6"
+                        | "es2015"
+                        | "es2020"
+                        | "esnext"
+                        | "none"
+                        | "es2022"
+                        | "node16"
+                        | "node18"
+                        | "nodenext"
+                        | "preserve"
                       )
                     | {
                         [k: string]: unknown;
@@ -3768,20 +3768,20 @@ export interface TsNodeDefinition {
             stripInternal?: boolean | null;
             target?: (
               | (
-                  | "ES3"
-                  | "ES5"
-                  | "ES6"
-                  | "ES2015"
-                  | "ES2016"
-                  | "ES2017"
-                  | "ES2018"
-                  | "ES2019"
-                  | "ES2020"
-                  | "ES2021"
-                  | "ES2022"
-                  | "ES2023"
-                  | "ES2024"
-                  | "ESNext"
+                  | "es3"
+                  | "es5"
+                  | "es6"
+                  | "es2015"
+                  | "es2016"
+                  | "es2017"
+                  | "es2018"
+                  | "es2019"
+                  | "es2020"
+                  | "es2021"
+                  | "es2022"
+                  | "es2023"
+                  | "es2024"
+                  | "esnext"
                 )
               | {
                   [k: string]: unknown;
@@ -3790,20 +3790,20 @@ export interface TsNodeDefinition {
               (
                 | ((
                     | (
-                        | "ES3"
-                        | "ES5"
-                        | "ES6"
-                        | "ES2015"
-                        | "ES2016"
-                        | "ES2017"
-                        | "ES2018"
-                        | "ES2019"
-                        | "ES2020"
-                        | "ES2021"
-                        | "ES2022"
-                        | "ES2023"
-                        | "ES2024"
-                        | "ESNext"
+                        | "es3"
+                        | "es5"
+                        | "es6"
+                        | "es2015"
+                        | "es2016"
+                        | "es2017"
+                        | "es2018"
+                        | "es2019"
+                        | "es2020"
+                        | "es2021"
+                        | "es2022"
+                        | "es2023"
+                        | "es2024"
+                        | "esnext"
                       )
                     | {
                         [k: string]: unknown;
@@ -3812,20 +3812,20 @@ export interface TsNodeDefinition {
                     string)
                 | ((
                     | (
-                        | "ES3"
-                        | "ES5"
-                        | "ES6"
-                        | "ES2015"
-                        | "ES2016"
-                        | "ES2017"
-                        | "ES2018"
-                        | "ES2019"
-                        | "ES2020"
-                        | "ES2021"
-                        | "ES2022"
-                        | "ES2023"
-                        | "ES2024"
-                        | "ESNext"
+                        | "es3"
+                        | "es5"
+                        | "es6"
+                        | "es2015"
+                        | "es2016"
+                        | "es2017"
+                        | "es2018"
+                        | "es2019"
+                        | "es2020"
+                        | "es2021"
+                        | "es2022"
+                        | "es2023"
+                        | "es2024"
+                        | "esnext"
                       )
                     | {
                         [k: string]: unknown;
@@ -4643,20 +4643,20 @@ export interface TsNodeDefinition {
             mapRoot?: string | null;
             module?: (
               | (
-                  | "CommonJS"
-                  | "AMD"
-                  | "System"
-                  | "UMD"
-                  | "ES6"
-                  | "ES2015"
-                  | "ES2020"
-                  | "ESNext"
-                  | "None"
-                  | "ES2022"
-                  | "Node16"
-                  | "Node18"
-                  | "NodeNext"
-                  | "Preserve"
+                  | "commonjs"
+                  | "amd"
+                  | "system"
+                  | "umd"
+                  | "es6"
+                  | "es2015"
+                  | "es2020"
+                  | "esnext"
+                  | "none"
+                  | "es2022"
+                  | "node16"
+                  | "node18"
+                  | "nodenext"
+                  | "preserve"
                 )
               | {
                   [k: string]: unknown;
@@ -4665,20 +4665,20 @@ export interface TsNodeDefinition {
               (
                 | ((
                     | (
-                        | "CommonJS"
-                        | "AMD"
-                        | "System"
-                        | "UMD"
-                        | "ES6"
-                        | "ES2015"
-                        | "ES2020"
-                        | "ESNext"
-                        | "None"
-                        | "ES2022"
-                        | "Node16"
-                        | "Node18"
-                        | "NodeNext"
-                        | "Preserve"
+                        | "commonjs"
+                        | "amd"
+                        | "system"
+                        | "umd"
+                        | "es6"
+                        | "es2015"
+                        | "es2020"
+                        | "esnext"
+                        | "none"
+                        | "es2022"
+                        | "node16"
+                        | "node18"
+                        | "nodenext"
+                        | "preserve"
                       )
                     | {
                         [k: string]: unknown;
@@ -4687,20 +4687,20 @@ export interface TsNodeDefinition {
                     string)
                 | ((
                     | (
-                        | "CommonJS"
-                        | "AMD"
-                        | "System"
-                        | "UMD"
-                        | "ES6"
-                        | "ES2015"
-                        | "ES2020"
-                        | "ESNext"
-                        | "None"
-                        | "ES2022"
-                        | "Node16"
-                        | "Node18"
-                        | "NodeNext"
-                        | "Preserve"
+                        | "commonjs"
+                        | "amd"
+                        | "system"
+                        | "umd"
+                        | "es6"
+                        | "es2015"
+                        | "es2020"
+                        | "esnext"
+                        | "none"
+                        | "es2022"
+                        | "node16"
+                        | "node18"
+                        | "nodenext"
+                        | "preserve"
                       )
                     | {
                         [k: string]: unknown;
@@ -4866,20 +4866,20 @@ export interface TsNodeDefinition {
             stripInternal?: boolean | null;
             target?: (
               | (
-                  | "ES3"
-                  | "ES5"
-                  | "ES6"
-                  | "ES2015"
-                  | "ES2016"
-                  | "ES2017"
-                  | "ES2018"
-                  | "ES2019"
-                  | "ES2020"
-                  | "ES2021"
-                  | "ES2022"
-                  | "ES2023"
-                  | "ES2024"
-                  | "ESNext"
+                  | "es3"
+                  | "es5"
+                  | "es6"
+                  | "es2015"
+                  | "es2016"
+                  | "es2017"
+                  | "es2018"
+                  | "es2019"
+                  | "es2020"
+                  | "es2021"
+                  | "es2022"
+                  | "es2023"
+                  | "es2024"
+                  | "esnext"
                 )
               | {
                   [k: string]: unknown;
@@ -4888,20 +4888,20 @@ export interface TsNodeDefinition {
               (
                 | ((
                     | (
-                        | "ES3"
-                        | "ES5"
-                        | "ES6"
-                        | "ES2015"
-                        | "ES2016"
-                        | "ES2017"
-                        | "ES2018"
-                        | "ES2019"
-                        | "ES2020"
-                        | "ES2021"
-                        | "ES2022"
-                        | "ES2023"
-                        | "ES2024"
-                        | "ESNext"
+                        | "es3"
+                        | "es5"
+                        | "es6"
+                        | "es2015"
+                        | "es2016"
+                        | "es2017"
+                        | "es2018"
+                        | "es2019"
+                        | "es2020"
+                        | "es2021"
+                        | "es2022"
+                        | "es2023"
+                        | "es2024"
+                        | "esnext"
                       )
                     | {
                         [k: string]: unknown;
@@ -4910,20 +4910,20 @@ export interface TsNodeDefinition {
                     string)
                 | ((
                     | (
-                        | "ES3"
-                        | "ES5"
-                        | "ES6"
-                        | "ES2015"
-                        | "ES2016"
-                        | "ES2017"
-                        | "ES2018"
-                        | "ES2019"
-                        | "ES2020"
-                        | "ES2021"
-                        | "ES2022"
-                        | "ES2023"
-                        | "ES2024"
-                        | "ESNext"
+                        | "es3"
+                        | "es5"
+                        | "es6"
+                        | "es2015"
+                        | "es2016"
+                        | "es2017"
+                        | "es2018"
+                        | "es2019"
+                        | "es2020"
+                        | "es2021"
+                        | "es2022"
+                        | "es2023"
+                        | "es2024"
+                        | "esnext"
                       )
                     | {
                         [k: string]: unknown;
