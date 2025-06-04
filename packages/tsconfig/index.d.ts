@@ -278,6 +278,10 @@ export type CompilerOptions = {
    */
   noStrictGenericChecks?: boolean | null;
   /**
+   * DEPRECATED. Specify an output for the build. It is recommended to use `outFile` instead.
+   */
+  out?: string | null;
+  /**
    * Skip type checking .d.ts files that are included with TypeScript.
    */
   skipDefaultLibCheck?: boolean | null;
@@ -1373,6 +1377,10 @@ export type CompilerOptions = {
    * Disable strict checking of generic signatures in function types.
    */
   noStrictGenericChecks?: boolean | null;
+  /**
+   * DEPRECATED. Specify an output for the build. It is recommended to use `outFile` instead.
+   */
+  out?: string | null;
   /**
    * Skip type checking .d.ts files that are included with TypeScript.
    */
@@ -2600,6 +2608,10 @@ export interface TsNodeDefinition {
        */
       noStrictGenericChecks?: boolean | null;
       /**
+       * DEPRECATED. Specify an output for the build. It is recommended to use `outFile` instead.
+       */
+      out?: string | null;
+      /**
        * Skip type checking .d.ts files that are included with TypeScript.
        */
       skipDefaultLibCheck?: boolean | null;
@@ -3694,6 +3706,10 @@ export interface TsNodeDefinition {
              * Disable strict checking of generic signatures in function types.
              */
             noStrictGenericChecks?: boolean | null;
+            /**
+             * DEPRECATED. Specify an output for the build. It is recommended to use `outFile` instead.
+             */
+            out?: string | null;
             /**
              * Skip type checking .d.ts files that are included with TypeScript.
              */
@@ -4792,6 +4808,10 @@ export interface TsNodeDefinition {
              * Disable strict checking of generic signatures in function types.
              */
             noStrictGenericChecks?: boolean | null;
+            /**
+             * DEPRECATED. Specify an output for the build. It is recommended to use `outFile` instead.
+             */
+            out?: string | null;
             /**
              * Skip type checking .d.ts files that are included with TypeScript.
              */
