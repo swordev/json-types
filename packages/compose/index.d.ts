@@ -952,6 +952,12 @@ export interface Compose {
     [k: string]: Service;
   };
   /**
+   * Language models that will be used by your application.
+   */
+  models?: {
+    [k: string]: Model;
+  };
+  /**
    * Networks that are shared among multiple services.
    */
   networks?: {
@@ -1363,7 +1369,7 @@ export interface Service {
     /**
      * External component used by Compose to manage setup and teardown lifecycle of the service.
      */
-    type?: string;
+    type: string;
     /**
      * Provider-specific options.
      */
@@ -1372,7 +1378,7 @@ export interface Service {
        * This interface was referenced by `undefined`'s JSON-Schema definition
        * via the `patternProperty` "^.+$".
        */
-      [k: string]: string | number | null;
+      [k: string]: (string | number | boolean) | (string | number | boolean)[];
     };
   };
   /**
@@ -1509,6 +1515,23 @@ export interface Service {
    * Network mode. Values can be 'bridge', 'host', 'none', 'service:[service name]', or 'container:[container name]'.
    */
   network_mode?: string;
+  /**
+   * AI Models to use, referencing entries under the top-level models key.
+   */
+  models?:
+    | ListOfStrings3
+    | {
+        /**
+         * This interface was referenced by `undefined`'s JSON-Schema definition
+         * via the `patternProperty` "^[a-zA-Z0-9._-]+$".
+         */
+        [k: string]: {
+          /**
+           * Environment variable set to AI model endpoint.
+           */
+          endpoint_var?: string;
+        };
+      };
   /**
    * Networks to join, referencing entries under the top-level networks key. Can be a list of network names or a mapping of network name to network configuration.
    */
@@ -1702,6 +1725,10 @@ export interface Service {
    */
   tty?: boolean | string;
   ulimits?: Ulimits1;
+  /**
+   * Bind mount Docker API socket and required auth.
+   */
+  use_api_socket?: boolean;
   /**
    * Username or UID to run the container process as.
    */
@@ -1997,6 +2024,27 @@ export interface Ulimits1 {
          */
         soft: number | string;
       };
+}
+/**
+ * Language Model for the Compose application.
+ *
+ * This interface was referenced by `undefined`'s JSON-Schema definition
+ * via the `patternProperty` "^[a-zA-Z0-9._-]+$".
+ */
+export interface Model {
+  /**
+   * Custom name for this model.
+   */
+  name?: string;
+  /**
+   * Language Model to run.
+   */
+  model: string;
+  context_size?: number;
+  /**
+   * Raw runtime flags to pass to the inference engine.
+   */
+  runtime_flags?: string[];
 }
 /**
  * Secret configuration for the Compose application.

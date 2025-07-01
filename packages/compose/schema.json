@@ -31,6 +31,15 @@
       "additionalProperties": false,
       "description": "The services that will be used by your application."
     },
+    "models": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-zA-Z0-9._-]+$": {
+          "$ref": "#/definitions/model"
+        }
+      },
+      "description": "Language models that will be used by your application."
+    },
     "networks": {
       "type": "object",
       "patternProperties": {
@@ -556,6 +565,9 @@
         "provider": {
           "type": "object",
           "description": "Specify a service which will not be manage by Compose directly, and delegate its management to an external provider.",
+          "required": [
+            "type"
+          ],
           "properties": {
             "type": {
               "type": "string",
@@ -566,10 +578,24 @@
               "description": "Provider-specific options.",
               "patternProperties": {
                 "^.+$": {
-                  "type": [
-                    "string",
-                    "number",
-                    "null"
+                  "oneOf": [
+                    {
+                      "type": [
+                        "string",
+                        "number",
+                        "boolean"
+                      ]
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": [
+                          "string",
+                          "number",
+                          "boolean"
+                        ]
+                      }
+                    }
                   ]
                 }
               }
@@ -702,6 +728,29 @@
         "network_mode": {
           "type": "string",
           "description": "Network mode. Values can be 'bridge', 'host', 'none', 'service:[service name]', or 'container:[container name]'."
+        },
+        "models": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/list_of_strings"
+            },
+            {
+              "type": "object",
+              "patternProperties": {
+                "^[a-zA-Z0-9._-]+$": {
+                  "type": "object",
+                  "properties": {
+                    "endpoint_var": {
+                      "type": "string",
+                      "description": "Environment variable set to AI model endpoint."
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          ],
+          "description": "AI Models to use, referencing entries under the top-level models key."
         },
         "networks": {
           "oneOf": [
@@ -979,6 +1028,10 @@
         "ulimits": {
           "$ref": "#/definitions/ulimits",
           "description": "Override the default ulimits for a container."
+        },
+        "use_api_socket": {
+          "type": "boolean",
+          "description": "Bind mount Docker API socket and required auth."
         },
         "user": {
           "type": "string",
@@ -1906,6 +1959,34 @@
           "description": "Driver to use for templating the config's value."
         }
       },
+      "additionalProperties": false
+    },
+    "model": {
+      "type": "object",
+      "description": "Language Model for the Compose application.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Custom name for this model."
+        },
+        "model": {
+          "type": "string",
+          "description": "Language Model to run."
+        },
+        "context_size": {
+          "type": "integer"
+        },
+        "runtime_flags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Raw runtime flags to pass to the inference engine."
+        }
+      },
+      "required": [
+        "model"
+      ],
       "additionalProperties": false
     },
     "command": {
