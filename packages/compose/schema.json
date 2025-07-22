@@ -318,7 +318,8 @@
         },
         "container_name": {
           "type": "string",
-          "description": "Specify a custom container name, rather than a generated default name."
+          "description": "Specify a custom container name, rather than a generated default name.",
+          "pattern": "[a-zA-Z0-9][a-zA-Z0-9_.-]+"
         },
         "cpu_count": {
           "oneOf": [
@@ -743,6 +744,10 @@
                     "endpoint_var": {
                       "type": "string",
                       "description": "Environment variable set to AI model endpoint."
+                    },
+                    "model_var": {
+                      "type": "string",
+                      "description": "Environment variable set to AI model name."
                     }
                   },
                   "additionalProperties": false

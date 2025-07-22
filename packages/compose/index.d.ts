@@ -1530,6 +1530,10 @@ export interface Service {
            * Environment variable set to AI model endpoint.
            */
           endpoint_var?: string;
+          /**
+           * Environment variable set to AI model name.
+           */
+          model_var?: string;
         };
       };
   /**
