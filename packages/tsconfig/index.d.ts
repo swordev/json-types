@@ -134,6 +134,7 @@ export type CompilerOptions = {
         | "es2022"
         | "node16"
         | "node18"
+        | "node20"
         | "nodenext"
         | "preserve"
       )
@@ -156,6 +157,7 @@ export type CompilerOptions = {
               | "es2022"
               | "node16"
               | "node18"
+              | "node20"
               | "nodenext"
               | "preserve"
             )
@@ -178,6 +180,7 @@ export type CompilerOptions = {
               | "es2022"
               | "node16"
               | "node18"
+              | "node20"
               | "nodenext"
               | "preserve"
             )
@@ -656,6 +659,8 @@ export type CompilerOptions = {
             | "ES2023.Collection"
             | "ESNext.Decorators"
             | "ESNext.Disposable"
+            | "ESNext.Error"
+            | "ESNext.Sharedmemory"
           )
         | {
             [k: string]: unknown;
@@ -802,6 +807,8 @@ export type CompilerOptions = {
                   | "ES2023.Collection"
                   | "ESNext.Decorators"
                   | "ESNext.Disposable"
+                  | "ESNext.Error"
+                  | "ESNext.Sharedmemory"
                 )
               | {
                   [k: string]: unknown;
@@ -948,6 +955,8 @@ export type CompilerOptions = {
                   | "ES2023.Collection"
                   | "ESNext.Decorators"
                   | "ESNext.Disposable"
+                  | "ESNext.Error"
+                  | "ESNext.Sharedmemory"
                 )
               | {
                   [k: string]: unknown;
@@ -1240,6 +1249,7 @@ export type CompilerOptions = {
         | "es2022"
         | "node16"
         | "node18"
+        | "node20"
         | "nodenext"
         | "preserve"
       )
@@ -1262,6 +1272,7 @@ export type CompilerOptions = {
               | "es2022"
               | "node16"
               | "node18"
+              | "node20"
               | "nodenext"
               | "preserve"
             )
@@ -1284,6 +1295,7 @@ export type CompilerOptions = {
               | "es2022"
               | "node16"
               | "node18"
+              | "node20"
               | "nodenext"
               | "preserve"
             )
@@ -1753,6 +1765,8 @@ export type CompilerOptions = {
             | "ES2023.Collection"
             | "ESNext.Decorators"
             | "ESNext.Disposable"
+            | "ESNext.Error"
+            | "ESNext.Sharedmemory"
           )
         | {
             [k: string]: unknown;
@@ -1899,6 +1913,8 @@ export type CompilerOptions = {
                   | "ES2023.Collection"
                   | "ESNext.Decorators"
                   | "ESNext.Disposable"
+                  | "ESNext.Error"
+                  | "ESNext.Sharedmemory"
                 )
               | {
                   [k: string]: unknown;
@@ -2045,6 +2061,8 @@ export type CompilerOptions = {
                   | "ES2023.Collection"
                   | "ESNext.Decorators"
                   | "ESNext.Disposable"
+                  | "ESNext.Error"
+                  | "ESNext.Sharedmemory"
                 )
               | {
                   [k: string]: unknown;
@@ -2470,6 +2488,7 @@ export interface TsNodeDefinition {
             | "es2022"
             | "node16"
             | "node18"
+            | "node20"
             | "nodenext"
             | "preserve"
           )
@@ -2492,6 +2511,7 @@ export interface TsNodeDefinition {
                   | "es2022"
                   | "node16"
                   | "node18"
+                  | "node20"
                   | "nodenext"
                   | "preserve"
                 )
@@ -2514,6 +2534,7 @@ export interface TsNodeDefinition {
                   | "es2022"
                   | "node16"
                   | "node18"
+                  | "node20"
                   | "nodenext"
                   | "preserve"
                 )
@@ -2983,6 +3004,8 @@ export interface TsNodeDefinition {
                 | "ES2023.Collection"
                 | "ESNext.Decorators"
                 | "ESNext.Disposable"
+                | "ESNext.Error"
+                | "ESNext.Sharedmemory"
               )
             | {
                 [k: string]: unknown;
@@ -3129,6 +3152,8 @@ export interface TsNodeDefinition {
                       | "ES2023.Collection"
                       | "ESNext.Decorators"
                       | "ESNext.Disposable"
+                      | "ESNext.Error"
+                      | "ESNext.Sharedmemory"
                     )
                   | {
                       [k: string]: unknown;
@@ -3275,6 +3300,8 @@ export interface TsNodeDefinition {
                       | "ES2023.Collection"
                       | "ESNext.Decorators"
                       | "ESNext.Disposable"
+                      | "ESNext.Error"
+                      | "ESNext.Sharedmemory"
                     )
                   | {
                       [k: string]: unknown;
@@ -3569,6 +3596,7 @@ export interface TsNodeDefinition {
                   | "es2022"
                   | "node16"
                   | "node18"
+                  | "node20"
                   | "nodenext"
                   | "preserve"
                 )
@@ -3591,6 +3619,7 @@ export interface TsNodeDefinition {
                         | "es2022"
                         | "node16"
                         | "node18"
+                        | "node20"
                         | "nodenext"
                         | "preserve"
                       )
@@ -3613,6 +3642,7 @@ export interface TsNodeDefinition {
                         | "es2022"
                         | "node16"
                         | "node18"
+                        | "node20"
                         | "nodenext"
                         | "preserve"
                       )
@@ -4086,6 +4116,8 @@ export interface TsNodeDefinition {
                       | "ES2023.Collection"
                       | "ESNext.Decorators"
                       | "ESNext.Disposable"
+                      | "ESNext.Error"
+                      | "ESNext.Sharedmemory"
                     )
                   | {
                       [k: string]: unknown;
@@ -4232,6 +4264,8 @@ export interface TsNodeDefinition {
                             | "ES2023.Collection"
                             | "ESNext.Decorators"
                             | "ESNext.Disposable"
+                            | "ESNext.Error"
+                            | "ESNext.Sharedmemory"
                           )
                         | {
                             [k: string]: unknown;
@@ -4378,6 +4412,8 @@ export interface TsNodeDefinition {
                             | "ES2023.Collection"
                             | "ESNext.Decorators"
                             | "ESNext.Disposable"
+                            | "ESNext.Error"
+                            | "ESNext.Sharedmemory"
                           )
                         | {
                             [k: string]: unknown;
@@ -4671,6 +4707,7 @@ export interface TsNodeDefinition {
                   | "es2022"
                   | "node16"
                   | "node18"
+                  | "node20"
                   | "nodenext"
                   | "preserve"
                 )
@@ -4693,6 +4730,7 @@ export interface TsNodeDefinition {
                         | "es2022"
                         | "node16"
                         | "node18"
+                        | "node20"
                         | "nodenext"
                         | "preserve"
                       )
@@ -4715,6 +4753,7 @@ export interface TsNodeDefinition {
                         | "es2022"
                         | "node16"
                         | "node18"
+                        | "node20"
                         | "nodenext"
                         | "preserve"
                       )
@@ -5188,6 +5227,8 @@ export interface TsNodeDefinition {
                       | "ES2023.Collection"
                       | "ESNext.Decorators"
                       | "ESNext.Disposable"
+                      | "ESNext.Error"
+                      | "ESNext.Sharedmemory"
                     )
                   | {
                       [k: string]: unknown;
@@ -5334,6 +5375,8 @@ export interface TsNodeDefinition {
                             | "ES2023.Collection"
                             | "ESNext.Decorators"
                             | "ESNext.Disposable"
+                            | "ESNext.Error"
+                            | "ESNext.Sharedmemory"
                           )
                         | {
                             [k: string]: unknown;
@@ -5480,6 +5523,8 @@ export interface TsNodeDefinition {
                             | "ES2023.Collection"
                             | "ESNext.Decorators"
                             | "ESNext.Disposable"
+                            | "ESNext.Error"
+                            | "ESNext.Sharedmemory"
                           )
                         | {
                             [k: string]: unknown;
