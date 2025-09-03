@@ -1088,6 +1088,14 @@ export interface Service {
          */
         network?: string;
         /**
+         * Add a provenance attestation
+         */
+        provenance?: string | boolean;
+        /**
+         * Add a SBOM attestation
+         */
+        sbom?: string | boolean;
+        /**
          * Always attempt to pull a newer version of the image.
          */
         pull?: boolean | string;

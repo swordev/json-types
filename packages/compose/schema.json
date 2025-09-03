@@ -171,6 +171,20 @@
                   "type": "string",
                   "description": "Network mode to use for the build. Options include 'default', 'none', 'host', or a network name."
                 },
+                "provenance": {
+                  "type": [
+                    "string",
+                    "boolean"
+                  ],
+                  "description": "Add a provenance attestation"
+                },
+                "sbom": {
+                  "type": [
+                    "string",
+                    "boolean"
+                  ],
+                  "description": "Add a SBOM attestation"
+                },
                 "pull": {
                   "type": [
                     "boolean",
