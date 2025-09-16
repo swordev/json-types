@@ -22,7 +22,7 @@ export type CompilerOptions = {
    */
   allowArbitraryExtensions?: boolean | null;
   /**
-   * Allow imports to include TypeScript file extensions. Requires '--moduleResolution bundler' and either '--noEmit' or '--emitDeclarationOnly' to be set.
+   * Allow imports to include TypeScript file extensions. Requires either '--noEmit' or '--emitDeclarationOnly' to be set.
    */
   allowImportingTsExtensions?: boolean | null;
   /**
@@ -1140,7 +1140,7 @@ export type CompilerOptions = {
    */
   allowArbitraryExtensions?: boolean | null;
   /**
-   * Allow imports to include TypeScript file extensions. Requires '--moduleResolution bundler' and either '--noEmit' or '--emitDeclarationOnly' to be set.
+   * Allow imports to include TypeScript file extensions. Requires either '--noEmit' or '--emitDeclarationOnly' to be set.
    */
   allowImportingTsExtensions?: boolean | null;
   /**
@@ -2379,7 +2379,7 @@ export interface TsNodeDefinition {
        */
       allowArbitraryExtensions?: boolean | null;
       /**
-       * Allow imports to include TypeScript file extensions. Requires '--moduleResolution bundler' and either '--noEmit' or '--emitDeclarationOnly' to be set.
+       * Allow imports to include TypeScript file extensions. Requires either '--noEmit' or '--emitDeclarationOnly' to be set.
        */
       allowImportingTsExtensions?: boolean | null;
       /**
@@ -3487,7 +3487,7 @@ export interface TsNodeDefinition {
              */
             allowArbitraryExtensions?: boolean | null;
             /**
-             * Allow imports to include TypeScript file extensions. Requires '--moduleResolution bundler' and either '--noEmit' or '--emitDeclarationOnly' to be set.
+             * Allow imports to include TypeScript file extensions. Requires either '--noEmit' or '--emitDeclarationOnly' to be set.
              */
             allowImportingTsExtensions?: boolean | null;
             /**
@@ -4598,7 +4598,7 @@ export interface TsNodeDefinition {
              */
             allowArbitraryExtensions?: boolean | null;
             /**
-             * Allow imports to include TypeScript file extensions. Requires '--moduleResolution bundler' and either '--noEmit' or '--emitDeclarationOnly' to be set.
+             * Allow imports to include TypeScript file extensions. Requires either '--noEmit' or '--emitDeclarationOnly' to be set.
              */
             allowImportingTsExtensions?: boolean | null;
             /**
