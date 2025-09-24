@@ -109,7 +109,7 @@ export interface ExternalApplicationResource {
   /**
    * The platform it is associated to.
    */
-  platform: "chrome_web_store" | "play" | "itunes" | "windows";
+  platform: "chrome_web_store" | "play" | "itunes" | "webapp" | "windows";
   /**
    * The URL where the application can be found.
    */

@@ -62,6 +62,7 @@
             "chrome_web_store",
             "play",
             "itunes",
+            "webapp",
             "windows"
           ]
         },

@@ -22,5 +22,5 @@ import schema from "@json-types/web-manifest/schema.json";
 
 TypeScript types generated automatically every night and published when there are changes.
 
-- Last change: 2023-10-21T23:35:38.511Z
+- Last change: 2025-09-24T01:50:54.299Z
 - Source URL: https://json.schemastore.org/web-manifest.json
