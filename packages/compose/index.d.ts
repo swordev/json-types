@@ -57,6 +57,10 @@ export type Development = {
      */
     target?: string;
     exec?: ServiceHook;
+    /**
+     * Ensure that an initial synchronization is done before starting watch mode for sync+x triggers
+     */
+    initial_sync?: boolean;
   }[];
 } & Development1;
 export type Development1 = {
@@ -85,6 +89,10 @@ export type Development1 = {
      */
     target?: string;
     exec?: ServiceHook;
+    /**
+     * Ensure that an initial synchronization is done before starting watch mode for sync+x triggers
+     */
+    initial_sync?: boolean;
   }[];
 } | null;
 /**
