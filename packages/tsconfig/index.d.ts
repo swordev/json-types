@@ -22,7 +22,7 @@ export type CompilerOptions = {
    */
   allowArbitraryExtensions?: boolean | null;
   /**
-   * Allow imports to include TypeScript file extensions. Requires either '--noEmit' or '--emitDeclarationOnly' to be set.
+   * Allow imports to include TypeScript file extensions. Requires `--moduleResolution bundler` and either `--noEmit` or `--emitDeclarationOnly` to be set.
    */
   allowImportingTsExtensions?: boolean | null;
   /**
@@ -54,7 +54,7 @@ export type CompilerOptions = {
    */
   disableReferencedProjectLoad?: boolean | null;
   /**
-   * Enforces using indexed accessors for keys declared using an indexed type
+   * Enforces using indexed accessors for keys declared using an indexed type.
    */
   noPropertyAccessFromIndexSignature?: boolean | null;
   /**
@@ -70,7 +70,7 @@ export type CompilerOptions = {
    */
   erasableSyntaxOnly?: boolean | null;
   /**
-   * Differentiate between undefined and not present when type checking
+   * Interpret optional property types as written, rather than adding `undefined`.
    */
   exactOptionalPropertyTypes?: boolean | null;
   /**
@@ -78,7 +78,7 @@ export type CompilerOptions = {
    */
   incremental?: boolean | null;
   /**
-   * Specify the folder for .tsbuildinfo incremental compilation files.
+   * Specify the path to .tsbuildinfo incremental compilation file.
    */
   tsBuildInfoFile?: string | null;
   /**
@@ -98,11 +98,11 @@ export type CompilerOptions = {
    */
   reactNamespace?: string | null;
   /**
-   * Specify the JSX factory function used when targeting React JSX emit, e.g. 'React.createElement' or 'h'
+   * Specify the JSX factory function used when targeting React JSX emit, e.g. `React.createElement` or `h`.
    */
   jsxFactory?: string | null;
   /**
-   * Specify the JSX Fragment reference used for fragments when targeting React JSX emit e.g. 'React.Fragment' or 'Fragment'.
+   * Specify the JSX Fragment reference used for fragments when targeting React JSX emit e.g. `React.Fragment` or `Fragment`.
    */
   jsxFragmentFactory?: string | null;
   /**
@@ -245,7 +245,7 @@ export type CompilerOptions = {
           null)
     );
   /**
-   * Disable emitting file from a compilation.
+   * Disable emitting files from a compilation.
    */
   noEmit?: boolean | null;
   /**
@@ -257,7 +257,7 @@ export type CompilerOptions = {
    */
   noEmitOnError?: boolean | null;
   /**
-   * Enable error reporting for expressions and declarations with an implied `any` type..
+   * Enable error reporting for expressions and declarations with an implied `any` type.
    */
   noImplicitAny?: boolean | null;
   /**
@@ -265,11 +265,11 @@ export type CompilerOptions = {
    */
   noImplicitThis?: boolean | null;
   /**
-   * Enable error reporting when a local variable isn't read.
+   * Enable error reporting when local variables aren't read.
    */
   noUnusedLocals?: boolean | null;
   /**
-   * Raise an error when a function parameter isn't read
+   * Raise an error when a function parameter isn't read.
    */
   noUnusedParameters?: boolean | null;
   /**
@@ -285,7 +285,7 @@ export type CompilerOptions = {
    */
   noStrictGenericChecks?: boolean | null;
   /**
-   * DEPRECATED. Specify an output for the build. It is recommended to use `outFile` instead.
+   * Deprecated setting. Use `outFile` instead.
    */
   out?: string | null;
   /**
@@ -313,15 +313,15 @@ export type CompilerOptions = {
    */
   preserveSymlinks?: boolean | null;
   /**
-   * Preserve unused imported values in the JavaScript output that would otherwise be removed
+   * Preserve unused imported values in the JavaScript output that would otherwise be removed.
    */
   preserveValueImports?: boolean | null;
   /**
-   * Disable wiping the console in watch mode
+   * Disable wiping the console in watch mode.
    */
   preserveWatchOutput?: boolean | null;
   /**
-   * Enable color and formatting in output to make compiler errors easier to read
+   * Enable color and formatting in TypeScript's output to make compiler errors easier to read.
    */
   pretty?: boolean | null;
   /**
@@ -329,7 +329,7 @@ export type CompilerOptions = {
    */
   removeComments?: boolean | null;
   /**
-   * Rewrite '.ts', '.tsx', '.mts', and '.cts' file extensions in relative import paths to their JavaScript equivalent in output files.
+   * Rewrite `.ts`, `.tsx`, `.mts`, and `.cts` file extensions in relative import paths to their JavaScript equivalent in output files.
    */
   rewriteRelativeImportExtensions?: boolean | null;
   /**
@@ -464,7 +464,7 @@ export type CompilerOptions = {
     | "useFsEventsOnParentDirectory"
     | "fixedChunkSizePolling";
   /**
-   * Enable experimental support for TC39 stage 2 draft decorators.
+   * Enable experimental support for legacy experimental decorators.
    */
   experimentalDecorators?: boolean | null;
   /**
@@ -537,11 +537,11 @@ export type CompilerOptions = {
    */
   types?: string[] | null;
   /**
-   * Enable tracing of the name resolution process. Requires TypeScript version 2.0 or later.
+   * Log paths used during the `moduleResolution` process.
    */
   traceResolution?: boolean | null;
   /**
-   * Allow JavaScript files to be a part of your program. Use the `checkJS` option to get errors from these files.
+   * Allow JavaScript files to be a part of your program. Use the `checkJs` option to get errors from these files.
    */
   allowJs?: boolean | null;
   /**
@@ -549,11 +549,11 @@ export type CompilerOptions = {
    */
   noErrorTruncation?: boolean | null;
   /**
-   * Allow 'import x from y' when a module doesn't have a default export.
+   * Allow `import x from y` when a module doesn't have a default export.
    */
   allowSyntheticDefaultImports?: boolean | null;
   /**
-   * Disable adding 'use strict' directives in emitted JavaScript files.
+   * Disable adding `use strict` directives in emitted JavaScript files.
    */
   noImplicitUseStrict?: boolean | null;
   /**
@@ -722,7 +722,7 @@ export type CompilerOptions = {
    */
   libReplacement?: boolean | null;
   /**
-   * Specify how TypeScript determine a file as module.
+   * Control what method is used to detect module-format JS files.
    */
   moduleDetection?: "auto" | "legacy" | "force";
   /**
@@ -742,11 +742,11 @@ export type CompilerOptions = {
    */
   importsNotUsedAsValues?: "remove" | "preserve" | "error";
   /**
-   * Ensure 'use strict' is always emitted.
+   * Ensure `use strict` is always emitted.
    */
   alwaysStrict?: boolean | null;
   /**
-   * Enable all strict type checking options.
+   * Enable all strict type-checking options.
    */
   strict?: boolean | null;
   /**
@@ -790,7 +790,7 @@ export type CompilerOptions = {
    */
   declarationMap?: boolean | null;
   /**
-   * Enable importing .json files
+   * Enable importing .json files.
    */
   resolveJsonModule?: boolean | null;
   /**
@@ -802,7 +802,7 @@ export type CompilerOptions = {
    */
   resolvePackageJsonImports?: boolean | null;
   /**
-   * Have recompiles in '--incremental' and '--watch' assume that changes within a file will only affect files directly depending on it. Requires TypeScript version 3.8 or later.
+   * Have recompiles in projects that use `incremental` and `watch` mode assume that changes within a file will only affect files directly depending on it.
    */
   assumeChangesOnlyAffectDirectDependencies?: boolean | null;
   /**
@@ -814,7 +814,7 @@ export type CompilerOptions = {
    */
   listFilesOnly?: boolean | null;
   /**
-   * Disable preferring source files instead of declaration files when referencing composite projects
+   * Disable preferring source files instead of declaration files when referencing composite projects.
    */
   disableSourceOfProjectReferenceRedirect?: boolean | null;
   /**
@@ -822,11 +822,11 @@ export type CompilerOptions = {
    */
   disableSolutionSearching?: boolean | null;
   /**
-   * Do not transform or elide any imports or exports not marked as type-only, ensuring they are written in the output file's format based on the 'module' setting.
+   * Do not transform or elide any imports or exports not marked as type-only, ensuring they are written in the output file's format based on the `module` setting.
    */
   verbatimModuleSyntax?: boolean | null;
   /**
-   * Disable full type checking (only critical parse and emit errors will be reported)
+   * Disable full type checking (only critical parse and emit errors will be reported).
    */
   noCheck?: boolean | null;
   /**
@@ -838,7 +838,7 @@ export type CompilerOptions = {
    */
   noUncheckedSideEffectImports?: boolean | null;
   /**
-   * Built-in iterators are instantiated with a 'TReturn' type of 'undefined' instead of 'any'.
+   * Built-in iterators are instantiated with a `TReturn` type of `undefined` instead of `any`.
    */
   strictBuiltinIteratorReturn?: boolean | null;
 } & ({
@@ -847,7 +847,7 @@ export type CompilerOptions = {
    */
   allowArbitraryExtensions?: boolean | null;
   /**
-   * Allow imports to include TypeScript file extensions. Requires either '--noEmit' or '--emitDeclarationOnly' to be set.
+   * Allow imports to include TypeScript file extensions. Requires `--moduleResolution bundler` and either `--noEmit` or `--emitDeclarationOnly` to be set.
    */
   allowImportingTsExtensions?: boolean | null;
   /**
@@ -879,7 +879,7 @@ export type CompilerOptions = {
    */
   disableReferencedProjectLoad?: boolean | null;
   /**
-   * Enforces using indexed accessors for keys declared using an indexed type
+   * Enforces using indexed accessors for keys declared using an indexed type.
    */
   noPropertyAccessFromIndexSignature?: boolean | null;
   /**
@@ -895,7 +895,7 @@ export type CompilerOptions = {
    */
   erasableSyntaxOnly?: boolean | null;
   /**
-   * Differentiate between undefined and not present when type checking
+   * Interpret optional property types as written, rather than adding `undefined`.
    */
   exactOptionalPropertyTypes?: boolean | null;
   /**
@@ -903,7 +903,7 @@ export type CompilerOptions = {
    */
   incremental?: boolean | null;
   /**
-   * Specify the folder for .tsbuildinfo incremental compilation files.
+   * Specify the path to .tsbuildinfo incremental compilation file.
    */
   tsBuildInfoFile?: string | null;
   /**
@@ -923,11 +923,11 @@ export type CompilerOptions = {
    */
   reactNamespace?: string | null;
   /**
-   * Specify the JSX factory function used when targeting React JSX emit, e.g. 'React.createElement' or 'h'
+   * Specify the JSX factory function used when targeting React JSX emit, e.g. `React.createElement` or `h`.
    */
   jsxFactory?: string | null;
   /**
-   * Specify the JSX Fragment reference used for fragments when targeting React JSX emit e.g. 'React.Fragment' or 'Fragment'.
+   * Specify the JSX Fragment reference used for fragments when targeting React JSX emit e.g. `React.Fragment` or `Fragment`.
    */
   jsxFragmentFactory?: string | null;
   /**
@@ -1061,7 +1061,7 @@ export type CompilerOptions = {
           null)
     );
   /**
-   * Disable emitting file from a compilation.
+   * Disable emitting files from a compilation.
    */
   noEmit?: boolean | null;
   /**
@@ -1073,7 +1073,7 @@ export type CompilerOptions = {
    */
   noEmitOnError?: boolean | null;
   /**
-   * Enable error reporting for expressions and declarations with an implied `any` type..
+   * Enable error reporting for expressions and declarations with an implied `any` type.
    */
   noImplicitAny?: boolean | null;
   /**
@@ -1081,11 +1081,11 @@ export type CompilerOptions = {
    */
   noImplicitThis?: boolean | null;
   /**
-   * Enable error reporting when a local variable isn't read.
+   * Enable error reporting when local variables aren't read.
    */
   noUnusedLocals?: boolean | null;
   /**
-   * Raise an error when a function parameter isn't read
+   * Raise an error when a function parameter isn't read.
    */
   noUnusedParameters?: boolean | null;
   /**
@@ -1101,7 +1101,7 @@ export type CompilerOptions = {
    */
   noStrictGenericChecks?: boolean | null;
   /**
-   * DEPRECATED. Specify an output for the build. It is recommended to use `outFile` instead.
+   * Deprecated setting. Use `outFile` instead.
    */
   out?: string | null;
   /**
@@ -1129,15 +1129,15 @@ export type CompilerOptions = {
    */
   preserveSymlinks?: boolean | null;
   /**
-   * Preserve unused imported values in the JavaScript output that would otherwise be removed
+   * Preserve unused imported values in the JavaScript output that would otherwise be removed.
    */
   preserveValueImports?: boolean | null;
   /**
-   * Disable wiping the console in watch mode
+   * Disable wiping the console in watch mode.
    */
   preserveWatchOutput?: boolean | null;
   /**
-   * Enable color and formatting in output to make compiler errors easier to read
+   * Enable color and formatting in TypeScript's output to make compiler errors easier to read.
    */
   pretty?: boolean | null;
   /**
@@ -1145,7 +1145,7 @@ export type CompilerOptions = {
    */
   removeComments?: boolean | null;
   /**
-   * Rewrite '.ts', '.tsx', '.mts', and '.cts' file extensions in relative import paths to their JavaScript equivalent in output files.
+   * Rewrite `.ts`, `.tsx`, `.mts`, and `.cts` file extensions in relative import paths to their JavaScript equivalent in output files.
    */
   rewriteRelativeImportExtensions?: boolean | null;
   /**
@@ -1277,7 +1277,7 @@ export type CompilerOptions = {
     | "useFsEventsOnParentDirectory"
     | "fixedChunkSizePolling";
   /**
-   * Enable experimental support for TC39 stage 2 draft decorators.
+   * Enable experimental support for legacy experimental decorators.
    */
   experimentalDecorators?: boolean | null;
   /**
@@ -1350,11 +1350,11 @@ export type CompilerOptions = {
    */
   types?: string[] | null;
   /**
-   * Enable tracing of the name resolution process. Requires TypeScript version 2.0 or later.
+   * Log paths used during the `moduleResolution` process.
    */
   traceResolution?: boolean | null;
   /**
-   * Allow JavaScript files to be a part of your program. Use the `checkJS` option to get errors from these files.
+   * Allow JavaScript files to be a part of your program. Use the `checkJs` option to get errors from these files.
    */
   allowJs?: boolean | null;
   /**
@@ -1362,11 +1362,11 @@ export type CompilerOptions = {
    */
   noErrorTruncation?: boolean | null;
   /**
-   * Allow 'import x from y' when a module doesn't have a default export.
+   * Allow `import x from y` when a module doesn't have a default export.
    */
   allowSyntheticDefaultImports?: boolean | null;
   /**
-   * Disable adding 'use strict' directives in emitted JavaScript files.
+   * Disable adding `use strict` directives in emitted JavaScript files.
    */
   noImplicitUseStrict?: boolean | null;
   /**
@@ -1535,7 +1535,7 @@ export type CompilerOptions = {
    */
   libReplacement?: boolean | null;
   /**
-   * Specify how TypeScript determine a file as module.
+   * Control what method is used to detect module-format JS files.
    */
   moduleDetection?: "auto" | "legacy" | "force";
   /**
@@ -1555,11 +1555,11 @@ export type CompilerOptions = {
    */
   importsNotUsedAsValues?: "remove" | "preserve" | "error";
   /**
-   * Ensure 'use strict' is always emitted.
+   * Ensure `use strict` is always emitted.
    */
   alwaysStrict?: boolean | null;
   /**
-   * Enable all strict type checking options.
+   * Enable all strict type-checking options.
    */
   strict?: boolean | null;
   /**
@@ -1603,7 +1603,7 @@ export type CompilerOptions = {
    */
   declarationMap?: boolean | null;
   /**
-   * Enable importing .json files
+   * Enable importing .json files.
    */
   resolveJsonModule?: boolean | null;
   /**
@@ -1615,7 +1615,7 @@ export type CompilerOptions = {
    */
   resolvePackageJsonImports?: boolean | null;
   /**
-   * Have recompiles in '--incremental' and '--watch' assume that changes within a file will only affect files directly depending on it. Requires TypeScript version 3.8 or later.
+   * Have recompiles in projects that use `incremental` and `watch` mode assume that changes within a file will only affect files directly depending on it.
    */
   assumeChangesOnlyAffectDirectDependencies?: boolean | null;
   /**
@@ -1627,7 +1627,7 @@ export type CompilerOptions = {
    */
   listFilesOnly?: boolean | null;
   /**
-   * Disable preferring source files instead of declaration files when referencing composite projects
+   * Disable preferring source files instead of declaration files when referencing composite projects.
    */
   disableSourceOfProjectReferenceRedirect?: boolean | null;
   /**
@@ -1635,11 +1635,11 @@ export type CompilerOptions = {
    */
   disableSolutionSearching?: boolean | null;
   /**
-   * Do not transform or elide any imports or exports not marked as type-only, ensuring they are written in the output file's format based on the 'module' setting.
+   * Do not transform or elide any imports or exports not marked as type-only, ensuring they are written in the output file's format based on the `module` setting.
    */
   verbatimModuleSyntax?: boolean | null;
   /**
-   * Disable full type checking (only critical parse and emit errors will be reported)
+   * Disable full type checking (only critical parse and emit errors will be reported).
    */
   noCheck?: boolean | null;
   /**
@@ -1651,7 +1651,7 @@ export type CompilerOptions = {
    */
   noUncheckedSideEffectImports?: boolean | null;
   /**
-   * Built-in iterators are instantiated with a 'TReturn' type of 'undefined' instead of 'any'.
+   * Built-in iterators are instantiated with a `TReturn` type of `undefined` instead of `any`.
    */
   strictBuiltinIteratorReturn?: boolean | null;
 } | null);
@@ -1793,7 +1793,7 @@ export interface TsNodeDefinition {
        */
       allowArbitraryExtensions?: boolean | null;
       /**
-       * Allow imports to include TypeScript file extensions. Requires either '--noEmit' or '--emitDeclarationOnly' to be set.
+       * Allow imports to include TypeScript file extensions. Requires `--moduleResolution bundler` and either `--noEmit` or `--emitDeclarationOnly` to be set.
        */
       allowImportingTsExtensions?: boolean | null;
       /**
@@ -1825,7 +1825,7 @@ export interface TsNodeDefinition {
        */
       disableReferencedProjectLoad?: boolean | null;
       /**
-       * Enforces using indexed accessors for keys declared using an indexed type
+       * Enforces using indexed accessors for keys declared using an indexed type.
        */
       noPropertyAccessFromIndexSignature?: boolean | null;
       /**
@@ -1841,7 +1841,7 @@ export interface TsNodeDefinition {
        */
       erasableSyntaxOnly?: boolean | null;
       /**
-       * Differentiate between undefined and not present when type checking
+       * Interpret optional property types as written, rather than adding `undefined`.
        */
       exactOptionalPropertyTypes?: boolean | null;
       /**
@@ -1849,7 +1849,7 @@ export interface TsNodeDefinition {
        */
       incremental?: boolean | null;
       /**
-       * Specify the folder for .tsbuildinfo incremental compilation files.
+       * Specify the path to .tsbuildinfo incremental compilation file.
        */
       tsBuildInfoFile?: string | null;
       /**
@@ -1869,11 +1869,11 @@ export interface TsNodeDefinition {
        */
       reactNamespace?: string | null;
       /**
-       * Specify the JSX factory function used when targeting React JSX emit, e.g. 'React.createElement' or 'h'
+       * Specify the JSX factory function used when targeting React JSX emit, e.g. `React.createElement` or `h`.
        */
       jsxFactory?: string | null;
       /**
-       * Specify the JSX Fragment reference used for fragments when targeting React JSX emit e.g. 'React.Fragment' or 'Fragment'.
+       * Specify the JSX Fragment reference used for fragments when targeting React JSX emit e.g. `React.Fragment` or `Fragment`.
        */
       jsxFragmentFactory?: string | null;
       /**
@@ -2007,7 +2007,7 @@ export interface TsNodeDefinition {
               null)
         );
       /**
-       * Disable emitting file from a compilation.
+       * Disable emitting files from a compilation.
        */
       noEmit?: boolean | null;
       /**
@@ -2019,7 +2019,7 @@ export interface TsNodeDefinition {
        */
       noEmitOnError?: boolean | null;
       /**
-       * Enable error reporting for expressions and declarations with an implied `any` type..
+       * Enable error reporting for expressions and declarations with an implied `any` type.
        */
       noImplicitAny?: boolean | null;
       /**
@@ -2027,11 +2027,11 @@ export interface TsNodeDefinition {
        */
       noImplicitThis?: boolean | null;
       /**
-       * Enable error reporting when a local variable isn't read.
+       * Enable error reporting when local variables aren't read.
        */
       noUnusedLocals?: boolean | null;
       /**
-       * Raise an error when a function parameter isn't read
+       * Raise an error when a function parameter isn't read.
        */
       noUnusedParameters?: boolean | null;
       /**
@@ -2047,7 +2047,7 @@ export interface TsNodeDefinition {
        */
       noStrictGenericChecks?: boolean | null;
       /**
-       * DEPRECATED. Specify an output for the build. It is recommended to use `outFile` instead.
+       * Deprecated setting. Use `outFile` instead.
        */
       out?: string | null;
       /**
@@ -2075,15 +2075,15 @@ export interface TsNodeDefinition {
        */
       preserveSymlinks?: boolean | null;
       /**
-       * Preserve unused imported values in the JavaScript output that would otherwise be removed
+       * Preserve unused imported values in the JavaScript output that would otherwise be removed.
        */
       preserveValueImports?: boolean | null;
       /**
-       * Disable wiping the console in watch mode
+       * Disable wiping the console in watch mode.
        */
       preserveWatchOutput?: boolean | null;
       /**
-       * Enable color and formatting in output to make compiler errors easier to read
+       * Enable color and formatting in TypeScript's output to make compiler errors easier to read.
        */
       pretty?: boolean | null;
       /**
@@ -2091,7 +2091,7 @@ export interface TsNodeDefinition {
        */
       removeComments?: boolean | null;
       /**
-       * Rewrite '.ts', '.tsx', '.mts', and '.cts' file extensions in relative import paths to their JavaScript equivalent in output files.
+       * Rewrite `.ts`, `.tsx`, `.mts`, and `.cts` file extensions in relative import paths to their JavaScript equivalent in output files.
        */
       rewriteRelativeImportExtensions?: boolean | null;
       /**
@@ -2223,7 +2223,7 @@ export interface TsNodeDefinition {
         | "useFsEventsOnParentDirectory"
         | "fixedChunkSizePolling";
       /**
-       * Enable experimental support for TC39 stage 2 draft decorators.
+       * Enable experimental support for legacy experimental decorators.
        */
       experimentalDecorators?: boolean | null;
       /**
@@ -2296,11 +2296,11 @@ export interface TsNodeDefinition {
        */
       types?: string[] | null;
       /**
-       * Enable tracing of the name resolution process. Requires TypeScript version 2.0 or later.
+       * Log paths used during the `moduleResolution` process.
        */
       traceResolution?: boolean | null;
       /**
-       * Allow JavaScript files to be a part of your program. Use the `checkJS` option to get errors from these files.
+       * Allow JavaScript files to be a part of your program. Use the `checkJs` option to get errors from these files.
        */
       allowJs?: boolean | null;
       /**
@@ -2308,11 +2308,11 @@ export interface TsNodeDefinition {
        */
       noErrorTruncation?: boolean | null;
       /**
-       * Allow 'import x from y' when a module doesn't have a default export.
+       * Allow `import x from y` when a module doesn't have a default export.
        */
       allowSyntheticDefaultImports?: boolean | null;
       /**
-       * Disable adding 'use strict' directives in emitted JavaScript files.
+       * Disable adding `use strict` directives in emitted JavaScript files.
        */
       noImplicitUseStrict?: boolean | null;
       /**
@@ -2481,7 +2481,7 @@ export interface TsNodeDefinition {
        */
       libReplacement?: boolean | null;
       /**
-       * Specify how TypeScript determine a file as module.
+       * Control what method is used to detect module-format JS files.
        */
       moduleDetection?: "auto" | "legacy" | "force";
       /**
@@ -2501,11 +2501,11 @@ export interface TsNodeDefinition {
        */
       importsNotUsedAsValues?: "remove" | "preserve" | "error";
       /**
-       * Ensure 'use strict' is always emitted.
+       * Ensure `use strict` is always emitted.
        */
       alwaysStrict?: boolean | null;
       /**
-       * Enable all strict type checking options.
+       * Enable all strict type-checking options.
        */
       strict?: boolean | null;
       /**
@@ -2549,7 +2549,7 @@ export interface TsNodeDefinition {
        */
       declarationMap?: boolean | null;
       /**
-       * Enable importing .json files
+       * Enable importing .json files.
        */
       resolveJsonModule?: boolean | null;
       /**
@@ -2561,7 +2561,7 @@ export interface TsNodeDefinition {
        */
       resolvePackageJsonImports?: boolean | null;
       /**
-       * Have recompiles in '--incremental' and '--watch' assume that changes within a file will only affect files directly depending on it. Requires TypeScript version 3.8 or later.
+       * Have recompiles in projects that use `incremental` and `watch` mode assume that changes within a file will only affect files directly depending on it.
        */
       assumeChangesOnlyAffectDirectDependencies?: boolean | null;
       /**
@@ -2573,7 +2573,7 @@ export interface TsNodeDefinition {
        */
       listFilesOnly?: boolean | null;
       /**
-       * Disable preferring source files instead of declaration files when referencing composite projects
+       * Disable preferring source files instead of declaration files when referencing composite projects.
        */
       disableSourceOfProjectReferenceRedirect?: boolean | null;
       /**
@@ -2581,11 +2581,11 @@ export interface TsNodeDefinition {
        */
       disableSolutionSearching?: boolean | null;
       /**
-       * Do not transform or elide any imports or exports not marked as type-only, ensuring they are written in the output file's format based on the 'module' setting.
+       * Do not transform or elide any imports or exports not marked as type-only, ensuring they are written in the output file's format based on the `module` setting.
        */
       verbatimModuleSyntax?: boolean | null;
       /**
-       * Disable full type checking (only critical parse and emit errors will be reported)
+       * Disable full type checking (only critical parse and emit errors will be reported).
        */
       noCheck?: boolean | null;
       /**
@@ -2597,7 +2597,7 @@ export interface TsNodeDefinition {
        */
       noUncheckedSideEffectImports?: boolean | null;
       /**
-       * Built-in iterators are instantiated with a 'TReturn' type of 'undefined' instead of 'any'.
+       * Built-in iterators are instantiated with a `TReturn` type of `undefined` instead of `any`.
        */
       strictBuiltinIteratorReturn?: boolean | null;
     } | null) &
@@ -2608,7 +2608,7 @@ export interface TsNodeDefinition {
              */
             allowArbitraryExtensions?: boolean | null;
             /**
-             * Allow imports to include TypeScript file extensions. Requires either '--noEmit' or '--emitDeclarationOnly' to be set.
+             * Allow imports to include TypeScript file extensions. Requires `--moduleResolution bundler` and either `--noEmit` or `--emitDeclarationOnly` to be set.
              */
             allowImportingTsExtensions?: boolean | null;
             /**
@@ -2640,7 +2640,7 @@ export interface TsNodeDefinition {
              */
             disableReferencedProjectLoad?: boolean | null;
             /**
-             * Enforces using indexed accessors for keys declared using an indexed type
+             * Enforces using indexed accessors for keys declared using an indexed type.
              */
             noPropertyAccessFromIndexSignature?: boolean | null;
             /**
@@ -2656,7 +2656,7 @@ export interface TsNodeDefinition {
              */
             erasableSyntaxOnly?: boolean | null;
             /**
-             * Differentiate between undefined and not present when type checking
+             * Interpret optional property types as written, rather than adding `undefined`.
              */
             exactOptionalPropertyTypes?: boolean | null;
             /**
@@ -2664,7 +2664,7 @@ export interface TsNodeDefinition {
              */
             incremental?: boolean | null;
             /**
-             * Specify the folder for .tsbuildinfo incremental compilation files.
+             * Specify the path to .tsbuildinfo incremental compilation file.
              */
             tsBuildInfoFile?: string | null;
             /**
@@ -2684,11 +2684,11 @@ export interface TsNodeDefinition {
              */
             reactNamespace?: string | null;
             /**
-             * Specify the JSX factory function used when targeting React JSX emit, e.g. 'React.createElement' or 'h'
+             * Specify the JSX factory function used when targeting React JSX emit, e.g. `React.createElement` or `h`.
              */
             jsxFactory?: string | null;
             /**
-             * Specify the JSX Fragment reference used for fragments when targeting React JSX emit e.g. 'React.Fragment' or 'Fragment'.
+             * Specify the JSX Fragment reference used for fragments when targeting React JSX emit e.g. `React.Fragment` or `Fragment`.
              */
             jsxFragmentFactory?: string | null;
             /**
@@ -2822,7 +2822,7 @@ export interface TsNodeDefinition {
                     null)
               );
             /**
-             * Disable emitting file from a compilation.
+             * Disable emitting files from a compilation.
              */
             noEmit?: boolean | null;
             /**
@@ -2834,7 +2834,7 @@ export interface TsNodeDefinition {
              */
             noEmitOnError?: boolean | null;
             /**
-             * Enable error reporting for expressions and declarations with an implied `any` type..
+             * Enable error reporting for expressions and declarations with an implied `any` type.
              */
             noImplicitAny?: boolean | null;
             /**
@@ -2842,11 +2842,11 @@ export interface TsNodeDefinition {
              */
             noImplicitThis?: boolean | null;
             /**
-             * Enable error reporting when a local variable isn't read.
+             * Enable error reporting when local variables aren't read.
              */
             noUnusedLocals?: boolean | null;
             /**
-             * Raise an error when a function parameter isn't read
+             * Raise an error when a function parameter isn't read.
              */
             noUnusedParameters?: boolean | null;
             /**
@@ -2862,7 +2862,7 @@ export interface TsNodeDefinition {
              */
             noStrictGenericChecks?: boolean | null;
             /**
-             * DEPRECATED. Specify an output for the build. It is recommended to use `outFile` instead.
+             * Deprecated setting. Use `outFile` instead.
              */
             out?: string | null;
             /**
@@ -2890,15 +2890,15 @@ export interface TsNodeDefinition {
              */
             preserveSymlinks?: boolean | null;
             /**
-             * Preserve unused imported values in the JavaScript output that would otherwise be removed
+             * Preserve unused imported values in the JavaScript output that would otherwise be removed.
              */
             preserveValueImports?: boolean | null;
             /**
-             * Disable wiping the console in watch mode
+             * Disable wiping the console in watch mode.
              */
             preserveWatchOutput?: boolean | null;
             /**
-             * Enable color and formatting in output to make compiler errors easier to read
+             * Enable color and formatting in TypeScript's output to make compiler errors easier to read.
              */
             pretty?: boolean | null;
             /**
@@ -2906,7 +2906,7 @@ export interface TsNodeDefinition {
              */
             removeComments?: boolean | null;
             /**
-             * Rewrite '.ts', '.tsx', '.mts', and '.cts' file extensions in relative import paths to their JavaScript equivalent in output files.
+             * Rewrite `.ts`, `.tsx`, `.mts`, and `.cts` file extensions in relative import paths to their JavaScript equivalent in output files.
              */
             rewriteRelativeImportExtensions?: boolean | null;
             /**
@@ -3042,7 +3042,7 @@ export interface TsNodeDefinition {
               | "useFsEventsOnParentDirectory"
               | "fixedChunkSizePolling";
             /**
-             * Enable experimental support for TC39 stage 2 draft decorators.
+             * Enable experimental support for legacy experimental decorators.
              */
             experimentalDecorators?: boolean | null;
             /**
@@ -3115,11 +3115,11 @@ export interface TsNodeDefinition {
              */
             types?: string[] | null;
             /**
-             * Enable tracing of the name resolution process. Requires TypeScript version 2.0 or later.
+             * Log paths used during the `moduleResolution` process.
              */
             traceResolution?: boolean | null;
             /**
-             * Allow JavaScript files to be a part of your program. Use the `checkJS` option to get errors from these files.
+             * Allow JavaScript files to be a part of your program. Use the `checkJs` option to get errors from these files.
              */
             allowJs?: boolean | null;
             /**
@@ -3127,11 +3127,11 @@ export interface TsNodeDefinition {
              */
             noErrorTruncation?: boolean | null;
             /**
-             * Allow 'import x from y' when a module doesn't have a default export.
+             * Allow `import x from y` when a module doesn't have a default export.
              */
             allowSyntheticDefaultImports?: boolean | null;
             /**
-             * Disable adding 'use strict' directives in emitted JavaScript files.
+             * Disable adding `use strict` directives in emitted JavaScript files.
              */
             noImplicitUseStrict?: boolean | null;
             /**
@@ -3300,7 +3300,7 @@ export interface TsNodeDefinition {
              */
             libReplacement?: boolean | null;
             /**
-             * Specify how TypeScript determine a file as module.
+             * Control what method is used to detect module-format JS files.
              */
             moduleDetection?: "auto" | "legacy" | "force";
             /**
@@ -3320,11 +3320,11 @@ export interface TsNodeDefinition {
              */
             importsNotUsedAsValues?: "remove" | "preserve" | "error";
             /**
-             * Ensure 'use strict' is always emitted.
+             * Ensure `use strict` is always emitted.
              */
             alwaysStrict?: boolean | null;
             /**
-             * Enable all strict type checking options.
+             * Enable all strict type-checking options.
              */
             strict?: boolean | null;
             /**
@@ -3368,7 +3368,7 @@ export interface TsNodeDefinition {
              */
             declarationMap?: boolean | null;
             /**
-             * Enable importing .json files
+             * Enable importing .json files.
              */
             resolveJsonModule?: boolean | null;
             /**
@@ -3380,7 +3380,7 @@ export interface TsNodeDefinition {
              */
             resolvePackageJsonImports?: boolean | null;
             /**
-             * Have recompiles in '--incremental' and '--watch' assume that changes within a file will only affect files directly depending on it. Requires TypeScript version 3.8 or later.
+             * Have recompiles in projects that use `incremental` and `watch` mode assume that changes within a file will only affect files directly depending on it.
              */
             assumeChangesOnlyAffectDirectDependencies?: boolean | null;
             /**
@@ -3392,7 +3392,7 @@ export interface TsNodeDefinition {
              */
             listFilesOnly?: boolean | null;
             /**
-             * Disable preferring source files instead of declaration files when referencing composite projects
+             * Disable preferring source files instead of declaration files when referencing composite projects.
              */
             disableSourceOfProjectReferenceRedirect?: boolean | null;
             /**
@@ -3400,11 +3400,11 @@ export interface TsNodeDefinition {
              */
             disableSolutionSearching?: boolean | null;
             /**
-             * Do not transform or elide any imports or exports not marked as type-only, ensuring they are written in the output file's format based on the 'module' setting.
+             * Do not transform or elide any imports or exports not marked as type-only, ensuring they are written in the output file's format based on the `module` setting.
              */
             verbatimModuleSyntax?: boolean | null;
             /**
-             * Disable full type checking (only critical parse and emit errors will be reported)
+             * Disable full type checking (only critical parse and emit errors will be reported).
              */
             noCheck?: boolean | null;
             /**
@@ -3416,7 +3416,7 @@ export interface TsNodeDefinition {
              */
             noUncheckedSideEffectImports?: boolean | null;
             /**
-             * Built-in iterators are instantiated with a 'TReturn' type of 'undefined' instead of 'any'.
+             * Built-in iterators are instantiated with a `TReturn` type of `undefined` instead of `any`.
              */
             strictBuiltinIteratorReturn?: boolean | null;
           } | null)
@@ -3426,7 +3426,7 @@ export interface TsNodeDefinition {
              */
             allowArbitraryExtensions?: boolean | null;
             /**
-             * Allow imports to include TypeScript file extensions. Requires either '--noEmit' or '--emitDeclarationOnly' to be set.
+             * Allow imports to include TypeScript file extensions. Requires `--moduleResolution bundler` and either `--noEmit` or `--emitDeclarationOnly` to be set.
              */
             allowImportingTsExtensions?: boolean | null;
             /**
@@ -3458,7 +3458,7 @@ export interface TsNodeDefinition {
              */
             disableReferencedProjectLoad?: boolean | null;
             /**
-             * Enforces using indexed accessors for keys declared using an indexed type
+             * Enforces using indexed accessors for keys declared using an indexed type.
              */
             noPropertyAccessFromIndexSignature?: boolean | null;
             /**
@@ -3474,7 +3474,7 @@ export interface TsNodeDefinition {
              */
             erasableSyntaxOnly?: boolean | null;
             /**
-             * Differentiate between undefined and not present when type checking
+             * Interpret optional property types as written, rather than adding `undefined`.
              */
             exactOptionalPropertyTypes?: boolean | null;
             /**
@@ -3482,7 +3482,7 @@ export interface TsNodeDefinition {
              */
             incremental?: boolean | null;
             /**
-             * Specify the folder for .tsbuildinfo incremental compilation files.
+             * Specify the path to .tsbuildinfo incremental compilation file.
              */
             tsBuildInfoFile?: string | null;
             /**
@@ -3502,11 +3502,11 @@ export interface TsNodeDefinition {
              */
             reactNamespace?: string | null;
             /**
-             * Specify the JSX factory function used when targeting React JSX emit, e.g. 'React.createElement' or 'h'
+             * Specify the JSX factory function used when targeting React JSX emit, e.g. `React.createElement` or `h`.
              */
             jsxFactory?: string | null;
             /**
-             * Specify the JSX Fragment reference used for fragments when targeting React JSX emit e.g. 'React.Fragment' or 'Fragment'.
+             * Specify the JSX Fragment reference used for fragments when targeting React JSX emit e.g. `React.Fragment` or `Fragment`.
              */
             jsxFragmentFactory?: string | null;
             /**
@@ -3640,7 +3640,7 @@ export interface TsNodeDefinition {
                     null)
               );
             /**
-             * Disable emitting file from a compilation.
+             * Disable emitting files from a compilation.
              */
             noEmit?: boolean | null;
             /**
@@ -3652,7 +3652,7 @@ export interface TsNodeDefinition {
              */
             noEmitOnError?: boolean | null;
             /**
-             * Enable error reporting for expressions and declarations with an implied `any` type..
+             * Enable error reporting for expressions and declarations with an implied `any` type.
              */
             noImplicitAny?: boolean | null;
             /**
@@ -3660,11 +3660,11 @@ export interface TsNodeDefinition {
              */
             noImplicitThis?: boolean | null;
             /**
-             * Enable error reporting when a local variable isn't read.
+             * Enable error reporting when local variables aren't read.
              */
             noUnusedLocals?: boolean | null;
             /**
-             * Raise an error when a function parameter isn't read
+             * Raise an error when a function parameter isn't read.
              */
             noUnusedParameters?: boolean | null;
             /**
@@ -3680,7 +3680,7 @@ export interface TsNodeDefinition {
              */
             noStrictGenericChecks?: boolean | null;
             /**
-             * DEPRECATED. Specify an output for the build. It is recommended to use `outFile` instead.
+             * Deprecated setting. Use `outFile` instead.
              */
             out?: string | null;
             /**
@@ -3708,15 +3708,15 @@ export interface TsNodeDefinition {
              */
             preserveSymlinks?: boolean | null;
             /**
-             * Preserve unused imported values in the JavaScript output that would otherwise be removed
+             * Preserve unused imported values in the JavaScript output that would otherwise be removed.
              */
             preserveValueImports?: boolean | null;
             /**
-             * Disable wiping the console in watch mode
+             * Disable wiping the console in watch mode.
              */
             preserveWatchOutput?: boolean | null;
             /**
-             * Enable color and formatting in output to make compiler errors easier to read
+             * Enable color and formatting in TypeScript's output to make compiler errors easier to read.
              */
             pretty?: boolean | null;
             /**
@@ -3724,7 +3724,7 @@ export interface TsNodeDefinition {
              */
             removeComments?: boolean | null;
             /**
-             * Rewrite '.ts', '.tsx', '.mts', and '.cts' file extensions in relative import paths to their JavaScript equivalent in output files.
+             * Rewrite `.ts`, `.tsx`, `.mts`, and `.cts` file extensions in relative import paths to their JavaScript equivalent in output files.
              */
             rewriteRelativeImportExtensions?: boolean | null;
             /**
@@ -3860,7 +3860,7 @@ export interface TsNodeDefinition {
               | "useFsEventsOnParentDirectory"
               | "fixedChunkSizePolling";
             /**
-             * Enable experimental support for TC39 stage 2 draft decorators.
+             * Enable experimental support for legacy experimental decorators.
              */
             experimentalDecorators?: boolean | null;
             /**
@@ -3933,11 +3933,11 @@ export interface TsNodeDefinition {
              */
             types?: string[] | null;
             /**
-             * Enable tracing of the name resolution process. Requires TypeScript version 2.0 or later.
+             * Log paths used during the `moduleResolution` process.
              */
             traceResolution?: boolean | null;
             /**
-             * Allow JavaScript files to be a part of your program. Use the `checkJS` option to get errors from these files.
+             * Allow JavaScript files to be a part of your program. Use the `checkJs` option to get errors from these files.
              */
             allowJs?: boolean | null;
             /**
@@ -3945,11 +3945,11 @@ export interface TsNodeDefinition {
              */
             noErrorTruncation?: boolean | null;
             /**
-             * Allow 'import x from y' when a module doesn't have a default export.
+             * Allow `import x from y` when a module doesn't have a default export.
              */
             allowSyntheticDefaultImports?: boolean | null;
             /**
-             * Disable adding 'use strict' directives in emitted JavaScript files.
+             * Disable adding `use strict` directives in emitted JavaScript files.
              */
             noImplicitUseStrict?: boolean | null;
             /**
@@ -4118,7 +4118,7 @@ export interface TsNodeDefinition {
              */
             libReplacement?: boolean | null;
             /**
-             * Specify how TypeScript determine a file as module.
+             * Control what method is used to detect module-format JS files.
              */
             moduleDetection?: "auto" | "legacy" | "force";
             /**
@@ -4138,11 +4138,11 @@ export interface TsNodeDefinition {
              */
             importsNotUsedAsValues?: "remove" | "preserve" | "error";
             /**
-             * Ensure 'use strict' is always emitted.
+             * Ensure `use strict` is always emitted.
              */
             alwaysStrict?: boolean | null;
             /**
-             * Enable all strict type checking options.
+             * Enable all strict type-checking options.
              */
             strict?: boolean | null;
             /**
@@ -4186,7 +4186,7 @@ export interface TsNodeDefinition {
              */
             declarationMap?: boolean | null;
             /**
-             * Enable importing .json files
+             * Enable importing .json files.
              */
             resolveJsonModule?: boolean | null;
             /**
@@ -4198,7 +4198,7 @@ export interface TsNodeDefinition {
              */
             resolvePackageJsonImports?: boolean | null;
             /**
-             * Have recompiles in '--incremental' and '--watch' assume that changes within a file will only affect files directly depending on it. Requires TypeScript version 3.8 or later.
+             * Have recompiles in projects that use `incremental` and `watch` mode assume that changes within a file will only affect files directly depending on it.
              */
             assumeChangesOnlyAffectDirectDependencies?: boolean | null;
             /**
@@ -4210,7 +4210,7 @@ export interface TsNodeDefinition {
              */
             listFilesOnly?: boolean | null;
             /**
-             * Disable preferring source files instead of declaration files when referencing composite projects
+             * Disable preferring source files instead of declaration files when referencing composite projects.
              */
             disableSourceOfProjectReferenceRedirect?: boolean | null;
             /**
@@ -4218,11 +4218,11 @@ export interface TsNodeDefinition {
              */
             disableSolutionSearching?: boolean | null;
             /**
-             * Do not transform or elide any imports or exports not marked as type-only, ensuring they are written in the output file's format based on the 'module' setting.
+             * Do not transform or elide any imports or exports not marked as type-only, ensuring they are written in the output file's format based on the `module` setting.
              */
             verbatimModuleSyntax?: boolean | null;
             /**
-             * Disable full type checking (only critical parse and emit errors will be reported)
+             * Disable full type checking (only critical parse and emit errors will be reported).
              */
             noCheck?: boolean | null;
             /**
@@ -4234,7 +4234,7 @@ export interface TsNodeDefinition {
              */
             noUncheckedSideEffectImports?: boolean | null;
             /**
-             * Built-in iterators are instantiated with a 'TReturn' type of 'undefined' instead of 'any'.
+             * Built-in iterators are instantiated with a `TReturn` type of `undefined` instead of `any`.
              */
             strictBuiltinIteratorReturn?: boolean | null;
           } | null) &
