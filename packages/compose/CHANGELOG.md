@@ -1,5 +1,13 @@
 # @json-types/compose
 
+## 0.11.0
+
+### Minor Changes
+
+- [`0174c9c`](https://github.com/swordev/json-types/commit/0174c9c74e8dc780f00686c67a1b053c83615f67) Thanks [@github-actions[bot]](https://github.com/github-actions%5Bbot%5D)! - Update schema
+
+- [`e0bb0ff`](https://github.com/swordev/json-types/commit/e0bb0ff8637f210fb0160af2aa08fce96b7ce6b6) Thanks [@github-actions[bot]](https://github.com/github-actions%5Bbot%5D)! - Update schema
+
 ## 0.10.0
 
 ### Minor Changes
