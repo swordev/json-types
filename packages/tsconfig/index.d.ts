@@ -106,7 +106,7 @@ export type CompilerOptions = {
    */
   jsxFragmentFactory?: string | null;
   /**
-   * Specify module specifier used to import the JSX factory functions when using `jsx: react-jsx`.
+   * Specify module specifier used to import the JSX factory functions when using `jsx: react-jsx*`.
    */
   jsxImportSource?: string | null;
   /**
@@ -931,7 +931,7 @@ export type CompilerOptions = {
    */
   jsxFragmentFactory?: string | null;
   /**
-   * Specify module specifier used to import the JSX factory functions when using `jsx: react-jsx`.
+   * Specify module specifier used to import the JSX factory functions when using `jsx: react-jsx*`.
    */
   jsxImportSource?: string | null;
   /**
@@ -1877,7 +1877,7 @@ export interface TsNodeDefinition {
        */
       jsxFragmentFactory?: string | null;
       /**
-       * Specify module specifier used to import the JSX factory functions when using `jsx: react-jsx`.
+       * Specify module specifier used to import the JSX factory functions when using `jsx: react-jsx*`.
        */
       jsxImportSource?: string | null;
       /**
@@ -2692,7 +2692,7 @@ export interface TsNodeDefinition {
              */
             jsxFragmentFactory?: string | null;
             /**
-             * Specify module specifier used to import the JSX factory functions when using `jsx: react-jsx`.
+             * Specify module specifier used to import the JSX factory functions when using `jsx: react-jsx*`.
              */
             jsxImportSource?: string | null;
             /**
@@ -3510,7 +3510,7 @@ export interface TsNodeDefinition {
              */
             jsxFragmentFactory?: string | null;
             /**
-             * Specify module specifier used to import the JSX factory functions when using `jsx: react-jsx`.
+             * Specify module specifier used to import the JSX factory functions when using `jsx: react-jsx*`.
              */
             jsxImportSource?: string | null;
             /**
