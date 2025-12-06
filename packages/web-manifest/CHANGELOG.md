@@ -1,5 +1,11 @@
 # @json-types/web-manifest
 
+## 0.3.0
+
+### Minor Changes
+
+- [`3580f63`](https://github.com/swordev/json-types/commit/3580f63becb628776ea12324ed7d5ac07951c613) Thanks [@github-actions[bot]](https://github.com/github-actions%5Bbot%5D)! - Update schema
+
 ## 0.2.0
 
 ### Minor Changes
