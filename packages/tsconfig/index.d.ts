@@ -724,6 +724,9 @@ export type CompilerOptions = {
         | {
             [k: string]: unknown;
           }
+        | {
+            [k: string]: unknown;
+          }
       ) &
         string)[]
     | null;
@@ -1499,6 +1502,9 @@ export type CompilerOptions = {
             | "ESNext.Error"
             | "ESNext.Sharedmemory"
           )
+        | {
+            [k: string]: unknown;
+          }
         | {
             [k: string]: unknown;
           }
@@ -2503,6 +2509,9 @@ export interface TsNodeDefinition {
             | {
                 [k: string]: unknown;
               }
+            | {
+                [k: string]: unknown;
+              }
           ) &
             string)[]
         | null;
@@ -3332,6 +3341,9 @@ export interface TsNodeDefinition {
                   | {
                       [k: string]: unknown;
                     }
+                  | {
+                      [k: string]: unknown;
+                    }
                 ) &
                   string)[]
               | null;
@@ -4112,6 +4124,9 @@ export interface TsNodeDefinition {
                       | "ESNext.Error"
                       | "ESNext.Sharedmemory"
                     )
+                  | {
+                      [k: string]: unknown;
+                    }
                   | {
                       [k: string]: unknown;
                     }
