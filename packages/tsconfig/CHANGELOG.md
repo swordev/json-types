@@ -1,5 +1,21 @@
 # @json-types/tsconfig
 
+## 0.12.0
+
+### Minor Changes
+
+- [`a74a624`](https://github.com/swordev/json-types/commit/a74a624032bc8e36354de765d2f519a5f9f15bd4) Thanks [@github-actions[bot]](https://github.com/github-actions%5Bbot%5D)! - Update schema
+
+- [`5e54291`](https://github.com/swordev/json-types/commit/5e5429104422ef24e5450a414e2c4902b0bd1e07) Thanks [@github-actions[bot]](https://github.com/github-actions%5Bbot%5D)! - Update schema
+
+- [`19c0f2c`](https://github.com/swordev/json-types/commit/19c0f2cbef542228602f5994643fa6251b104f87) Thanks [@github-actions[bot]](https://github.com/github-actions%5Bbot%5D)! - Update schema
+
+- [`045aeb6`](https://github.com/swordev/json-types/commit/045aeb64494cd13e01ab560046b58ce16a36901b) Thanks [@github-actions[bot]](https://github.com/github-actions%5Bbot%5D)! - Update schema
+
+- [`10c5b7d`](https://github.com/swordev/json-types/commit/10c5b7d6bcd5d6c4cddee269953ab3ba593ffc0d) Thanks [@github-actions[bot]](https://github.com/github-actions%5Bbot%5D)! - Update schema
+
+- [`e726d57`](https://github.com/swordev/json-types/commit/e726d57adfc5a474ae40f0e3e6e4830573517a26) Thanks [@github-actions[bot]](https://github.com/github-actions%5Bbot%5D)! - Update schema
+
 ## 0.11.0
 
 ### Minor Changes
