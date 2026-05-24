@@ -216,14 +216,14 @@ export type CompilerOptions = {
    *
    * const settings = getSettings();
    * settings.speed;
-   * //       ^?
+   * //       ^ (property) GameSettings.speed: "fast" | "medium" | "slow"
    * settings.quality;
-   * //       ^?
+   * //       ^ (property) GameSettings.quality: "high" | "low"
    *
    * // Unknown key accessors are allowed on
    * // this object, and are `string`
    * settings.username;
-   * //       ^?
+   * //       ^ (index) GameSettings[string]: string
    * ```
    *
    * Turning the flag on will raise an error because the unknown field uses dot syntax instead of indexed syntax.
@@ -244,7 +244,7 @@ export type CompilerOptions = {
    *
    * // This would need to be settings["username"];
    * settings.username;
-   * //       ^?
+   * //       ^ (index) GameSettings[string]: string
    * ```
    *
    * The goal of this flag is to signal intent in your calling syntax about how certain you are this property exists.
@@ -2014,12 +2014,12 @@ export type CompilerOptions = {
    * // Declared as existing
    * const sysName = env.NAME;
    * const os = env.OS;
-   * //    ^?
+   * //    ^ const os: string
    *
    * // Not declared, but because of the index
    * // signature, then it is considered a string
    * const nodeEnv = env.NODE_ENV;
-   * //    ^?
+   * //    ^ const nodeEnv: string
    * ```
    *
    * Turning on `noUncheckedIndexedAccess` will add `undefined` to any un-declared field in the type.
@@ -2039,12 +2039,12 @@ export type CompilerOptions = {
    * // Declared as existing
    * const sysName = env.NAME;
    * const os = env.OS;
-   * //    ^?
+   * //    ^ const os: string
    *
    * // Not declared, but because of the index
    * // signature, then it is considered a string
    * const nodeEnv = env.NODE_ENV;
-   * //    ^?
+   * //    ^ const nodeEnv: string | undefined
    * ```
    */
   noUncheckedIndexedAccess?: boolean | null;
@@ -3838,14 +3838,14 @@ export type CompilerOptions = {
    *
    * const settings = getSettings();
    * settings.speed;
-   * //       ^?
+   * //       ^ (property) GameSettings.speed: "fast" | "medium" | "slow"
    * settings.quality;
-   * //       ^?
+   * //       ^ (property) GameSettings.quality: "high" | "low"
    *
    * // Unknown key accessors are allowed on
    * // this object, and are `string`
    * settings.username;
-   * //       ^?
+   * //       ^ (index) GameSettings[string]: string
    * ```
    *
    * Turning the flag on will raise an error because the unknown field uses dot syntax instead of indexed syntax.
@@ -3866,7 +3866,7 @@ export type CompilerOptions = {
    *
    * // This would need to be settings["username"];
    * settings.username;
-   * //       ^?
+   * //       ^ (index) GameSettings[string]: string
    * ```
    *
    * The goal of this flag is to signal intent in your calling syntax about how certain you are this property exists.
@@ -5481,12 +5481,12 @@ export type CompilerOptions = {
    * // Declared as existing
    * const sysName = env.NAME;
    * const os = env.OS;
-   * //    ^?
+   * //    ^ const os: string
    *
    * // Not declared, but because of the index
    * // signature, then it is considered a string
    * const nodeEnv = env.NODE_ENV;
-   * //    ^?
+   * //    ^ const nodeEnv: string
    * ```
    *
    * Turning on `noUncheckedIndexedAccess` will add `undefined` to any un-declared field in the type.
@@ -5506,12 +5506,12 @@ export type CompilerOptions = {
    * // Declared as existing
    * const sysName = env.NAME;
    * const os = env.OS;
-   * //    ^?
+   * //    ^ const os: string
    *
    * // Not declared, but because of the index
    * // signature, then it is considered a string
    * const nodeEnv = env.NODE_ENV;
-   * //    ^?
+   * //    ^ const nodeEnv: string | undefined
    * ```
    */
   noUncheckedIndexedAccess?: boolean | null;
@@ -7530,14 +7530,14 @@ export interface TsNodeDefinition {
        *
        * const settings = getSettings();
        * settings.speed;
-       * //       ^?
+       * //       ^ (property) GameSettings.speed: "fast" | "medium" | "slow"
        * settings.quality;
-       * //       ^?
+       * //       ^ (property) GameSettings.quality: "high" | "low"
        *
        * // Unknown key accessors are allowed on
        * // this object, and are `string`
        * settings.username;
-       * //       ^?
+       * //       ^ (index) GameSettings[string]: string
        * ```
        *
        * Turning the flag on will raise an error because the unknown field uses dot syntax instead of indexed syntax.
@@ -7558,7 +7558,7 @@ export interface TsNodeDefinition {
        *
        * // This would need to be settings["username"];
        * settings.username;
-       * //       ^?
+       * //       ^ (index) GameSettings[string]: string
        * ```
        *
        * The goal of this flag is to signal intent in your calling syntax about how certain you are this property exists.
@@ -9173,12 +9173,12 @@ export interface TsNodeDefinition {
        * // Declared as existing
        * const sysName = env.NAME;
        * const os = env.OS;
-       * //    ^?
+       * //    ^ const os: string
        *
        * // Not declared, but because of the index
        * // signature, then it is considered a string
        * const nodeEnv = env.NODE_ENV;
-       * //    ^?
+       * //    ^ const nodeEnv: string
        * ```
        *
        * Turning on `noUncheckedIndexedAccess` will add `undefined` to any un-declared field in the type.
@@ -9198,12 +9198,12 @@ export interface TsNodeDefinition {
        * // Declared as existing
        * const sysName = env.NAME;
        * const os = env.OS;
-       * //    ^?
+       * //    ^ const os: string
        *
        * // Not declared, but because of the index
        * // signature, then it is considered a string
        * const nodeEnv = env.NODE_ENV;
-       * //    ^?
+       * //    ^ const nodeEnv: string | undefined
        * ```
        */
       noUncheckedIndexedAccess?: boolean | null;
@@ -10999,14 +10999,14 @@ export interface TsNodeDefinition {
              *
              * const settings = getSettings();
              * settings.speed;
-             * //       ^?
+             * //       ^ (property) GameSettings.speed: "fast" | "medium" | "slow"
              * settings.quality;
-             * //       ^?
+             * //       ^ (property) GameSettings.quality: "high" | "low"
              *
              * // Unknown key accessors are allowed on
              * // this object, and are `string`
              * settings.username;
-             * //       ^?
+             * //       ^ (index) GameSettings[string]: string
              * ```
              *
              * Turning the flag on will raise an error because the unknown field uses dot syntax instead of indexed syntax.
@@ -11027,7 +11027,7 @@ export interface TsNodeDefinition {
              *
              * // This would need to be settings["username"];
              * settings.username;
-             * //       ^?
+             * //       ^ (index) GameSettings[string]: string
              * ```
              *
              * The goal of this flag is to signal intent in your calling syntax about how certain you are this property exists.
@@ -12646,12 +12646,12 @@ export interface TsNodeDefinition {
              * // Declared as existing
              * const sysName = env.NAME;
              * const os = env.OS;
-             * //    ^?
+             * //    ^ const os: string
              *
              * // Not declared, but because of the index
              * // signature, then it is considered a string
              * const nodeEnv = env.NODE_ENV;
-             * //    ^?
+             * //    ^ const nodeEnv: string
              * ```
              *
              * Turning on `noUncheckedIndexedAccess` will add `undefined` to any un-declared field in the type.
@@ -12671,12 +12671,12 @@ export interface TsNodeDefinition {
              * // Declared as existing
              * const sysName = env.NAME;
              * const os = env.OS;
-             * //    ^?
+             * //    ^ const os: string
              *
              * // Not declared, but because of the index
              * // signature, then it is considered a string
              * const nodeEnv = env.NODE_ENV;
-             * //    ^?
+             * //    ^ const nodeEnv: string | undefined
              * ```
              */
             noUncheckedIndexedAccess?: boolean | null;
@@ -14471,14 +14471,14 @@ export interface TsNodeDefinition {
              *
              * const settings = getSettings();
              * settings.speed;
-             * //       ^?
+             * //       ^ (property) GameSettings.speed: "fast" | "medium" | "slow"
              * settings.quality;
-             * //       ^?
+             * //       ^ (property) GameSettings.quality: "high" | "low"
              *
              * // Unknown key accessors are allowed on
              * // this object, and are `string`
              * settings.username;
-             * //       ^?
+             * //       ^ (index) GameSettings[string]: string
              * ```
              *
              * Turning the flag on will raise an error because the unknown field uses dot syntax instead of indexed syntax.
@@ -14499,7 +14499,7 @@ export interface TsNodeDefinition {
              *
              * // This would need to be settings["username"];
              * settings.username;
-             * //       ^?
+             * //       ^ (index) GameSettings[string]: string
              * ```
              *
              * The goal of this flag is to signal intent in your calling syntax about how certain you are this property exists.
@@ -16118,12 +16118,12 @@ export interface TsNodeDefinition {
              * // Declared as existing
              * const sysName = env.NAME;
              * const os = env.OS;
-             * //    ^?
+             * //    ^ const os: string
              *
              * // Not declared, but because of the index
              * // signature, then it is considered a string
              * const nodeEnv = env.NODE_ENV;
-             * //    ^?
+             * //    ^ const nodeEnv: string
              * ```
              *
              * Turning on `noUncheckedIndexedAccess` will add `undefined` to any un-declared field in the type.
@@ -16143,12 +16143,12 @@ export interface TsNodeDefinition {
              * // Declared as existing
              * const sysName = env.NAME;
              * const os = env.OS;
-             * //    ^?
+             * //    ^ const os: string
              *
              * // Not declared, but because of the index
              * // signature, then it is considered a string
              * const nodeEnv = env.NODE_ENV;
-             * //    ^?
+             * //    ^ const nodeEnv: string | undefined
              * ```
              */
             noUncheckedIndexedAccess?: boolean | null;
