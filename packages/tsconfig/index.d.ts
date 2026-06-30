@@ -679,6 +679,8 @@ export type CompilerOptions = {
   /**
    * Declares the module specifier to be used for importing the `jsx` and `jsxs` factory functions when using [`jsx`](https://typescriptlang.org/tsconfig/#jsx) as `"react-jsx"` or `"react-jsxdev"` which were introduced in TypeScript 4.1.
    *
+   * When using [@vitejs/plugin-vue-jsx](https://www.npmjs.com/package/@vitejs/plugin-vue-jsx), you can set this to `"vue"` for Vue JSX support.
+   *
    * With [React 17](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html) the library supports a new form of JSX transformation via a separate import.
    *
    * For example with this code:
@@ -768,7 +770,7 @@ export type CompilerOptions = {
    *
    * _Note:_ In order for this to work like you would expect, your `tsx` file must include an `export` or `import` so that it is considered a module.
    */
-  jsxImportSource?: string | null;
+  jsxImportSource?: ("react" | "preact" | "vue") | string | null;
   /**
    * Print names of files part of the compilation. This is useful when you are not sure that TypeScript has
    * included a file you expected.
@@ -4301,6 +4303,8 @@ export type CompilerOptions = {
   /**
    * Declares the module specifier to be used for importing the `jsx` and `jsxs` factory functions when using [`jsx`](https://typescriptlang.org/tsconfig/#jsx) as `"react-jsx"` or `"react-jsxdev"` which were introduced in TypeScript 4.1.
    *
+   * When using [@vitejs/plugin-vue-jsx](https://www.npmjs.com/package/@vitejs/plugin-vue-jsx), you can set this to `"vue"` for Vue JSX support.
+   *
    * With [React 17](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html) the library supports a new form of JSX transformation via a separate import.
    *
    * For example with this code:
@@ -4390,7 +4394,7 @@ export type CompilerOptions = {
    *
    * _Note:_ In order for this to work like you would expect, your `tsx` file must include an `export` or `import` so that it is considered a module.
    */
-  jsxImportSource?: string | null;
+  jsxImportSource?: ("react" | "preact" | "vue") | string | null;
   /**
    * Print names of files part of the compilation. This is useful when you are not sure that TypeScript has
    * included a file you expected.
@@ -7993,6 +7997,8 @@ export interface TsNodeDefinition {
       /**
        * Declares the module specifier to be used for importing the `jsx` and `jsxs` factory functions when using [`jsx`](https://typescriptlang.org/tsconfig/#jsx) as `"react-jsx"` or `"react-jsxdev"` which were introduced in TypeScript 4.1.
        *
+       * When using [@vitejs/plugin-vue-jsx](https://www.npmjs.com/package/@vitejs/plugin-vue-jsx), you can set this to `"vue"` for Vue JSX support.
+       *
        * With [React 17](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html) the library supports a new form of JSX transformation via a separate import.
        *
        * For example with this code:
@@ -8082,7 +8088,7 @@ export interface TsNodeDefinition {
        *
        * _Note:_ In order for this to work like you would expect, your `tsx` file must include an `export` or `import` so that it is considered a module.
        */
-      jsxImportSource?: string | null;
+      jsxImportSource?: ("react" | "preact" | "vue") | string | null;
       /**
        * Print names of files part of the compilation. This is useful when you are not sure that TypeScript has
        * included a file you expected.
@@ -11462,6 +11468,8 @@ export interface TsNodeDefinition {
             /**
              * Declares the module specifier to be used for importing the `jsx` and `jsxs` factory functions when using [`jsx`](https://typescriptlang.org/tsconfig/#jsx) as `"react-jsx"` or `"react-jsxdev"` which were introduced in TypeScript 4.1.
              *
+             * When using [@vitejs/plugin-vue-jsx](https://www.npmjs.com/package/@vitejs/plugin-vue-jsx), you can set this to `"vue"` for Vue JSX support.
+             *
              * With [React 17](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html) the library supports a new form of JSX transformation via a separate import.
              *
              * For example with this code:
@@ -11551,7 +11559,7 @@ export interface TsNodeDefinition {
              *
              * _Note:_ In order for this to work like you would expect, your `tsx` file must include an `export` or `import` so that it is considered a module.
              */
-            jsxImportSource?: string | null;
+            jsxImportSource?: ("react" | "preact" | "vue") | string | null;
             /**
              * Print names of files part of the compilation. This is useful when you are not sure that TypeScript has
              * included a file you expected.
@@ -14934,6 +14942,8 @@ export interface TsNodeDefinition {
             /**
              * Declares the module specifier to be used for importing the `jsx` and `jsxs` factory functions when using [`jsx`](https://typescriptlang.org/tsconfig/#jsx) as `"react-jsx"` or `"react-jsxdev"` which were introduced in TypeScript 4.1.
              *
+             * When using [@vitejs/plugin-vue-jsx](https://www.npmjs.com/package/@vitejs/plugin-vue-jsx), you can set this to `"vue"` for Vue JSX support.
+             *
              * With [React 17](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html) the library supports a new form of JSX transformation via a separate import.
              *
              * For example with this code:
@@ -15023,7 +15033,7 @@ export interface TsNodeDefinition {
              *
              * _Note:_ In order for this to work like you would expect, your `tsx` file must include an `export` or `import` so that it is considered a module.
              */
-            jsxImportSource?: string | null;
+            jsxImportSource?: ("react" | "preact" | "vue") | string | null;
             /**
              * Print names of files part of the compilation. This is useful when you are not sure that TypeScript has
              * included a file you expected.
