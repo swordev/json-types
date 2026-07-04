@@ -1078,6 +1078,10 @@ export interface Service {
          */
         no_cache?: boolean | string;
         /**
+         * Do not use build cache for the specified stages.
+         */
+        no_cache_filter?: string | ListOfStrings;
+        /**
          * Either a dictionary mapping keys to values, or a list of strings.
          */
         additional_contexts?:
@@ -1550,7 +1554,7 @@ export interface Service {
            * Environment variable set to AI model name.
            */
           model_var?: string;
-        };
+        } | null;
       };
   /**
    * Networks to join, referencing entries under the top-level networks key. Can be a list of network names or a mapping of network name to network configuration.
@@ -1658,6 +1662,10 @@ export interface Service {
         app_protocol?: string;
       }
   )[];
+  /**
+   * Init containers to run to completion before the service container is started. Each step runs in its own ephemeral container, in declared order; a non-zero exit fails the bring-up of the service and its dependents.
+   */
+  pre_start?: PreStartHook[];
   /**
    * Commands to run after the container starts. If any command fails, the container stops.
    */
@@ -1985,6 +1993,49 @@ export interface Healthcheck {
    * Time between running the check during the start period (e.g., '1s', '1m30s'). Default: interval value.
    */
   start_interval?: string;
+}
+/**
+ * Configuration for a pre_start init container, run to completion before the service container starts.
+ */
+export interface PreStartHook {
+  /**
+   * Command to execute. Optional when the chosen image's entrypoint already runs the intended command.
+   */
+  command?: null | string | string[];
+  /**
+   * Image used for the ephemeral container. If omitted, the parent service's image is used.
+   */
+  image?: string;
+  /**
+   * User to run the command as. Defaults to the user declared in image (or to the service's user when image is omitted).
+   */
+  user?: string;
+  /**
+   * Whether to run the command with extended privileges.
+   */
+  privileged?: boolean | string;
+  /**
+   * Working directory for the command. Defaults to the service's working directory.
+   */
+  working_dir?: string;
+  /**
+   * Either a dictionary mapping keys to values, or a list of strings.
+   */
+  environment?:
+    | {
+        /**
+         * Value for the key, which can be a string, number, boolean, or null.
+         *
+         * This interface was referenced by `undefined`'s JSON-Schema definition
+         * via the `patternProperty` ".+".
+         */
+        [k: string]: string | number | boolean | null;
+      }
+    | string[];
+  /**
+   * Whether the hook runs once per service replica (true), or once for the service as a whole before any replica starts (false, the default).
+   */
+  per_replica?: boolean | string;
 }
 /**
  * Configuration for service lifecycle hooks, which are commands executed at specific points in a container's lifecycle.
