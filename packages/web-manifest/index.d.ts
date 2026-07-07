@@ -5,6 +5,26 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
+/**
+ * A localized value is either a plain string or an object that carries the localized string together with an optional language tag and text direction.
+ */
+export type LocalizedValue =
+  | string
+  | {
+      /**
+       * The localized string.
+       */
+      value: string;
+      /**
+       * The language tag of the localized value.
+       */
+      lang?: string;
+      /**
+       * The base direction of the localized value.
+       */
+      dir?: "ltr" | "rtl" | "auto";
+    };
+
 export interface WebManifest {
   /**
    * The background_color member describes the expected background color of the web application.
@@ -74,6 +94,37 @@ export interface WebManifest {
    * A string that represents the id of the web application.
    */
   id?: string;
+  /**
+   * The color_scheme_dark member overrides the values of themeable members (theme_color and background_color) when the operating system uses a dark color theme.
+   */
+  color_scheme_dark?: {
+    /**
+     * The theme color to use when the operating system uses a dark color theme.
+     */
+    theme_color?: string;
+    /**
+     * The background color to use when the operating system uses a dark color theme.
+     */
+    background_color?: string;
+  };
+  /**
+   * A language map that provides localized overrides of the name member. Each key is a language tag and each value is the localized name for that language.
+   */
+  name_localized?: {
+    [k: string]: LocalizedValue;
+  };
+  /**
+   * A language map that provides localized overrides of the short_name member. Each key is a language tag and each value is the localized short name for that language.
+   */
+  short_name_localized?: {
+    [k: string]: LocalizedValue;
+  };
+  /**
+   * A language map that provides localized overrides of the icons member. Each key is a language tag and each value is the localized array of icon objects for that language.
+   */
+  icons_localized?: {
+    [k: string]: ManifestImageResource[];
+  };
 }
 export interface ManifestImageResource {
   /**
