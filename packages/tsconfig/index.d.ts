@@ -3543,7 +3543,7 @@ export interface ExtendsDefinition {
    *
    * Currently, the only top-level property that is excluded from inheritance is [`references`](https://typescriptlang.org/tsconfig/#references).
    *
-   * ##### Example
+   * #### Example
    *
    * `configs/base.json`:
    *
