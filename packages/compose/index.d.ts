@@ -29,72 +29,207 @@ export type Include =
  */
 export type ListOfStrings = string[];
 /**
- * Development configuration for the service, used for development workflows.
+ * Configuration for a service.
+ *
+ * This interface was referenced by `undefined`'s JSON-Schema definition
+ * via the `patternProperty` "^[a-zA-Z0-9._-]+$".
  */
-export type Development = {
+export type Service = Service1 & {
+  deploy?: Deployment;
+  develop?: Development;
+  profiles?: ListOfStrings9;
   /**
-   * Configure watch mode for the service, which monitors file changes and performs actions in response.
+   * Restart policy for the service container. Options include: 'no', 'always', 'on-failure', and 'unless-stopped'.
    */
-  watch?: {
-    /**
-     * Patterns to exclude from watching.
-     */
-    ignore?: string | ListOfStrings;
-    /**
-     * Patterns to include in watching.
-     */
-    include?: string | ListOfStrings;
-    /**
-     * Path to watch for changes.
-     */
-    path: string;
-    /**
-     * Action to take when a change is detected: rebuild the container, sync files, restart the container, sync and restart, or sync and execute a command.
-     */
-    action: "rebuild" | "sync" | "restart" | "sync+restart" | "sync+exec";
-    /**
-     * Target path in the container for sync operations.
-     */
-    target?: string;
-    exec?: ServiceHook;
-    /**
-     * Ensure that an initial synchronization is done before starting watch mode for sync+x triggers
-     */
-    initial_sync?: boolean;
-  }[];
-} & Development1;
-export type Development1 = {
+  restart?: string;
   /**
-   * Configure watch mode for the service, which monitors file changes and performs actions in response.
+   * Number of containers to deploy for this service.
    */
-  watch?: {
+  scale?: number | string;
+  attach?: boolean | string;
+  /**
+   * Specify a custom container name, rather than a generated default name.
+   */
+  container_name?: string;
+  /**
+   * Specify a service which will not be manage by Compose directly, and delegate its management to an external provider.
+   */
+  provider?: {
     /**
-     * Patterns to exclude from watching.
+     * External component used by Compose to manage setup and teardown lifecycle of the service.
      */
-    ignore?: string | ListOfStrings;
+    type: string;
     /**
-     * Patterns to include in watching.
+     * Provider-specific options.
      */
-    include?: string | ListOfStrings;
-    /**
-     * Path to watch for changes.
-     */
-    path: string;
-    /**
-     * Action to take when a change is detected: rebuild the container, sync files, restart the container, sync and restart, or sync and execute a command.
-     */
-    action: "rebuild" | "sync" | "restart" | "sync+restart" | "sync+exec";
-    /**
-     * Target path in the container for sync operations.
-     */
-    target?: string;
-    exec?: ServiceHook;
-    /**
-     * Ensure that an initial synchronization is done before starting watch mode for sync+x triggers
-     */
-    initial_sync?: boolean;
-  }[];
-} | null;
+    options?: {
+      /**
+       * This interface was referenced by `undefined`'s JSON-Schema definition
+       * via the `patternProperty` "^.+$".
+       */
+      [k: string]: (string | number | boolean) | (string | number | boolean)[];
+    };
+  };
+  /**
+   * Extend another service, in the current file or another file.
+   */
+  extends?:
+    | string
+    | {
+        /**
+         * The name of the service to extend.
+         */
+        service: string;
+        /**
+         * The file path where the service to extend is defined.
+         */
+        file?: string;
+      };
+  /**
+   * Link to containers in another service. Either specify both the service name and a link alias (SERVICE:ALIAS), or just the service name.
+   */
+  links?: string[];
+  /**
+   * Link to services started outside this Compose application. Specify services as <service_name>:<alias>.
+   */
+  external_links?: string[];
+  /**
+   * Init containers to run to completion before the service container is started. Each step runs in its own ephemeral container, in declared order; a non-zero exit fails the bring-up of the service and its dependents.
+   */
+  pre_start?: PreStartHook[];
+  /**
+   * Commands to run after the container starts. If any command fails, the container stops.
+   */
+  post_start?: ServiceHook1[];
+  /**
+   * Commands to run before the container stops. If any command fails, the container stop is aborted.
+   */
+  pre_stop?: ServiceHook1[];
+  [k: string]: unknown;
+};
+export type Service1 = ContainerSpec & WorkloadSpec;
+/**
+ * Either a dictionary mapping keys to values, or a list of strings.
+ */
+export type ListOrDict =
+  | {
+      /**
+       * Value for the key, which can be a string, number, boolean, or null.
+       *
+       * This interface was referenced by `undefined`'s JSON-Schema definition
+       * via the `patternProperty` ".+".
+       */
+      [k: string]: string | number | boolean | null;
+    }
+  | string[];
+/**
+ * Grant access to Configs on a per-service basis.
+ */
+export type ServiceConfigOrSecret = (
+  | string
+  | {
+      /**
+       * Name of the config or secret as defined in the top-level configs or secrets section.
+       */
+      source?: string;
+      /**
+       * Path in the container where the config or secret will be mounted. Defaults to /<source> for configs and /run/secrets/<source> for secrets.
+       */
+      target?: string;
+      /**
+       * UID of the file in the container. Default is 0 (root).
+       */
+      uid?: string;
+      /**
+       * GID of the file in the container. Default is 0 (root).
+       */
+      gid?: string;
+      /**
+       * File permission mode inside the container, in octal. Default is 0444 for configs and 0400 for secrets.
+       */
+      mode?: number | string;
+    }
+)[];
+/**
+ * Add rules to the cgroup allowed devices list.
+ */
+export type ListOfStrings1 = string[];
+/**
+ * List of capabilities the GPU needs to have (e.g., 'compute', 'utility').
+ */
+export type ListOfStrings2 = string[];
+/**
+ * List of specific GPU device IDs to use.
+ */
+export type ListOfStrings3 = string[];
+/**
+ * A list of unique string values.
+ */
+export type ListOfStrings4 = string[];
+/**
+ * A list of unique string values.
+ */
+export type ListOfStrings5 = string[];
+/**
+ * A list of unique string values.
+ */
+export type ListOfStrings6 = string[];
+/**
+ * Grant access to Secrets on a per-service basis.
+ */
+export type ServiceConfigOrSecret1 = (
+  | string
+  | {
+      /**
+       * Name of the config or secret as defined in the top-level configs or secrets section.
+       */
+      source?: string;
+      /**
+       * Path in the container where the config or secret will be mounted. Defaults to /<source> for configs and /run/secrets/<source> for secrets.
+       */
+      target?: string;
+      /**
+       * UID of the file in the container. Default is 0 (root).
+       */
+      uid?: string;
+      /**
+       * GID of the file in the container. Default is 0 (root).
+       */
+      gid?: string;
+      /**
+       * File permission mode inside the container, in octal. Default is 0444 for configs and 0400 for secrets.
+       */
+      mode?: number | string;
+    }
+)[];
+/**
+ * Secrets to expose to the build. These are accessible at build-time.
+ */
+export type ServiceConfigOrSecret2 = (
+  | string
+  | {
+      /**
+       * Name of the config or secret as defined in the top-level configs or secrets section.
+       */
+      source?: string;
+      /**
+       * Path in the container where the config or secret will be mounted. Defaults to /<source> for configs and /run/secrets/<source> for secrets.
+       */
+      target?: string;
+      /**
+       * UID of the file in the container. Default is 0 (root).
+       */
+      uid?: string;
+      /**
+       * GID of the file in the container. Default is 0 (root).
+       */
+      gid?: string;
+      /**
+       * File permission mode inside the container, in octal. Default is 0444 for configs and 0400 for secrets.
+       */
+      mode?: number | string;
+    }
+)[];
 /**
  * Deployment configuration for the service.
  */
@@ -112,7 +247,7 @@ export type Deployment = {
    */
   replicas?: number | string;
   /**
-   * Labels to apply to the service.
+   * Either a dictionary mapping keys to values, or a list of strings.
    */
   labels?:
     | {
@@ -283,29 +418,29 @@ export type GenericResources = {
   };
 }[];
 /**
- * List of capabilities the device needs to have (e.g., 'gpu', 'compute', 'utility').
+ * A list of unique string values.
  */
-export type ListOfStrings1 = string[];
+export type ListOfStrings7 = string[];
 /**
- * List of specific device IDs to reserve.
+ * A list of unique string values.
  */
-export type ListOfStrings2 = string[];
+export type ListOfStrings8 = string[];
 /**
  * Device reservations for the container.
  */
 export type Devices = {
-  capabilities: ListOfStrings1;
+  capabilities: ListOfStrings7;
   /**
    * Number of devices of this type to reserve.
    */
   count?: string | number;
-  device_ids?: ListOfStrings2;
+  device_ids?: ListOfStrings8;
   /**
    * Device driver to use (e.g., 'nvidia').
    */
   driver?: string;
   /**
-   * Driver-specific options for the device.
+   * Either a dictionary mapping keys to values, or a list of strings.
    */
   options?:
     | {
@@ -333,7 +468,7 @@ export type Deployment1 = {
    */
   replicas?: number | string;
   /**
-   * Labels to apply to the service.
+   * Either a dictionary mapping keys to values, or a list of strings.
    */
   labels?:
     | {
@@ -486,131 +621,87 @@ export type Deployment1 = {
   };
 } | null;
 /**
- * Either a dictionary mapping keys to values, or a list of strings.
+ * Development configuration for the service, used for development workflows.
  */
-export type ListOrDict =
-  | {
-      /**
-       * Value for the key, which can be a string, number, boolean, or null.
-       *
-       * This interface was referenced by `undefined`'s JSON-Schema definition
-       * via the `patternProperty` ".+".
-       */
-      [k: string]: string | number | boolean | null;
-    }
-  | string[];
-/**
- * Secrets to expose to the build. These are accessible at build-time.
- */
-export type ServiceConfigOrSecret = (
-  | string
-  | {
-      /**
-       * Name of the config or secret as defined in the top-level configs or secrets section.
-       */
-      source?: string;
-      /**
-       * Path in the container where the config or secret will be mounted. Defaults to /<source> for configs and /run/secrets/<source> for secrets.
-       */
-      target?: string;
-      /**
-       * UID of the file in the container. Default is 0 (root).
-       */
-      uid?: string;
-      /**
-       * GID of the file in the container. Default is 0 (root).
-       */
-      gid?: string;
-      /**
-       * File permission mode inside the container, in octal. Default is 0444 for configs and 0400 for secrets.
-       */
-      mode?: number | string;
-    }
-)[];
-/**
- * Grant access to Configs on a per-service basis.
- */
-export type ServiceConfigOrSecret1 = (
-  | string
-  | {
-      /**
-       * Name of the config or secret as defined in the top-level configs or secrets section.
-       */
-      source?: string;
-      /**
-       * Path in the container where the config or secret will be mounted. Defaults to /<source> for configs and /run/secrets/<source> for secrets.
-       */
-      target?: string;
-      /**
-       * UID of the file in the container. Default is 0 (root).
-       */
-      uid?: string;
-      /**
-       * GID of the file in the container. Default is 0 (root).
-       */
-      gid?: string;
-      /**
-       * File permission mode inside the container, in octal. Default is 0444 for configs and 0400 for secrets.
-       */
-      mode?: number | string;
-    }
-)[];
-/**
- * A list of unique string values.
- */
-export type ListOfStrings3 = string[];
-/**
- * A list of unique string values.
- */
-export type ListOfStrings4 = string[];
-/**
- * A list of unique string values.
- */
-export type ListOfStrings5 = string[];
-/**
- * A list of unique string values.
- */
-export type ListOfStrings6 = string[];
-/**
- * A list of unique string values.
- */
-export type ListOfStrings7 = string[];
-/**
- * A list of unique string values.
- */
-export type ListOfStrings8 = string[];
+export type Development = {
+  /**
+   * Configure watch mode for the service, which monitors file changes and performs actions in response.
+   */
+  watch?: {
+    /**
+     * Patterns to exclude from watching.
+     */
+    ignore?: string | ListOfStrings;
+    /**
+     * Patterns to include in watching.
+     */
+    include?: string | ListOfStrings;
+    /**
+     * Path to watch for changes.
+     */
+    path: string;
+    /**
+     * Action to take when a change is detected: rebuild the container, sync files, restart the container, sync and restart, or sync and execute a command.
+     */
+    action: "rebuild" | "sync" | "restart" | "sync+restart" | "sync+exec";
+    /**
+     * Target path in the container for sync operations.
+     */
+    target?: string;
+    exec?: ServiceHook;
+    /**
+     * Ensure that an initial synchronization is done before starting watch mode for sync+x triggers
+     */
+    initial_sync?: boolean;
+  }[];
+} & Development1;
+export type Development1 = {
+  /**
+   * Configure watch mode for the service, which monitors file changes and performs actions in response.
+   */
+  watch?: {
+    /**
+     * Patterns to exclude from watching.
+     */
+    ignore?: string | ListOfStrings;
+    /**
+     * Patterns to include in watching.
+     */
+    include?: string | ListOfStrings;
+    /**
+     * Path to watch for changes.
+     */
+    path: string;
+    /**
+     * Action to take when a change is detected: rebuild the container, sync files, restart the container, sync and restart, or sync and execute a command.
+     */
+    action: "rebuild" | "sync" | "restart" | "sync+restart" | "sync+exec";
+    /**
+     * Target path in the container for sync operations.
+     */
+    target?: string;
+    exec?: ServiceHook;
+    /**
+     * Ensure that an initial synchronization is done before starting watch mode for sync+x triggers
+     */
+    initial_sync?: boolean;
+  }[];
+} | null;
 /**
  * A list of unique string values.
  */
 export type ListOfStrings9 = string[];
 /**
- * Grant access to Secrets on a per-service basis.
+ * Configuration for a pre_start init container, run to completion before the service container starts. Accepts the full container specification; per #656, attributes not set explicitly are inherited from the service: collection attributes are completed by the hook's declarations (which win on conflicts), scalar attributes are replaced.
  */
-export type ServiceConfigOrSecret2 = (
-  | string
-  | {
-      /**
-       * Name of the config or secret as defined in the top-level configs or secrets section.
-       */
-      source?: string;
-      /**
-       * Path in the container where the config or secret will be mounted. Defaults to /<source> for configs and /run/secrets/<source> for secrets.
-       */
-      target?: string;
-      /**
-       * UID of the file in the container. Default is 0 (root).
-       */
-      uid?: string;
-      /**
-       * GID of the file in the container. Default is 0 (root).
-       */
-      gid?: string;
-      /**
-       * File permission mode inside the container, in octal. Default is 0444 for configs and 0400 for secrets.
-       */
-      mode?: number | string;
-    }
-)[];
+export type PreStartHook = PreStartHook1 & {
+  /**
+   * When true, the hook runs once per service replica instead of once per service.
+   */
+  per_replica?: boolean | string;
+  [k: string]: unknown;
+};
+export type PreStartHook1 = ContainerSpec;
 /**
  * Network configuration for the Compose application.
  *
@@ -935,6 +1026,27 @@ export type Volume1 = {
       }
     | string[];
 } | null;
+/**
+ * Configuration for a job. Jobs are containers that run to completion.
+ *
+ * This interface was referenced by `undefined`'s JSON-Schema definition
+ * via the `patternProperty` "^[a-zA-Z0-9._-]+$".
+ */
+export type Job = Job1 & {
+  profiles?: ListOfStrings10;
+  /**
+   * Trigger conditions for the job. At least one trigger attribute must be declared. Setting manual to false forbids manual execution by an explicit run command.
+   */
+  triggers: {
+    [k: string]: unknown;
+  };
+  [k: string]: unknown;
+};
+export type Job1 = ContainerSpec & WorkloadSpec;
+/**
+ * A list of unique string values.
+ */
+export type ListOfStrings10 = string[];
 
 /**
  * The Compose file is a YAML file defining a multi-containers based application.
@@ -989,18 +1101,657 @@ export interface Compose {
   configs?: {
     [k: string]: Config;
   };
+  /**
+   * Jobs are containers that run to completion.
+   */
+  jobs?: {
+    [k: string]: Job;
+  };
 }
 /**
- * Configuration for a service.
- *
- * This interface was referenced by `undefined`'s JSON-Schema definition
- * via the `patternProperty` "^[a-zA-Z0-9._-]+$".
+ * Attributes of a container specification shared by anything that runs a container: services, jobs, and run-to-completion init containers (pre_start hooks).
  */
-export interface Service {
-  develop?: Development;
-  deploy?: Deployment;
+export interface ContainerSpec {
   annotations?: ListOrDict;
-  attach?: boolean | string;
+  /**
+   * Block IO configuration for the service.
+   */
+  blkio_config?: {
+    /**
+     * Limit read rate (bytes per second) from a device.
+     */
+    device_read_bps?: BlkioLimit[];
+    /**
+     * Limit read rate (IO per second) from a device.
+     */
+    device_read_iops?: BlkioLimit[];
+    /**
+     * Limit write rate (bytes per second) to a device.
+     */
+    device_write_bps?: BlkioLimit[];
+    /**
+     * Limit write rate (IO per second) to a device.
+     */
+    device_write_iops?: BlkioLimit[];
+    /**
+     * Block IO weight (relative weight) for the service, between 10 and 1000.
+     */
+    weight?: number | string;
+    /**
+     * Block IO weight (relative weight) for specific devices.
+     */
+    weight_device?: BlkioWeight[];
+  };
+  /**
+   * Add Linux capabilities. For example, 'CAP_SYS_ADMIN', 'SYS_ADMIN', or 'NET_ADMIN'.
+   */
+  cap_add?: string[];
+  /**
+   * Drop Linux capabilities. For example, 'CAP_SYS_ADMIN', 'SYS_ADMIN', or 'NET_ADMIN'.
+   */
+  cap_drop?: string[];
+  /**
+   * Specify the cgroup namespace to join. Use 'host' to use the host's cgroup namespace, or 'private' to use a private cgroup namespace.
+   */
+  cgroup?: "host" | "private";
+  /**
+   * Specify an optional parent cgroup for the container.
+   */
+  cgroup_parent?: string;
+  /**
+   * Override the default command declared by the container image, for example 'CMD' in Dockerfile.
+   */
+  command?: null | string | string[];
+  configs?: ServiceConfigOrSecret;
+  /**
+   * Number of usable CPUs.
+   */
+  cpu_count?: string | number;
+  /**
+   * Percentage of CPU resources to use.
+   */
+  cpu_percent?: string | number;
+  /**
+   * CPU shares (relative weight) for the container.
+   */
+  cpu_shares?: number | string;
+  /**
+   * Limit the CPU CFS (Completely Fair Scheduler) quota.
+   */
+  cpu_quota?: number | string;
+  /**
+   * Limit the CPU CFS (Completely Fair Scheduler) period.
+   */
+  cpu_period?: number | string;
+  /**
+   * Limit the CPU real-time period in microseconds or a duration.
+   */
+  cpu_rt_period?: number | string;
+  /**
+   * Limit the CPU real-time runtime in microseconds or a duration.
+   */
+  cpu_rt_runtime?: number | string;
+  /**
+   * Number of CPUs to use. A floating-point value is supported to request partial CPUs.
+   */
+  cpus?: number | string;
+  /**
+   * CPUs in which to allow execution (0-3, 0,1).
+   */
+  cpuset?: string;
+  /**
+   * Configure the credential spec for managed service account.
+   */
+  credential_spec?: {
+    /**
+     * The name of the credential spec Config to use.
+     */
+    config?: string;
+    /**
+     * Path to a credential spec file.
+     */
+    file?: string;
+    /**
+     * Path to a credential spec in the Windows registry.
+     */
+    registry?: string;
+  };
+  device_cgroup_rules?: ListOfStrings1;
+  /**
+   * List of device mappings for the container.
+   */
+  devices?: (
+    | string
+    | {
+        /**
+         * Path on the host to the device.
+         */
+        source: string;
+        /**
+         * Path in the container where the device will be mapped.
+         */
+        target?: string;
+        /**
+         * Cgroup permissions for the device (rwm).
+         */
+        permissions?: string;
+      }
+  )[];
+  /**
+   * Custom DNS servers to set for the service container.
+   */
+  dns?: string | ListOfStrings;
+  /**
+   * Custom DNS options to be passed to the container's DNS resolver.
+   */
+  dns_opt?: string[];
+  /**
+   * Custom DNS search domains to set on the service container.
+   */
+  dns_search?: string | ListOfStrings;
+  /**
+   * Custom domain name to use for the service container.
+   */
+  domainname?: string;
+  /**
+   * Override the default entrypoint declared by the container image, for example 'ENTRYPOINT' in Dockerfile.
+   */
+  entrypoint?: null | string | string[];
+  /**
+   * Add environment variables from a file or multiple files. Can be a single file path or a list of file paths.
+   */
+  env_file?:
+    | string
+    | (
+        | string
+        | {
+            /**
+             * Path to the environment file.
+             */
+            path: string;
+            /**
+             * Format attribute lets you to use an alternative file formats for env_file. When not set, env_file is parsed according to Compose rules.
+             */
+            format?: string;
+            /**
+             * Whether the file is required. If true and the file doesn't exist, an error will be raised.
+             */
+            required?: boolean | string;
+          }
+      )[];
+  /**
+   * Add metadata to containers using files containing Docker labels.
+   */
+  label_file?: string | string[];
+  /**
+   * Either a dictionary mapping keys to values, or a list of strings.
+   */
+  environment?:
+    | {
+        /**
+         * Value for the key, which can be a string, number, boolean, or null.
+         *
+         * This interface was referenced by `undefined`'s JSON-Schema definition
+         * via the `patternProperty` ".+".
+         */
+        [k: string]: string | number | boolean | null;
+      }
+    | string[];
+  /**
+   * Add hostname mappings to the container network interface configuration.
+   */
+  extra_hosts?:
+    | {
+        /**
+         * This interface was referenced by `undefined`'s JSON-Schema definition
+         * via the `patternProperty` ".+".
+         */
+        [k: string]: string | string[];
+      }
+    | string[];
+  /**
+   * Define GPU devices to use. Can be set to 'all' to use all GPUs, or a list of specific GPU devices.
+   */
+  gpus?:
+    | "all"
+    | {
+        capabilities?: ListOfStrings2;
+        /**
+         * Number of GPUs to use.
+         */
+        count?: string | number;
+        device_ids?: ListOfStrings3;
+        /**
+         * GPU driver to use (e.g., 'nvidia').
+         */
+        driver?: string;
+        /**
+         * Either a dictionary mapping keys to values, or a list of strings.
+         */
+        options?:
+          | {
+              /**
+               * Value for the key, which can be a string, number, boolean, or null.
+               *
+               * This interface was referenced by `undefined`'s JSON-Schema definition
+               * via the `patternProperty` ".+".
+               */
+              [k: string]: string | number | boolean | null;
+            }
+          | string[];
+        [k: string]: unknown;
+      }[];
+  /**
+   * Add additional groups which user inside the container should be member of.
+   */
+  group_add?: (string | number)[];
+  /**
+   * Define a custom hostname for the service container.
+   */
+  hostname?: string;
+  /**
+   * Specify the image to start the container from. Can be a repository/tag, a digest, or a local image ID.
+   */
+  image?: string;
+  /**
+   * Run as an init process inside the container that forwards signals and reaps processes.
+   */
+  init?: boolean | string;
+  /**
+   * IPC sharing mode for the service container. Use 'host' to share the host's IPC namespace, 'service:[service_name]' to share with another service, or 'shareable' to allow other services to share this service's IPC namespace.
+   */
+  ipc?: string;
+  /**
+   * Container isolation technology to use. Supported values are platform-specific.
+   */
+  isolation?: string;
+  /**
+   * Either a dictionary mapping keys to values, or a list of strings.
+   */
+  labels?:
+    | {
+        /**
+         * Value for the key, which can be a string, number, boolean, or null.
+         *
+         * This interface was referenced by `undefined`'s JSON-Schema definition
+         * via the `patternProperty` ".+".
+         */
+        [k: string]: string | number | boolean | null;
+      }
+    | string[];
+  /**
+   * Logging configuration for the service.
+   */
+  logging?: {
+    /**
+     * Logging driver to use, such as 'json-file', 'syslog', 'journald', etc.
+     */
+    driver?: string;
+    /**
+     * Options for the logging driver.
+     */
+    options?: {
+      /**
+       * This interface was referenced by `undefined`'s JSON-Schema definition
+       * via the `patternProperty` "^.+$".
+       */
+      [k: string]: string | number | null;
+    };
+  };
+  /**
+   * Container MAC address to set.
+   */
+  mac_address?: string;
+  /**
+   * Memory limit for the container. A string value can use suffix like '2g' for 2 gigabytes.
+   */
+  mem_limit?: number | string;
+  /**
+   * Memory reservation for the container.
+   */
+  mem_reservation?: string | number;
+  /**
+   * Container memory swappiness as percentage (0 to 100).
+   */
+  mem_swappiness?: number | string;
+  /**
+   * Amount of memory the container is allowed to swap to disk. Set to -1 to enable unlimited swap.
+   */
+  memswap_limit?: number | string;
+  /**
+   * Network mode. Values can be 'bridge', 'host', 'none', 'service:[service name]', or 'container:[container name]'.
+   */
+  network_mode?: string;
+  /**
+   * AI Models to use, referencing entries under the top-level models key.
+   */
+  models?:
+    | ListOfStrings4
+    | {
+        /**
+         * This interface was referenced by `undefined`'s JSON-Schema definition
+         * via the `patternProperty` "^[a-zA-Z0-9._-]+$".
+         */
+        [k: string]: {
+          /**
+           * Environment variable set to AI model endpoint.
+           */
+          endpoint_var?: string;
+          /**
+           * Environment variable set to AI model name.
+           */
+          model_var?: string;
+        } | null;
+      };
+  /**
+   * Networks to join, referencing entries under the top-level networks key. Can be a list of network names or a mapping of network name to network configuration.
+   */
+  networks?:
+    | ListOfStrings4
+    | {
+        /**
+         * This interface was referenced by `undefined`'s JSON-Schema definition
+         * via the `patternProperty` "^[a-zA-Z0-9._-]+$".
+         */
+        [k: string]: {
+          aliases?: ListOfStrings5;
+          /**
+           * Interface network name used to connect to network
+           */
+          interface_name?: string;
+          /**
+           * Specify a static IPv4 address for this service on this network.
+           */
+          ipv4_address?: string;
+          /**
+           * Specify a static IPv6 address for this service on this network.
+           */
+          ipv6_address?: string;
+          link_local_ips?: ListOfStrings6;
+          /**
+           * Specify a MAC address for this service on this network.
+           */
+          mac_address?: string;
+          /**
+           * Driver options for this network.
+           */
+          driver_opts?: {
+            /**
+             * This interface was referenced by `undefined`'s JSON-Schema definition
+             * via the `patternProperty` "^.+$".
+             */
+            [k: string]: string | number;
+          };
+          /**
+           * Specify the priority for the network connection.
+           */
+          priority?: number;
+          /**
+           * Specify the gateway priority for the network connection.
+           */
+          gw_priority?: number;
+        } | null;
+      };
+  /**
+   * Disable OOM Killer for the container.
+   */
+  oom_kill_disable?: boolean | string;
+  /**
+   * Tune host's OOM preferences for the container (accepts -1000 to 1000).
+   */
+  oom_score_adj?: string | number;
+  /**
+   * PID mode for container.
+   */
+  pid?: string | null;
+  /**
+   * Tune a container's PIDs limit. Set to -1 for unlimited PIDs.
+   */
+  pids_limit?: number | string;
+  /**
+   * Target platform to run on, e.g., 'linux/amd64', 'linux/arm64', or 'windows/amd64'.
+   */
+  platform?: string;
+  /**
+   * Give extended privileges to the service container.
+   */
+  privileged?: boolean | string;
+  /**
+   * Policy for pulling images. Options include: 'always', 'never', 'if_not_present', 'missing', 'build', or time-based refresh policies.
+   */
+  pull_policy?: string;
+  /**
+   * Time after which to refresh the image. Used with pull_policy=refresh.
+   */
+  pull_refresh_after?: string;
+  /**
+   * Mount the container's filesystem as read only.
+   */
+  read_only?: boolean | string;
+  /**
+   * Runtime to use for this container, e.g., 'runc'.
+   */
+  runtime?: string;
+  /**
+   * Override the default labeling scheme for each container.
+   */
+  security_opt?: string[];
+  /**
+   * Size of /dev/shm. A string value can use suffix like '2g' for 2 gigabytes.
+   */
+  shm_size?: number | string;
+  secrets?: ServiceConfigOrSecret1;
+  /**
+   * Either a dictionary mapping keys to values, or a list of strings.
+   */
+  sysctls?:
+    | {
+        /**
+         * Value for the key, which can be a string, number, boolean, or null.
+         *
+         * This interface was referenced by `undefined`'s JSON-Schema definition
+         * via the `patternProperty` ".+".
+         */
+        [k: string]: string | number | boolean | null;
+      }
+    | string[];
+  /**
+   * Time to wait for the container to stop gracefully before sending SIGKILL (e.g., '1s', '1m30s').
+   */
+  stop_grace_period?: string;
+  /**
+   * Signal to stop the container (e.g., 'SIGTERM', 'SIGINT').
+   */
+  stop_signal?: string;
+  /**
+   * Storage driver options for the container.
+   */
+  storage_opt?: {
+    [k: string]: unknown;
+  };
+  /**
+   * Mount a temporary filesystem (tmpfs) into the container. Can be a single value or a list.
+   */
+  tmpfs?: string | ListOfStrings;
+  ulimits?: Ulimits;
+  /**
+   * Bind mount Docker API socket and required auth.
+   */
+  use_api_socket?: boolean;
+  /**
+   * Username or UID to run the container process as.
+   */
+  user?: string;
+  /**
+   * UTS namespace to use. 'host' shares the host's UTS namespace.
+   */
+  uts?: string;
+  /**
+   * User namespace to use. 'host' shares the host's user namespace.
+   */
+  userns_mode?: string;
+  /**
+   * Mount host paths or named volumes accessible to the container. Short syntax (VOLUME:CONTAINER_PATH[:MODE])
+   */
+  volumes?: (
+    | string
+    | {
+        /**
+         * The mount type: bind for mounting host directories, volume for named volumes, tmpfs for temporary filesystems, cluster for cluster volumes, npipe for named pipes, or image for mounting from an image.
+         */
+        type: "bind" | "volume" | "tmpfs" | "cluster" | "npipe" | "image";
+        /**
+         * The source of the mount, a path on the host for a bind mount, a docker image reference for an image mount, or the name of a volume defined in the top-level volumes key. Not applicable for a tmpfs mount.
+         */
+        source?: string;
+        /**
+         * The path in the container where the volume is mounted.
+         */
+        target?: string;
+        /**
+         * Flag to set the volume as read-only.
+         */
+        read_only?: boolean | string;
+        /**
+         * The consistency requirements for the mount. Available values are platform specific.
+         */
+        consistency?: string;
+        /**
+         * Configuration specific to bind mounts.
+         */
+        bind?: {
+          /**
+           * The propagation mode for the bind mount: 'shared', 'slave', 'private', 'rshared', 'rslave', or 'rprivate'.
+           */
+          propagation?: string;
+          /**
+           * Create the host path if it doesn't exist.
+           */
+          create_host_path?: boolean | string;
+          /**
+           * Recursively mount the source directory.
+           */
+          recursive?: "enabled" | "disabled" | "writable" | "readonly";
+          /**
+           * SELinux relabeling options: 'z' for shared content, 'Z' for private unshared content.
+           */
+          selinux?: "z" | "Z";
+        };
+        /**
+         * Configuration specific to volume mounts.
+         */
+        volume?: {
+          /**
+           * Either a dictionary mapping keys to values, or a list of strings.
+           */
+          labels?:
+            | {
+                /**
+                 * Value for the key, which can be a string, number, boolean, or null.
+                 *
+                 * This interface was referenced by `undefined`'s JSON-Schema definition
+                 * via the `patternProperty` ".+".
+                 */
+                [k: string]: string | number | boolean | null;
+              }
+            | string[];
+          /**
+           * Flag to disable copying of data from a container when a volume is created.
+           */
+          nocopy?: boolean | string;
+          /**
+           * Path within the volume to mount instead of the volume root.
+           */
+          subpath?: string;
+        };
+        /**
+         * Configuration specific to tmpfs mounts.
+         */
+        tmpfs?: {
+          /**
+           * Size of the tmpfs mount in bytes.
+           */
+          size?: number | string;
+          /**
+           * File mode of the tmpfs in octal.
+           */
+          mode?: number | string;
+        };
+        /**
+         * Configuration specific to image mounts.
+         */
+        image?: {
+          /**
+           * Path within the image to mount instead of the image root.
+           */
+          subpath?: string;
+        };
+      }
+  )[];
+  /**
+   * Mount volumes from another service or container. Optionally specify read-only access (ro) or read-write (rw).
+   */
+  volumes_from?: string[];
+  /**
+   * The working directory in which the entrypoint or command will be run
+   */
+  working_dir?: string;
+  [k: string]: unknown;
+}
+/**
+ * Block IO limit for a specific device.
+ */
+export interface BlkioLimit {
+  /**
+   * Path to the device (e.g., '/dev/sda').
+   */
+  path?: string;
+  /**
+   * Rate limit in bytes per second or IO operations per second.
+   */
+  rate?: number | string;
+}
+/**
+ * Block IO weight for a specific device.
+ */
+export interface BlkioWeight {
+  /**
+   * Path to the device (e.g., '/dev/sda').
+   */
+  path?: string;
+  /**
+   * Relative weight for the device, between 10 and 1000.
+   */
+  weight?: number | string;
+}
+/**
+ * Override the default ulimits for a container.
+ */
+export interface Ulimits {
+  /**
+   * This interface was referenced by `Ulimits`'s JSON-Schema definition
+   * via the `patternProperty` "^[a-z]+$".
+   *
+   * This interface was referenced by `Ulimits1`'s JSON-Schema definition
+   * via the `patternProperty` "^[a-z]+$".
+   */
+  [k: string]:
+    | (number | string)
+    | {
+        /**
+         * Hard limit for the ulimit type. This is the maximum allowed value.
+         */
+        hard: number | string;
+        /**
+         * Soft limit for the ulimit type. This is the value that's actually enforced.
+         */
+        soft: number | string;
+      };
+}
+/**
+ * Container attributes meaningful for orchestrated workloads (services and jobs) but not for run-to-completion init containers: build, dependency ordering, health reporting, port exposure and interactivity.
+ */
+export interface WorkloadSpec {
   /**
    * Configuration options for building the service's image.
    */
@@ -1139,129 +1890,22 @@ export interface Service {
          * Give extended privileges to the build container.
          */
         privileged?: boolean | string;
-        secrets?: ServiceConfigOrSecret;
+        secrets?: ServiceConfigOrSecret2;
         /**
          * Additional tags to apply to the built image.
          */
         tags?: string[];
-        ulimits?: Ulimits;
+        ulimits?: Ulimits1;
         /**
          * Platforms to build for, e.g., 'linux/amd64', 'linux/arm64', or 'windows/amd64'.
          */
         platforms?: string[];
       };
   /**
-   * Block IO configuration for the service.
-   */
-  blkio_config?: {
-    /**
-     * Limit read rate (bytes per second) from a device.
-     */
-    device_read_bps?: BlkioLimit[];
-    /**
-     * Limit read rate (IO per second) from a device.
-     */
-    device_read_iops?: BlkioLimit[];
-    /**
-     * Limit write rate (bytes per second) to a device.
-     */
-    device_write_bps?: BlkioLimit[];
-    /**
-     * Limit write rate (IO per second) to a device.
-     */
-    device_write_iops?: BlkioLimit[];
-    /**
-     * Block IO weight (relative weight) for the service, between 10 and 1000.
-     */
-    weight?: number | string;
-    /**
-     * Block IO weight (relative weight) for specific devices.
-     */
-    weight_device?: BlkioWeight[];
-  };
-  /**
-   * Add Linux capabilities. For example, 'CAP_SYS_ADMIN', 'SYS_ADMIN', or 'NET_ADMIN'.
-   */
-  cap_add?: string[];
-  /**
-   * Drop Linux capabilities. For example, 'CAP_SYS_ADMIN', 'SYS_ADMIN', or 'NET_ADMIN'.
-   */
-  cap_drop?: string[];
-  /**
-   * Specify the cgroup namespace to join. Use 'host' to use the host's cgroup namespace, or 'private' to use a private cgroup namespace.
-   */
-  cgroup?: "host" | "private";
-  /**
-   * Specify an optional parent cgroup for the container.
-   */
-  cgroup_parent?: string;
-  /**
-   * Override the default command declared by the container image, for example 'CMD' in Dockerfile.
-   */
-  command?: null | string | string[];
-  configs?: ServiceConfigOrSecret1;
-  /**
-   * Specify a custom container name, rather than a generated default name.
-   */
-  container_name?: string;
-  /**
-   * Number of usable CPUs.
-   */
-  cpu_count?: string | number;
-  /**
-   * Percentage of CPU resources to use.
-   */
-  cpu_percent?: string | number;
-  /**
-   * CPU shares (relative weight) for the container.
-   */
-  cpu_shares?: number | string;
-  /**
-   * Limit the CPU CFS (Completely Fair Scheduler) quota.
-   */
-  cpu_quota?: number | string;
-  /**
-   * Limit the CPU CFS (Completely Fair Scheduler) period.
-   */
-  cpu_period?: number | string;
-  /**
-   * Limit the CPU real-time period in microseconds or a duration.
-   */
-  cpu_rt_period?: number | string;
-  /**
-   * Limit the CPU real-time runtime in microseconds or a duration.
-   */
-  cpu_rt_runtime?: number | string;
-  /**
-   * Number of CPUs to use. A floating-point value is supported to request partial CPUs.
-   */
-  cpus?: number | string;
-  /**
-   * CPUs in which to allow execution (0-3, 0,1).
-   */
-  cpuset?: string;
-  /**
-   * Configure the credential spec for managed service account.
-   */
-  credential_spec?: {
-    /**
-     * The name of the credential spec Config to use.
-     */
-    config?: string;
-    /**
-     * Path to a credential spec file.
-     */
-    file?: string;
-    /**
-     * Path to a credential spec in the Windows registry.
-     */
-    registry?: string;
-  };
-  /**
    * Express dependency between services. Service dependencies cause services to be started in dependency order. The dependent service will wait for the dependency to be ready before starting.
    */
   depends_on?:
-    | ListOfStrings3
+    | ListOfStrings4
     | {
         /**
          * This interface was referenced by `undefined`'s JSON-Schema definition
@@ -1282,349 +1926,7 @@ export interface Service {
           condition: "service_started" | "service_healthy" | "service_completed_successfully";
         };
       };
-  device_cgroup_rules?: ListOfStrings4;
-  /**
-   * List of device mappings for the container.
-   */
-  devices?: (
-    | string
-    | {
-        /**
-         * Path on the host to the device.
-         */
-        source: string;
-        /**
-         * Path in the container where the device will be mapped.
-         */
-        target?: string;
-        /**
-         * Cgroup permissions for the device (rwm).
-         */
-        permissions?: string;
-      }
-  )[];
-  /**
-   * Custom DNS servers to set for the service container.
-   */
-  dns?: string | ListOfStrings;
-  /**
-   * Custom DNS options to be passed to the container's DNS resolver.
-   */
-  dns_opt?: string[];
-  /**
-   * Custom DNS search domains to set on the service container.
-   */
-  dns_search?: string | ListOfStrings;
-  /**
-   * Custom domain name to use for the service container.
-   */
-  domainname?: string;
-  /**
-   * Override the default entrypoint declared by the container image, for example 'ENTRYPOINT' in Dockerfile.
-   */
-  entrypoint?: null | string | string[];
-  /**
-   * Add environment variables from a file or multiple files. Can be a single file path or a list of file paths.
-   */
-  env_file?:
-    | string
-    | (
-        | string
-        | {
-            /**
-             * Path to the environment file.
-             */
-            path: string;
-            /**
-             * Format attribute lets you to use an alternative file formats for env_file. When not set, env_file is parsed according to Compose rules.
-             */
-            format?: string;
-            /**
-             * Whether the file is required. If true and the file doesn't exist, an error will be raised.
-             */
-            required?: boolean | string;
-          }
-      )[];
-  /**
-   * Add metadata to containers using files containing Docker labels.
-   */
-  label_file?: string | string[];
-  /**
-   * Either a dictionary mapping keys to values, or a list of strings.
-   */
-  environment?:
-    | {
-        /**
-         * Value for the key, which can be a string, number, boolean, or null.
-         *
-         * This interface was referenced by `undefined`'s JSON-Schema definition
-         * via the `patternProperty` ".+".
-         */
-        [k: string]: string | number | boolean | null;
-      }
-    | string[];
-  /**
-   * Expose ports without publishing them to the host machine - they'll only be accessible to linked services.
-   */
-  expose?: (string | number)[];
-  /**
-   * Extend another service, in the current file or another file.
-   */
-  extends?:
-    | string
-    | {
-        /**
-         * The name of the service to extend.
-         */
-        service: string;
-        /**
-         * The file path where the service to extend is defined.
-         */
-        file?: string;
-      };
-  /**
-   * Specify a service which will not be manage by Compose directly, and delegate its management to an external provider.
-   */
-  provider?: {
-    /**
-     * External component used by Compose to manage setup and teardown lifecycle of the service.
-     */
-    type: string;
-    /**
-     * Provider-specific options.
-     */
-    options?: {
-      /**
-       * This interface was referenced by `undefined`'s JSON-Schema definition
-       * via the `patternProperty` "^.+$".
-       */
-      [k: string]: (string | number | boolean) | (string | number | boolean)[];
-    };
-  };
-  /**
-   * Link to services started outside this Compose application. Specify services as <service_name>:<alias>.
-   */
-  external_links?: string[];
-  /**
-   * Add hostname mappings to the container network interface configuration.
-   */
-  extra_hosts?:
-    | {
-        /**
-         * This interface was referenced by `undefined`'s JSON-Schema definition
-         * via the `patternProperty` ".+".
-         */
-        [k: string]: string | string[];
-      }
-    | string[];
-  /**
-   * Define GPU devices to use. Can be set to 'all' to use all GPUs, or a list of specific GPU devices.
-   */
-  gpus?:
-    | "all"
-    | {
-        capabilities?: ListOfStrings5;
-        /**
-         * Number of GPUs to use.
-         */
-        count?: string | number;
-        device_ids?: ListOfStrings6;
-        /**
-         * GPU driver to use (e.g., 'nvidia').
-         */
-        driver?: string;
-        /**
-         * Either a dictionary mapping keys to values, or a list of strings.
-         */
-        options?:
-          | {
-              /**
-               * Value for the key, which can be a string, number, boolean, or null.
-               *
-               * This interface was referenced by `undefined`'s JSON-Schema definition
-               * via the `patternProperty` ".+".
-               */
-              [k: string]: string | number | boolean | null;
-            }
-          | string[];
-        [k: string]: unknown;
-      }[];
-  /**
-   * Add additional groups which user inside the container should be member of.
-   */
-  group_add?: (string | number)[];
   healthcheck?: Healthcheck;
-  /**
-   * Define a custom hostname for the service container.
-   */
-  hostname?: string;
-  /**
-   * Specify the image to start the container from. Can be a repository/tag, a digest, or a local image ID.
-   */
-  image?: string;
-  /**
-   * Run as an init process inside the container that forwards signals and reaps processes.
-   */
-  init?: boolean | string;
-  /**
-   * IPC sharing mode for the service container. Use 'host' to share the host's IPC namespace, 'service:[service_name]' to share with another service, or 'shareable' to allow other services to share this service's IPC namespace.
-   */
-  ipc?: string;
-  /**
-   * Container isolation technology to use. Supported values are platform-specific.
-   */
-  isolation?: string;
-  /**
-   * Either a dictionary mapping keys to values, or a list of strings.
-   */
-  labels?:
-    | {
-        /**
-         * Value for the key, which can be a string, number, boolean, or null.
-         *
-         * This interface was referenced by `undefined`'s JSON-Schema definition
-         * via the `patternProperty` ".+".
-         */
-        [k: string]: string | number | boolean | null;
-      }
-    | string[];
-  /**
-   * Link to containers in another service. Either specify both the service name and a link alias (SERVICE:ALIAS), or just the service name.
-   */
-  links?: string[];
-  /**
-   * Logging configuration for the service.
-   */
-  logging?: {
-    /**
-     * Logging driver to use, such as 'json-file', 'syslog', 'journald', etc.
-     */
-    driver?: string;
-    /**
-     * Options for the logging driver.
-     */
-    options?: {
-      /**
-       * This interface was referenced by `undefined`'s JSON-Schema definition
-       * via the `patternProperty` "^.+$".
-       */
-      [k: string]: string | number | null;
-    };
-  };
-  /**
-   * Container MAC address to set.
-   */
-  mac_address?: string;
-  /**
-   * Memory limit for the container. A string value can use suffix like '2g' for 2 gigabytes.
-   */
-  mem_limit?: number | string;
-  /**
-   * Memory reservation for the container.
-   */
-  mem_reservation?: string | number;
-  /**
-   * Container memory swappiness as percentage (0 to 100).
-   */
-  mem_swappiness?: number | string;
-  /**
-   * Amount of memory the container is allowed to swap to disk. Set to -1 to enable unlimited swap.
-   */
-  memswap_limit?: number | string;
-  /**
-   * Network mode. Values can be 'bridge', 'host', 'none', 'service:[service name]', or 'container:[container name]'.
-   */
-  network_mode?: string;
-  /**
-   * AI Models to use, referencing entries under the top-level models key.
-   */
-  models?:
-    | ListOfStrings3
-    | {
-        /**
-         * This interface was referenced by `undefined`'s JSON-Schema definition
-         * via the `patternProperty` "^[a-zA-Z0-9._-]+$".
-         */
-        [k: string]: {
-          /**
-           * Environment variable set to AI model endpoint.
-           */
-          endpoint_var?: string;
-          /**
-           * Environment variable set to AI model name.
-           */
-          model_var?: string;
-        } | null;
-      };
-  /**
-   * Networks to join, referencing entries under the top-level networks key. Can be a list of network names or a mapping of network name to network configuration.
-   */
-  networks?:
-    | ListOfStrings3
-    | {
-        /**
-         * This interface was referenced by `undefined`'s JSON-Schema definition
-         * via the `patternProperty` "^[a-zA-Z0-9._-]+$".
-         */
-        [k: string]: {
-          aliases?: ListOfStrings7;
-          /**
-           * Interface network name used to connect to network
-           */
-          interface_name?: string;
-          /**
-           * Specify a static IPv4 address for this service on this network.
-           */
-          ipv4_address?: string;
-          /**
-           * Specify a static IPv6 address for this service on this network.
-           */
-          ipv6_address?: string;
-          link_local_ips?: ListOfStrings8;
-          /**
-           * Specify a MAC address for this service on this network.
-           */
-          mac_address?: string;
-          /**
-           * Driver options for this network.
-           */
-          driver_opts?: {
-            /**
-             * This interface was referenced by `undefined`'s JSON-Schema definition
-             * via the `patternProperty` "^.+$".
-             */
-            [k: string]: string | number;
-          };
-          /**
-           * Specify the priority for the network connection.
-           */
-          priority?: number;
-          /**
-           * Specify the gateway priority for the network connection.
-           */
-          gw_priority?: number;
-        } | null;
-      };
-  /**
-   * Disable OOM Killer for the container.
-   */
-  oom_kill_disable?: boolean | string;
-  /**
-   * Tune host's OOM preferences for the container (accepts -1000 to 1000).
-   */
-  oom_score_adj?: string | number;
-  /**
-   * PID mode for container.
-   */
-  pid?: string | null;
-  /**
-   * Tune a container's PIDs limit. Set to -1 for unlimited PIDs.
-   */
-  pids_limit?: number | string;
-  /**
-   * Target platform to run on, e.g., 'linux/amd64', 'linux/arm64', or 'windows/amd64'.
-   */
-  platform?: string;
   /**
    * Expose container ports. Short format ([HOST:]CONTAINER[/PROTOCOL]).
    */
@@ -1663,258 +1965,23 @@ export interface Service {
       }
   )[];
   /**
-   * Init containers to run to completion before the service container is started. Each step runs in its own ephemeral container, in declared order; a non-zero exit fails the bring-up of the service and its dependents.
+   * Expose ports without publishing them to the host machine - they'll only be accessible to linked services.
    */
-  pre_start?: PreStartHook[];
-  /**
-   * Commands to run after the container starts. If any command fails, the container stops.
-   */
-  post_start?: ServiceHook1[];
-  /**
-   * Commands to run before the container stops. If any command fails, the container stop is aborted.
-   */
-  pre_stop?: ServiceHook1[];
-  /**
-   * Give extended privileges to the service container.
-   */
-  privileged?: boolean | string;
-  profiles?: ListOfStrings9;
-  /**
-   * Policy for pulling images. Options include: 'always', 'never', 'if_not_present', 'missing', 'build', or time-based refresh policies.
-   */
-  pull_policy?: string;
-  /**
-   * Time after which to refresh the image. Used with pull_policy=refresh.
-   */
-  pull_refresh_after?: string;
-  /**
-   * Mount the container's filesystem as read only.
-   */
-  read_only?: boolean | string;
-  /**
-   * Restart policy for the service container. Options include: 'no', 'always', 'on-failure', and 'unless-stopped'.
-   */
-  restart?: string;
-  /**
-   * Runtime to use for this container, e.g., 'runc'.
-   */
-  runtime?: string;
-  /**
-   * Number of containers to deploy for this service.
-   */
-  scale?: number | string;
-  /**
-   * Override the default labeling scheme for each container.
-   */
-  security_opt?: string[];
-  /**
-   * Size of /dev/shm. A string value can use suffix like '2g' for 2 gigabytes.
-   */
-  shm_size?: number | string;
-  secrets?: ServiceConfigOrSecret2;
-  /**
-   * Either a dictionary mapping keys to values, or a list of strings.
-   */
-  sysctls?:
-    | {
-        /**
-         * Value for the key, which can be a string, number, boolean, or null.
-         *
-         * This interface was referenced by `undefined`'s JSON-Schema definition
-         * via the `patternProperty` ".+".
-         */
-        [k: string]: string | number | boolean | null;
-      }
-    | string[];
+  expose?: (string | number)[];
   /**
    * Keep STDIN open even if not attached.
    */
   stdin_open?: boolean | string;
   /**
-   * Time to wait for the container to stop gracefully before sending SIGKILL (e.g., '1s', '1m30s').
-   */
-  stop_grace_period?: string;
-  /**
-   * Signal to stop the container (e.g., 'SIGTERM', 'SIGINT').
-   */
-  stop_signal?: string;
-  /**
-   * Storage driver options for the container.
-   */
-  storage_opt?: {
-    [k: string]: unknown;
-  };
-  /**
-   * Mount a temporary filesystem (tmpfs) into the container. Can be a single value or a list.
-   */
-  tmpfs?: string | ListOfStrings;
-  /**
    * Allocate a pseudo-TTY to service container.
    */
   tty?: boolean | string;
-  ulimits?: Ulimits1;
-  /**
-   * Bind mount Docker API socket and required auth.
-   */
-  use_api_socket?: boolean;
-  /**
-   * Username or UID to run the container process as.
-   */
-  user?: string;
-  /**
-   * UTS namespace to use. 'host' shares the host's UTS namespace.
-   */
-  uts?: string;
-  /**
-   * User namespace to use. 'host' shares the host's user namespace.
-   */
-  userns_mode?: string;
-  /**
-   * Mount host paths or named volumes accessible to the container. Short syntax (VOLUME:CONTAINER_PATH[:MODE])
-   */
-  volumes?: (
-    | string
-    | {
-        /**
-         * The mount type: bind for mounting host directories, volume for named volumes, tmpfs for temporary filesystems, cluster for cluster volumes, npipe for named pipes, or image for mounting from an image.
-         */
-        type: "bind" | "volume" | "tmpfs" | "cluster" | "npipe" | "image";
-        /**
-         * The source of the mount, a path on the host for a bind mount, a docker image reference for an image mount, or the name of a volume defined in the top-level volumes key. Not applicable for a tmpfs mount.
-         */
-        source?: string;
-        /**
-         * The path in the container where the volume is mounted.
-         */
-        target?: string;
-        /**
-         * Flag to set the volume as read-only.
-         */
-        read_only?: boolean | string;
-        /**
-         * The consistency requirements for the mount. Available values are platform specific.
-         */
-        consistency?: string;
-        /**
-         * Configuration specific to bind mounts.
-         */
-        bind?: {
-          /**
-           * The propagation mode for the bind mount: 'shared', 'slave', 'private', 'rshared', 'rslave', or 'rprivate'.
-           */
-          propagation?: string;
-          /**
-           * Create the host path if it doesn't exist.
-           */
-          create_host_path?: boolean | string;
-          /**
-           * Recursively mount the source directory.
-           */
-          recursive?: "enabled" | "disabled" | "writable" | "readonly";
-          /**
-           * SELinux relabeling options: 'z' for shared content, 'Z' for private unshared content.
-           */
-          selinux?: "z" | "Z";
-        };
-        /**
-         * Configuration specific to volume mounts.
-         */
-        volume?: {
-          /**
-           * Either a dictionary mapping keys to values, or a list of strings.
-           */
-          labels?:
-            | {
-                /**
-                 * Value for the key, which can be a string, number, boolean, or null.
-                 *
-                 * This interface was referenced by `undefined`'s JSON-Schema definition
-                 * via the `patternProperty` ".+".
-                 */
-                [k: string]: string | number | boolean | null;
-              }
-            | string[];
-          /**
-           * Flag to disable copying of data from a container when a volume is created.
-           */
-          nocopy?: boolean | string;
-          /**
-           * Path within the volume to mount instead of the volume root.
-           */
-          subpath?: string;
-        };
-        /**
-         * Configuration specific to tmpfs mounts.
-         */
-        tmpfs?: {
-          /**
-           * Size of the tmpfs mount in bytes.
-           */
-          size?: number | string;
-          /**
-           * File mode of the tmpfs in octal.
-           */
-          mode?: number | string;
-        };
-        /**
-         * Configuration specific to image mounts.
-         */
-        image?: {
-          /**
-           * Path within the image to mount instead of the image root.
-           */
-          subpath?: string;
-        };
-      }
-  )[];
-  /**
-   * Mount volumes from another service or container. Optionally specify read-only access (ro) or read-write (rw).
-   */
-  volumes_from?: string[];
-  /**
-   * The working directory in which the entrypoint or command will be run
-   */
-  working_dir?: string;
-}
-/**
- * Command to execute when a change is detected and action is sync+exec.
- */
-export interface ServiceHook {
-  /**
-   * Command to execute as part of the hook.
-   */
-  command: null | string | string[];
-  /**
-   * User to run the command as.
-   */
-  user?: string;
-  /**
-   * Whether to run the command with extended privileges.
-   */
-  privileged?: boolean | string;
-  /**
-   * Working directory for the command.
-   */
-  working_dir?: string;
-  /**
-   * Environment variables for the command.
-   */
-  environment?:
-    | {
-        /**
-         * Value for the key, which can be a string, number, boolean, or null.
-         *
-         * This interface was referenced by `undefined`'s JSON-Schema definition
-         * via the `patternProperty` ".+".
-         */
-        [k: string]: string | number | boolean | null;
-      }
-    | string[];
+  [k: string]: unknown;
 }
 /**
  * Override the default ulimits for the build container.
  */
-export interface Ulimits {
+export interface Ulimits1 {
   /**
    * This interface was referenced by `Ulimits`'s JSON-Schema definition
    * via the `patternProperty` "^[a-z]+$".
@@ -1934,32 +2001,6 @@ export interface Ulimits {
          */
         soft: number | string;
       };
-}
-/**
- * Block IO limit for a specific device.
- */
-export interface BlkioLimit {
-  /**
-   * Path to the device (e.g., '/dev/sda').
-   */
-  path?: string;
-  /**
-   * Rate limit in bytes per second or IO operations per second.
-   */
-  rate?: number | string;
-}
-/**
- * Block IO weight for a specific device.
- */
-export interface BlkioWeight {
-  /**
-   * Path to the device (e.g., '/dev/sda').
-   */
-  path?: string;
-  /**
-   * Relative weight for the device, between 10 and 1000.
-   */
-  weight?: number | string;
 }
 /**
  * Configure a health check for the container to monitor its health status.
@@ -1995,19 +2036,15 @@ export interface Healthcheck {
   start_interval?: string;
 }
 /**
- * Configuration for a pre_start init container, run to completion before the service container starts.
+ * Command to execute when a change is detected and action is sync+exec.
  */
-export interface PreStartHook {
+export interface ServiceHook {
   /**
-   * Command to execute. Optional when the chosen image's entrypoint already runs the intended command.
+   * Command to execute as part of the hook.
    */
-  command?: null | string | string[];
+  command: null | string | string[];
   /**
-   * Image used for the ephemeral container. If omitted, the parent service's image is used.
-   */
-  image?: string;
-  /**
-   * User to run the command as. Defaults to the user declared in image (or to the service's user when image is omitted).
+   * User to run the command as.
    */
   user?: string;
   /**
@@ -2015,7 +2052,7 @@ export interface PreStartHook {
    */
   privileged?: boolean | string;
   /**
-   * Working directory for the command. Defaults to the service's working directory.
+   * Working directory for the command.
    */
   working_dir?: string;
   /**
@@ -2032,10 +2069,6 @@ export interface PreStartHook {
         [k: string]: string | number | boolean | null;
       }
     | string[];
-  /**
-   * Whether the hook runs once per service replica (true), or once for the service as a whole before any replica starts (false, the default).
-   */
-  per_replica?: boolean | string;
 }
 /**
  * Configuration for service lifecycle hooks, which are commands executed at specific points in a container's lifecycle.
@@ -2058,7 +2091,7 @@ export interface ServiceHook1 {
    */
   working_dir?: string;
   /**
-   * Environment variables for the command.
+   * Either a dictionary mapping keys to values, or a list of strings.
    */
   environment?:
     | {
@@ -2071,30 +2104,6 @@ export interface ServiceHook1 {
         [k: string]: string | number | boolean | null;
       }
     | string[];
-}
-/**
- * Override the default ulimits for a container.
- */
-export interface Ulimits1 {
-  /**
-   * This interface was referenced by `Ulimits`'s JSON-Schema definition
-   * via the `patternProperty` "^[a-z]+$".
-   *
-   * This interface was referenced by `Ulimits1`'s JSON-Schema definition
-   * via the `patternProperty` "^[a-z]+$".
-   */
-  [k: string]:
-    | (number | string)
-    | {
-        /**
-         * Hard limit for the ulimit type. This is the maximum allowed value.
-         */
-        hard: number | string;
-        /**
-         * Soft limit for the ulimit type. This is the value that's actually enforced.
-         */
-        soft: number | string;
-      };
 }
 /**
  * Language Model for the Compose application.
