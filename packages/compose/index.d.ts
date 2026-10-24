@@ -1035,6 +1035,21 @@ export type Volume1 = {
 export type Job = Job1 & {
   profiles?: ListOfStrings10;
   /**
+   * Extend another job, in the current file or another file.
+   */
+  extends?:
+    | string
+    | {
+        /**
+         * The name of the job to extend.
+         */
+        service: string;
+        /**
+         * The file path where the job to extend is defined.
+         */
+        file?: string;
+      };
+  /**
    * Trigger conditions for the job. At least one trigger attribute must be declared. Setting manual to false forbids manual execution by an explicit run command.
    */
   triggers: {
@@ -1490,6 +1505,10 @@ export interface ContainerSpec {
            * Specify the gateway priority for the network connection.
            */
           gw_priority?: number;
+          /**
+           * Register the service name as an alias on this network. Defaults to true.
+           */
+          use_service_name_alias?: boolean | string;
         } | null;
       };
   /**
@@ -1574,6 +1593,10 @@ export interface ContainerSpec {
    */
   tmpfs?: string | ListOfStrings;
   ulimits?: Ulimits;
+  /**
+   * Set the initial umask for the container process. When omitted or null, no mask is set and the runtime's own behavior applies; an explicit 0 masks no permission bits.
+   */
+  umask?: number | string | null;
   /**
    * Bind mount Docker API socket and required auth.
    */
