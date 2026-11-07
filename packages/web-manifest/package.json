@@ -1,6 +1,6 @@
 {
   "name": "@json-types/web-manifest",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "TypeScript type for web-manifest",
   "keywords": [
     "typescript",
