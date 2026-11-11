@@ -1,6 +1,6 @@
 import { writeFile } from "fs/promises";
 import { compile } from "json-schema-to-typescript";
-import schema from "../../catalog.schema.json";
+import schema from "../../catalog.schema.json" with { type: "json" };
 import { fileURLToPath } from "url";
 import { join } from "path";
 

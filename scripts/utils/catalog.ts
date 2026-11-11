@@ -1,5 +1,5 @@
 import { readFile } from "fs/promises";
-import { JsonTypesCatalog } from "./catalog.type";
+import type { JsonTypesCatalog } from "./catalog.type.ts";
 
 export async function parseCatalogFile(path: string): Promise<JsonTypesCatalog> {
   const buffer = await readFile(path);

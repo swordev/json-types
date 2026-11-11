@@ -1,11 +1,11 @@
 import { mkdir } from "fs/promises";
 import { join } from "path";
 import { compile } from "json-schema-to-typescript";
-import { readFileIfExists, readJsonFile, renderTpl, writeFiles } from "../utils/fs";
-import { fetchJson } from "../utils/http";
-import { dropYamlAnchor } from "../utils/json";
-import { camelize, capitalize, compare } from "../utils/string";
-import { parseCatalogFile } from "../utils/catalog";
+import { readFileIfExists, readJsonFile, renderTpl, writeFiles } from "../utils/fs.ts";
+import { fetchJson } from "../utils/http.ts";
+import { dropYamlAnchor } from "../utils/json.ts";
+import { camelize, capitalize, compare } from "../utils/string.ts";
+import { parseCatalogFile } from "../utils/catalog.ts";
 import { fileURLToPath } from "url";
 
 export async function gen() {

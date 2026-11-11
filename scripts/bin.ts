@@ -1,6 +1,6 @@
-import { gen } from "./actions/gen";
-import { update } from "./actions/update";
-import { genCatalogType } from "./actions/gen-catalog-type";
+import { gen } from "./actions/gen.ts";
+import { update } from "./actions/update.ts";
+import { genCatalogType } from "./actions/gen-catalog-type.ts";
 
 const [action] = process.argv.slice(2);
 

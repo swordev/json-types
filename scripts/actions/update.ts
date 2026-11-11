@@ -1,8 +1,6 @@
-import _writeChangeset from "@changesets/write";
+import { writeChangeset } from "@changesets/write";
 import * as git from "@changesets/git";
-import { gen } from "./gen";
-
-const writeChangeset = _writeChangeset["default"] as typeof _writeChangeset;
+import { gen } from "./gen.ts";
 
 export async function update() {
   const cwd = process.cwd();

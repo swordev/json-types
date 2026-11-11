@@ -1,6 +1,6 @@
 import { readFile, writeFile } from "fs/promises";
 import { join } from "path";
-import { quote } from "./string";
+import { quote } from "./string.ts";
 
 export async function writeFiles(path: string, files: Record<string, unknown>) {
   for (const file in files) {
