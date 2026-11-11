@@ -15,8 +15,8 @@ Review the readme file for published [packages](https://github.com/swordev/json-
 
 ### Requirements
 
-- [Node.js v20](https://nodejs.org)
-- [pnpm v8](https://pnpm.io)
+- [Node.js v24](https://nodejs.org)
+- [pnpm v12](https://pnpm.io)
 
 ### Installation
 

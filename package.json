@@ -1,32 +1,35 @@
 {
   "name": "@json-types/root",
-  "private": true,
   "version": "1.0.0",
-  "type": "module",
-  "workspaces": [
-    "packages/*"
-  ],
-  "scripts": {
-    "types:gen": "tsx ./scripts/bin.ts gen",
-    "types:gen-catalog-type": "tsx ./scripts/bin.ts gen-catalog-type",
-    "types:update": "tsx ./scripts/bin.ts update"
-  },
+  "private": true,
+  "license": "MIT",
   "author": {
     "name": "Juanra GM",
     "email": "juanrgm724@gmail.com",
     "url": "https://github.com/juanrgm"
   },
-  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
+  "type": "module",
+  "scripts": {
+    "types:gen": "node ./scripts/bin.ts gen",
+    "update:deps": "ncu -w",
+    "format": "oxfmt --write",
+    "types:gen-catalog-type": "node ./scripts/bin.ts gen-catalog-type",
+    "types:update": "node ./scripts/bin.ts update"
+  },
   "devDependencies": {
-    "@changesets/changelog-github": "^0.4.8",
-    "@changesets/cli": "^2.26.2",
-    "@changesets/git": "^2.0.0",
-    "@changesets/write": "^0.2.3",
-    "@types/node": "^20.8.9",
-    "json-schema-to-typescript": "^13.1.1",
+    "@changesets/changelog-github": "^1.0.1",
+    "@changesets/cli": "^3.0.3",
+    "@changesets/git": "^4.0.1",
+    "@changesets/write": "^1.0.1",
+    "@types/node": "^24.19.2",
+    "json-schema-to-typescript": "^16.0.0",
     "json-schema-traverse": "^1.0.0",
-    "prettier": "^3.0.3",
-    "tsx": "^3.14.0",
-    "typescript": "^5.2.2"
-  }
+    "npm-check-updates": "^23.1.1",
+    "oxfmt": "^0.78.0",
+    "typescript": "^7.0.2"
+  },
+  "packageManager": "pnpm@12.18.0"
 }
