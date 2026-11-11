@@ -5,8 +5,7 @@ export async function dropYamlAnchor(schema: any) {
     cb(s) {
       if (s.patternProperties) {
         if ("^x-" in s.patternProperties) delete s.patternProperties["^x-"];
-        if (!Object.keys(s.patternProperties).length)
-          delete s.patternProperties;
+        if (!Object.keys(s.patternProperties).length) delete s.patternProperties;
       }
     },
   });

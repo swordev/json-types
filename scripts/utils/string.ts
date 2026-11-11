@@ -1,9 +1,7 @@
 export function camelize(input: string) {
   return input
     .toLowerCase()
-    .replace(/([-_][a-z])/g, (s) =>
-      s.toUpperCase().replace("-", "").replace("_", "")
-    );
+    .replace(/([-_][a-z])/g, (s) => s.toUpperCase().replace("-", "").replace("_", ""));
 }
 
 export function capitalize(input: string) {

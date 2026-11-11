@@ -7,23 +7,18 @@ export async function writeFiles(path: string, files: Record<string, unknown>) {
     const content = files[file];
     await writeFile(
       join(path, file),
-      typeof content === "string"
-        ? content
-        : `${JSON.stringify(content, null, 2)}\n`
+      typeof content === "string" ? content : `${JSON.stringify(content, null, 2)}\n`,
     );
   }
 }
 
 export async function renderTpl(path: string, params: Record<string, string>) {
   let content = (await readFile(path)).toString();
-  for (const name in params)
-    content = content.replace(new RegExp(quote(name), "g"), params[name]);
+  for (const name in params) content = content.replace(new RegExp(quote(name), "g"), params[name]);
   return content;
 }
 
-export async function readFileIfExists(
-  path: string
-): Promise<string | undefined> {
+export async function readFileIfExists(path: string): Promise<string | undefined> {
   try {
     return (await readFile(path)).toString();
   } catch (error) {

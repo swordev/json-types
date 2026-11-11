@@ -1,12 +1,7 @@
 import { mkdir } from "fs/promises";
 import { join } from "path";
 import { compile } from "json-schema-to-typescript";
-import {
-  readFileIfExists,
-  readJsonFile,
-  renderTpl,
-  writeFiles,
-} from "../utils/fs";
+import { readFileIfExists, readJsonFile, renderTpl, writeFiles } from "../utils/fs";
 import { fetchJson } from "../utils/http";
 import { dropYamlAnchor } from "../utils/json";
 import { camelize, capitalize, compare } from "../utils/string";
@@ -26,8 +21,7 @@ export async function gen() {
       version: string;
       "x-json-types"?: { lastChangeDate?: string };
     }>(join(path, "package.json"));
-    let lastChangeDate =
-      pkg?.["x-json-types"]?.lastChangeDate ?? new Date().toISOString();
+    let lastChangeDate = pkg?.["x-json-types"]?.lastChangeDate ?? new Date().toISOString();
 
     const newSchema = await fetchJson(type.url);
 
@@ -43,11 +37,10 @@ export async function gen() {
       "schema.json",
       {
         additionalProperties: type.patches?.additionalProperties,
-      }
+      },
     );
 
-    if (!compare(newIndexDef, oldIndexDef ?? ""))
-      lastChangeDate = new Date().toISOString();
+    if (!compare(newIndexDef, oldIndexDef ?? "")) lastChangeDate = new Date().toISOString();
 
     result.push({ name: pkgName, isNew: !pkg });
 
@@ -88,13 +81,7 @@ export async function gen() {
         },
         main: "index.cjs",
         module: "index.mjs",
-        files: [
-          "index.cjs",
-          "index.mjs",
-          "index.d.ts",
-          "schema.json",
-          "README.md",
-        ],
+        files: ["index.cjs", "index.mjs", "index.d.ts", "schema.json", "README.md"],
       },
       "README.md": await renderTpl("./scripts/README.tpl.md", {
         $importName: importName,

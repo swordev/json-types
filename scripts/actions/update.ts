@@ -29,7 +29,7 @@ export async function update() {
         })),
         summary: "Update schema",
       },
-      cwd
+      cwd,
     );
     await git.add("packages", cwd);
     await git.add(".changeset", cwd);
