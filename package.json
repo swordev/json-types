@@ -15,6 +15,7 @@
   "scripts": {
     "types:gen": "node ./scripts/bin.ts gen",
     "update:deps": "ncu -w",
+    "publish": "changeset publish",
     "format": "oxfmt --write",
     "types:gen-catalog-type": "node ./scripts/bin.ts gen-catalog-type",
     "types:update": "node ./scripts/bin.ts update"
