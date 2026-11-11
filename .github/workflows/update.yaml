@@ -25,7 +25,7 @@ jobs:
       - run: pnpm install
       - run: git config --global user.name "github-actions[bot]"
       - run: git config --global user.email "github-actions[bot]@users.noreply.github.com"
-      - run: pnpm types:update
+      - run: pnpm update:types
       - run: git push
       - uses: changesets/action@v2
         env:

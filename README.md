@@ -28,7 +28,7 @@ cd json-types
 Add the type to the [catalog.json](https://github.com/swordev/json-types/blob/main/catalog.json) file and generate the package:
 
 ```sh
-pnpm types:gen
+pnpm gen:types
 ```
 
 ## License
