@@ -26,6 +26,8 @@ export type Include =
     };
 /**
  * A list of string values.
+ *
+ * Items: A string value in the list.
  */
 export type ListOfStrings = string[];
 /**
@@ -34,80 +36,80 @@ export type ListOfStrings = string[];
  * This interface was referenced by `undefined`'s JSON-Schema definition
  * via the `patternProperty` "^[a-zA-Z0-9._-]+$".
  */
-export type Service = Service1 & {
-  deploy?: Deployment;
-  develop?: Development;
-  profiles?: ListOfStrings9;
-  /**
-   * Restart policy for the service container. Options include: 'no', 'always', 'on-failure', and 'unless-stopped'.
-   */
-  restart?: string;
-  /**
-   * Number of containers to deploy for this service.
-   */
-  scale?: number | string;
-  attach?: boolean | string;
-  /**
-   * Specify a custom container name, rather than a generated default name.
-   */
-  container_name?: string;
-  /**
-   * Specify a service which will not be manage by Compose directly, and delegate its management to an external provider.
-   */
-  provider?: {
+export type Service = ContainerSpec &
+  WorkloadSpec & {
+    deploy?: Deployment;
+    develop?: Development;
+    profiles?: ListOfStrings9;
     /**
-     * External component used by Compose to manage setup and teardown lifecycle of the service.
+     * Restart policy for the service container. Options include: 'no', 'always', 'on-failure', and 'unless-stopped'.
      */
-    type: string;
+    restart?: string;
     /**
-     * Provider-specific options.
+     * Number of containers to deploy for this service.
      */
-    options?: {
+    scale?: number | string;
+    attach?: boolean | string;
+    /**
+     * Specify a custom container name, rather than a generated default name.
+     */
+    container_name?: string;
+    /**
+     * Specify a service which will not be manage by Compose directly, and delegate its management to an external provider.
+     */
+    provider?: {
       /**
-       * This interface was referenced by `undefined`'s JSON-Schema definition
-       * via the `patternProperty` "^.+$".
+       * External component used by Compose to manage setup and teardown lifecycle of the service.
        */
-      [k: string]: (string | number | boolean) | (string | number | boolean)[];
-    };
-  };
-  /**
-   * Extend another service, in the current file or another file.
-   */
-  extends?:
-    | string
-    | {
+      type: string;
+      /**
+       * Provider-specific options.
+       */
+      options?: {
         /**
-         * The name of the service to extend.
+         * This interface was referenced by `undefined`'s JSON-Schema definition
+         * via the `patternProperty` "^.+$".
          */
-        service: string;
-        /**
-         * The file path where the service to extend is defined.
-         */
-        file?: string;
+        [k: string]: string | number | boolean | (string | number | boolean)[];
       };
-  /**
-   * Link to containers in another service. Either specify both the service name and a link alias (SERVICE:ALIAS), or just the service name.
-   */
-  links?: string[];
-  /**
-   * Link to services started outside this Compose application. Specify services as <service_name>:<alias>.
-   */
-  external_links?: string[];
-  /**
-   * Init containers to run to completion before the service container is started. Each step runs in its own ephemeral container, in declared order; a non-zero exit fails the bring-up of the service and its dependents.
-   */
-  pre_start?: PreStartHook[];
-  /**
-   * Commands to run after the container starts. If any command fails, the container stops.
-   */
-  post_start?: ServiceHook1[];
-  /**
-   * Commands to run before the container stops. If any command fails, the container stop is aborted.
-   */
-  pre_stop?: ServiceHook1[];
-  [k: string]: unknown;
-};
-export type Service1 = ContainerSpec & WorkloadSpec;
+    };
+    /**
+     * Extend another service, in the current file or another file.
+     */
+    extends?:
+      | string
+      | {
+          /**
+           * The name of the service to extend.
+           */
+          service: string;
+          /**
+           * The file path where the service to extend is defined.
+           */
+          file?: string;
+        };
+    /**
+     * Link to containers in another service. Either specify both the service name and a link alias (SERVICE:ALIAS), or just the service name.
+     */
+    links?: string[];
+    /**
+     * Link to services started outside this Compose application. Specify services as <service_name>:<alias>.
+     */
+    external_links?: string[];
+    /**
+     * Init containers to run to completion before the service container is started. Each step runs in its own ephemeral container, in declared order; a non-zero exit fails the bring-up of the service and its dependents.
+     */
+    pre_start?: PreStartHook[];
+    /**
+     * Commands to run after the container starts. If any command fails, the container stops.
+     */
+    post_start?: ServiceHook1[];
+    /**
+     * Commands to run before the container stops. If any command fails, the container stop is aborted.
+     */
+    pre_stop?: ServiceHook1[];
+    [k: string]: unknown;
+  };
 /**
  * Either a dictionary mapping keys to values, or a list of strings.
  */
@@ -152,26 +154,38 @@ export type ServiceConfigOrSecret = (
 )[];
 /**
  * Add rules to the cgroup allowed devices list.
+ *
+ * Items: A string value in the list.
  */
 export type ListOfStrings1 = string[];
 /**
  * List of capabilities the GPU needs to have (e.g., 'compute', 'utility').
+ *
+ * Items: A string value in the list.
  */
 export type ListOfStrings2 = string[];
 /**
  * List of specific GPU device IDs to use.
+ *
+ * Items: A string value in the list.
  */
 export type ListOfStrings3 = string[];
 /**
  * A list of unique string values.
+ *
+ * Items: A string value in the list.
  */
 export type ListOfStrings4 = string[];
 /**
  * A list of unique string values.
+ *
+ * Items: A string value in the list.
  */
 export type ListOfStrings5 = string[];
 /**
  * A list of unique string values.
+ *
+ * Items: A string value in the list.
  */
 export type ListOfStrings6 = string[];
 /**
@@ -398,7 +412,7 @@ export type Deployment = {
      */
     max_replicas_per_node?: number | string;
   };
-} & Deployment1;
+} | null;
 /**
  * User-defined resources to reserve.
  */
@@ -419,10 +433,14 @@ export type GenericResources = {
 }[];
 /**
  * A list of unique string values.
+ *
+ * Items: A string value in the list.
  */
 export type ListOfStrings7 = string[];
 /**
  * A list of unique string values.
+ *
+ * Items: A string value in the list.
  */
 export type ListOfStrings8 = string[];
 /**
@@ -454,172 +472,6 @@ export type Devices = {
       }
     | string[];
 }[];
-export type Deployment1 = {
-  /**
-   * Deployment mode for the service: 'replicated' (default) or 'global'.
-   */
-  mode?: string;
-  /**
-   * Endpoint mode for the service: 'vip' (default) or 'dnsrr'.
-   */
-  endpoint_mode?: string;
-  /**
-   * Number of replicas of the service container to run.
-   */
-  replicas?: number | string;
-  /**
-   * Either a dictionary mapping keys to values, or a list of strings.
-   */
-  labels?:
-    | {
-        /**
-         * Value for the key, which can be a string, number, boolean, or null.
-         *
-         * This interface was referenced by `undefined`'s JSON-Schema definition
-         * via the `patternProperty` ".+".
-         */
-        [k: string]: string | number | boolean | null;
-      }
-    | string[];
-  /**
-   * Configuration for rolling back a service update.
-   */
-  rollback_config?: {
-    /**
-     * The number of containers to rollback at a time. If set to 0, all containers rollback simultaneously.
-     */
-    parallelism?: number | string;
-    /**
-     * The time to wait between each container group's rollback (e.g., '1s', '1m30s').
-     */
-    delay?: string;
-    /**
-     * Action to take if a rollback fails: 'continue', 'pause'.
-     */
-    failure_action?: string;
-    /**
-     * Duration to monitor each task for failures after it is created (e.g., '1s', '1m30s').
-     */
-    monitor?: string;
-    /**
-     * Failure rate to tolerate during a rollback.
-     */
-    max_failure_ratio?: number | string;
-    /**
-     * Order of operations during rollbacks: 'stop-first' (default) or 'start-first'.
-     */
-    order?: "start-first" | "stop-first";
-  };
-  /**
-   * Configuration for updating a service.
-   */
-  update_config?: {
-    /**
-     * The number of containers to update at a time.
-     */
-    parallelism?: number | string;
-    /**
-     * The time to wait between updating a group of containers (e.g., '1s', '1m30s').
-     */
-    delay?: string;
-    /**
-     * Action to take if an update fails: 'continue', 'pause', 'rollback'.
-     */
-    failure_action?: string;
-    /**
-     * Duration to monitor each updated task for failures after it is created (e.g., '1s', '1m30s').
-     */
-    monitor?: string;
-    /**
-     * Failure rate to tolerate during an update (0 to 1).
-     */
-    max_failure_ratio?: number | string;
-    /**
-     * Order of operations during updates: 'stop-first' (default) or 'start-first'.
-     */
-    order?: "start-first" | "stop-first";
-  };
-  /**
-   * Resource constraints and reservations for the service.
-   */
-  resources?: {
-    /**
-     * Resource limits for the service containers.
-     */
-    limits?: {
-      /**
-       * Limit for how much of the available CPU resources, as number of cores, a container can use.
-       */
-      cpus?: number | string;
-      /**
-       * Limit on the amount of memory a container can allocate (e.g., '1g', '1024m').
-       */
-      memory?: string;
-      /**
-       * Maximum number of PIDs available to the container.
-       */
-      pids?: number | string;
-    };
-    /**
-     * Resource reservations for the service containers.
-     */
-    reservations?: {
-      /**
-       * Reservation for how much of the available CPU resources, as number of cores, a container can use.
-       */
-      cpus?: number | string;
-      /**
-       * Reservation on the amount of memory a container can allocate (e.g., '1g', '1024m').
-       */
-      memory?: string;
-      generic_resources?: GenericResources;
-      devices?: Devices;
-    };
-  };
-  /**
-   * Restart policy for the service containers.
-   */
-  restart_policy?: {
-    /**
-     * Condition for restarting the container: 'none', 'on-failure', 'any'.
-     */
-    condition?: string;
-    /**
-     * Delay between restart attempts (e.g., '1s', '1m30s').
-     */
-    delay?: string;
-    /**
-     * Maximum number of restart attempts before giving up.
-     */
-    max_attempts?: number | string;
-    /**
-     * Time window used to evaluate the restart policy (e.g., '1s', '1m30s').
-     */
-    window?: string;
-  };
-  /**
-   * Constraints and preferences for the platform to select a physical node to run service containers
-   */
-  placement?: {
-    /**
-     * Placement constraints for the service (e.g., 'node.role==manager').
-     */
-    constraints?: string[];
-    /**
-     * Placement preferences for the service.
-     */
-    preferences?: {
-      /**
-       * Spread tasks evenly across values of the specified node label.
-       */
-      spread?: string;
-    }[];
-    /**
-     * Maximum number of replicas of the service.
-     */
-    max_replicas_per_node?: number | string;
-  };
-} | null;
 /**
  * Development configuration for the service, used for development workflows.
  */
@@ -654,54 +506,23 @@ export type Development = {
      */
     initial_sync?: boolean;
   }[];
-} & Development1;
-export type Development1 = {
-  /**
-   * Configure watch mode for the service, which monitors file changes and performs actions in response.
-   */
-  watch?: {
-    /**
-     * Patterns to exclude from watching.
-     */
-    ignore?: string | ListOfStrings;
-    /**
-     * Patterns to include in watching.
-     */
-    include?: string | ListOfStrings;
-    /**
-     * Path to watch for changes.
-     */
-    path: string;
-    /**
-     * Action to take when a change is detected: rebuild the container, sync files, restart the container, sync and restart, or sync and execute a command.
-     */
-    action: "rebuild" | "sync" | "restart" | "sync+restart" | "sync+exec";
-    /**
-     * Target path in the container for sync operations.
-     */
-    target?: string;
-    exec?: ServiceHook;
-    /**
-     * Ensure that an initial synchronization is done before starting watch mode for sync+x triggers
-     */
-    initial_sync?: boolean;
-  }[];
 } | null;
 /**
  * A list of unique string values.
+ *
+ * Items: A string value in the list.
  */
 export type ListOfStrings9 = string[];
 /**
  * Configuration for a pre_start init container, run to completion before the service container starts. Accepts the full container specification; per #656, attributes not set explicitly are inherited from the service: collection attributes are completed by the hook's declarations (which win on conflicts), scalar attributes are replaced.
  */
-export type PreStartHook = PreStartHook1 & {
+export type PreStartHook = ContainerSpec & {
   /**
    * When true, the hook runs once per service replica instead of once per service.
    */
   per_replica?: boolean | string;
   [k: string]: unknown;
 };
-export type PreStartHook1 = ContainerSpec;
 /**
  * Network configuration for the Compose application.
  *
@@ -709,115 +530,6 @@ export type PreStartHook1 = ContainerSpec;
  * via the `patternProperty` "^[a-zA-Z0-9._-]+$".
  */
 export type Network = {
-  /**
-   * Custom name for this network.
-   */
-  name?: string;
-  /**
-   * Specify which driver should be used for this network. Default is 'bridge'.
-   */
-  driver?: string;
-  /**
-   * Specify driver-specific options defined as key/value pairs.
-   */
-  driver_opts?: {
-    /**
-     * This interface was referenced by `undefined`'s JSON-Schema definition
-     * via the `patternProperty` "^.+$".
-     */
-    [k: string]: string | number;
-  };
-  /**
-   * Custom IP Address Management configuration for this network.
-   */
-  ipam?: {
-    /**
-     * Custom IPAM driver, instead of the default.
-     */
-    driver?: string;
-    /**
-     * List of IPAM configuration blocks.
-     */
-    config?: {
-      /**
-       * Subnet in CIDR format that represents a network segment.
-       */
-      subnet?: string;
-      /**
-       * Range of IPs from which to allocate container IPs.
-       */
-      ip_range?: string;
-      /**
-       * IPv4 or IPv6 gateway for the subnet.
-       */
-      gateway?: string;
-      /**
-       * Auxiliary IPv4 or IPv6 addresses used by Network driver.
-       */
-      aux_addresses?: {
-        /**
-         * This interface was referenced by `undefined`'s JSON-Schema definition
-         * via the `patternProperty` "^.+$".
-         */
-        [k: string]: string;
-      };
-    }[];
-    /**
-     * Driver-specific options for the IPAM driver.
-     */
-    options?: {
-      /**
-       * This interface was referenced by `undefined`'s JSON-Schema definition
-       * via the `patternProperty` "^.+$".
-       */
-      [k: string]: string;
-    };
-  };
-  /**
-   * Specifies that this network already exists and was created outside of Compose.
-   */
-  external?:
-    | boolean
-    | string
-    | {
-        /**
-         * @deprecated
-         * Specifies the name of the external network. Deprecated: use the 'name' property instead.
-         */
-        name?: string;
-      };
-  /**
-   * Create an externally isolated network.
-   */
-  internal?: boolean | string;
-  /**
-   * Enable IPv4 networking.
-   */
-  enable_ipv4?: boolean | string;
-  /**
-   * Enable IPv6 networking.
-   */
-  enable_ipv6?: boolean | string;
-  /**
-   * If true, standalone containers can attach to this network.
-   */
-  attachable?: boolean | string;
-  /**
-   * Either a dictionary mapping keys to values, or a list of strings.
-   */
-  labels?:
-    | {
-        /**
-         * Value for the key, which can be a string, number, boolean, or null.
-         *
-         * This interface was referenced by `undefined`'s JSON-Schema definition
-         * via the `patternProperty` ".+".
-         */
-        [k: string]: string | number | boolean | null;
-      }
-    | string[];
-} & Network1;
-export type Network1 = {
   /**
    * Custom name for this network.
    */
@@ -978,53 +690,6 @@ export type Volume = {
         [k: string]: string | number | boolean | null;
       }
     | string[];
-} & Volume1;
-export type Volume1 = {
-  /**
-   * Custom name for this volume.
-   */
-  name?: string;
-  /**
-   * Specify which volume driver should be used for this volume.
-   */
-  driver?: string;
-  /**
-   * Specify driver-specific options.
-   */
-  driver_opts?: {
-    /**
-     * This interface was referenced by `undefined`'s JSON-Schema definition
-     * via the `patternProperty` "^.+$".
-     */
-    [k: string]: string | number;
-  };
-  /**
-   * Specifies that this volume already exists and was created outside of Compose.
-   */
-  external?:
-    | boolean
-    | string
-    | {
-        /**
-         * @deprecated
-         * Specifies the name of the external volume. Deprecated: use the 'name' property instead.
-         */
-        name?: string;
-      };
-  /**
-   * Either a dictionary mapping keys to values, or a list of strings.
-   */
-  labels?:
-    | {
-        /**
-         * Value for the key, which can be a string, number, boolean, or null.
-         *
-         * This interface was referenced by `undefined`'s JSON-Schema definition
-         * via the `patternProperty` ".+".
-         */
-        [k: string]: string | number | boolean | null;
-      }
-    | string[];
 } | null;
 /**
  * Configuration for a job. Jobs are containers that run to completion.
@@ -1032,34 +697,45 @@ export type Volume1 = {
  * This interface was referenced by `undefined`'s JSON-Schema definition
  * via the `patternProperty` "^[a-zA-Z0-9._-]+$".
  */
-export type Job = Job1 & {
-  profiles?: ListOfStrings10;
-  /**
-   * Extend another job, in the current file or another file.
-   */
-  extends?:
-    | string
-    | {
-        /**
-         * The name of the job to extend.
-         */
-        service: string;
-        /**
-         * The file path where the job to extend is defined.
-         */
-        file?: string;
-      };
-  /**
-   * Trigger conditions for the job. At least one trigger attribute must be declared. Setting manual to false forbids manual execution by an explicit run command.
-   */
-  triggers: {
+export type Job = ContainerSpec &
+  WorkloadSpec & {
+    profiles?: ListOfStrings10;
+    /**
+     * Extend another job, in the current file or another file.
+     */
+    extends?:
+      | string
+      | {
+          /**
+           * The name of the job to extend.
+           */
+          service: string;
+          /**
+           * The file path where the job to extend is defined.
+           */
+          file?: string;
+        };
+    /**
+     * Trigger conditions for the job. At least one trigger attribute must be declared. Setting manual to false forbids manual execution by an explicit run command.
+     */
+    triggers: {
+      [k: string]: unknown;
+    } & {
+      /**
+       * Whether the job can be triggered manually by an explicit run command. Defaults to true; an explicit false forbids manual execution.
+       */
+      manual?: boolean | string;
+      /**
+       * List of schedules for the job.
+       */
+      schedule?: (string | Schedule)[];
+    };
     [k: string]: unknown;
   };
-  [k: string]: unknown;
-};
-export type Job1 = ContainerSpec & WorkloadSpec;
 /**
  * A list of unique string values.
+ *
+ * Items: A string value in the list.
  */
 export type ListOfStrings10 = string[];
 
@@ -1759,7 +1435,8 @@ export interface Ulimits {
    * via the `patternProperty` "^[a-z]+$".
    */
   [k: string]:
-    | (number | string)
+    | number
+    | string
     | {
         /**
          * Hard limit for the ulimit type. This is the maximum allowed value.
@@ -2013,7 +1690,8 @@ export interface Ulimits1 {
    * via the `patternProperty` "^[a-z]+$".
    */
   [k: string]:
-    | (number | string)
+    | number
+    | string
     | {
         /**
          * Hard limit for the ulimit type. This is the maximum allowed value.
@@ -2269,4 +1947,25 @@ export interface Config {
    * Driver to use for templating the config's value.
    */
   template_driver?: string;
+}
+/**
+ * Schedule configuration for a job trigger.
+ */
+export interface Schedule {
+  /**
+   * Crontab expression to schedule the job (e.g. '0 * * * *' for every hour).
+   */
+  cron: string;
+  /**
+   * Timezone used to evaluate the cron expression (e.g. 'Europe/Paris'). Defaults to the platform's local timezone.
+   */
+  timezone?: string;
+  /**
+   * Policy applied when the schedule fires while a previous run is still in progress: prevent the new run ('forbid', the default) or queue it ('queue').
+   */
+  concurrency?: "forbid" | "queue";
+  /**
+   * Policy applied to fires missed while the platform was unavailable: run a single catch-up ('one', the default) or skip them ('skip').
+   */
+  missed_fires?: "one" | "skip";
 }

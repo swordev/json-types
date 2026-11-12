@@ -2637,54 +2637,6 @@ export interface CompilerOptionsDefinition {
           | {
               [k: string]: unknown;
             }
-          | {
-              [k: string]: unknown;
-            }
-          | {
-              [k: string]: unknown;
-            }
-          | {
-              [k: string]: unknown;
-            }
-          | {
-              [k: string]: unknown;
-            }
-          | {
-              [k: string]: unknown;
-            }
-          | {
-              [k: string]: unknown;
-            }
-          | {
-              [k: string]: unknown;
-            }
-          | {
-              [k: string]: unknown;
-            }
-          | {
-              [k: string]: unknown;
-            }
-          | {
-              [k: string]: unknown;
-            }
-          | {
-              [k: string]: unknown;
-            }
-          | {
-              [k: string]: unknown;
-            }
-          | {
-              [k: string]: unknown;
-            }
-          | {
-              [k: string]: unknown;
-            }
-          | {
-              [k: string]: unknown;
-            }
-          | {
-              [k: string]: unknown;
-            }
         ) &
           string)[]
       | null;
@@ -3981,6 +3933,8 @@ export interface ReferencesDefinition {
    * Using Project References can greatly improve build and editor interaction times, enforce logical separation between components, and organize your code in new and improved ways.
    *
    * You can read more about how references works in the [Project References](https://typescriptlang.org/docs/handbook/project-references.html) section of the handbook
+   *
+   * Items: Project reference.
    */
   references?: {
     /**
