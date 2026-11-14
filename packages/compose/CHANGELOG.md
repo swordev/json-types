@@ -1,5 +1,11 @@
 # @json-types/compose
 
+## 0.13.0
+
+### Minor Changes
+
+- [`2bc4e4b`](https://github.com/swordev/json-types/commit/2bc4e4bdbc1e8c717eed4ff3d63565d35cc278e6) Thanks [@github-actions[bot]](https://github.com/github-actions%5Bbot%5D)! - Update schema
+
 ## 0.12.0
 
 ### Minor Changes
