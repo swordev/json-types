@@ -6,7 +6,8 @@
       "url": "https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json",
       "keywords": ["docker", "docker-compose", "compose-spec"],
       "patches": {
-        "removeYamlAnchor": true
+        "removeYamlAnchor": true,
+        "additionalProperties": false
       }
     },
     {
