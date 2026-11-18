@@ -12,7 +12,8 @@ export type TSConfig = CompilerOptionsDefinition &
   WatchOptionsDefinition &
   BuildOptionsDefinition &
   TsNodeDefinition &
-  (FilesDefinition | ExcludeDefinition | IncludeDefinition | ReferencesDefinition);
+  (FilesDefinition | ExcludeDefinition | IncludeDefinition | ReferencesDefinition) &
+  ReferencesDefinition;
 
 export interface CompilerOptionsDefinition {
   /**
@@ -3940,6 +3941,6 @@ export interface ReferencesDefinition {
     /**
      * Path to referenced tsconfig or to folder containing tsconfig.
      */
-    path?: string;
+    path: string;
   }[];
 }

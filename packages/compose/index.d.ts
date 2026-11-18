@@ -1262,7 +1262,11 @@ export interface ContainerSpec {
    * Storage driver options for the container.
    */
   storage_opt?: {
-    [k: string]: unknown;
+    /**
+     * This interface was referenced by `undefined`'s JSON-Schema definition
+     * via the `patternProperty` "^.+$".
+     */
+    [k: string]: string | number | null;
   };
   /**
    * Mount a temporary filesystem (tmpfs) into the container. Can be a single value or a list.
